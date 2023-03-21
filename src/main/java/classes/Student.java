@@ -6,6 +6,8 @@ import java.util.List;
 public class Student {
     private int id;
     private String name;
+    private double grade;
+   
     private List<Class> class_list = new LinkedList<Class>();
 
     public List<Class> getClasses() {
@@ -21,6 +23,14 @@ public class Student {
             }
         }
         return null; //in case no class has the name in question
+    }
+
+    public double getGrade() {
+        return grade;
+    }
+
+    public void setGrade(double grade) {
+        this.grade = grade;
     }
 
     public void add_class(Class adding_class){

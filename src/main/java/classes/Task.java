@@ -7,8 +7,9 @@ public class Task {
     private int id;
     private String name;
     private String description;
+    private Boolean delivered;
     private List<Student> student_list = new LinkedList<Student>();
-
+    
     public List<Student> get_student_list(){
         return this.student_list;
     }
@@ -39,6 +40,14 @@ public class Task {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Boolean getDelivered() {
+        return delivered;
+    }
+
+    public void setDelivered(boolean value) {
+        this.delivered = value;
     }
 
 }
