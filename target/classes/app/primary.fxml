@@ -26,7 +26,7 @@
       <ScrollBar layoutX="7.0" layoutY="98.0" orientation="VERTICAL" prefHeight="651.0" prefWidth="14.0" />
       <Separator layoutX="281.0" layoutY="79.0" prefHeight="0.0" prefWidth="959.0" />
       <Button layoutX="281.0" layoutY="-2.0" mnemonicParsing="false" prefHeight="83.0" prefWidth="76.0" text="Visão Geral" />
-      <Button layoutX="418.0" layoutY="-2.0" mnemonicParsing="false" prefHeight="83.0" prefWidth="76.0" text="Atividades" />
+      <Button layoutX="418.0" layoutY="-2.0" fx:id="primaryButton" onAction="#switchToSecondary" prefHeight="83.0" prefWidth="76.0" text="Atividades" />
       <Button layoutX="553.0" layoutY="-2.0" mnemonicParsing="false" prefHeight="83.0" prefWidth="76.0" text="Notas" />
       <Button layoutX="685.0" layoutY="-2.0" mnemonicParsing="false" prefHeight="83.0" prefWidth="76.0" text="Alunos" />
       <Button layoutX="819.0" layoutY="-2.0" mnemonicParsing="false" prefHeight="83.0" prefWidth="73.0" text="Estatísticas" />
