@@ -12,13 +12,12 @@
 <?import javafx.scene.shape.Arc?>
 <?import javafx.scene.text.Font?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="757.0" prefWidth="1274.0" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="757.0" prefWidth="1274.0" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Separator layoutX="235.0" layoutY="26.0" orientation="VERTICAL" prefHeight="720.0" prefWidth="11.0" />
       <Button layoutX="125.0" layoutY="46.0" mnemonicParsing="false" text="Editar turmas" />
       <Arc fill="DODGERBLUE" layoutX="59.0" layoutY="58.0" length="270.0" radiusX="30.0" radiusY="27.0" startAngle="45.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
-      <Button layoutX="38.0" layoutY="107.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="203.0" text="Button" />
+      <Button layoutX="38.0" layoutY="107.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="203.0" style="-fx-border-radius: 50px; -fx-border-width: 5px; -fx-border-color: black; -fx-background-radius: 50px;" text="Button" />
       <Button layoutX="38.0" layoutY="184.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="203.0" text="Button" />
       <Button layoutX="39.0" layoutY="265.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="203.0" text="Button" />
       <Button layoutX="38.0" layoutY="343.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="203.0" text="Button" />
