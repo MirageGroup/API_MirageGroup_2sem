@@ -4,13 +4,13 @@ Repositório do projeto de API do 2º semestre.
 <html lang="en" data-color-mode="auto" data-light-theme="light" data-dark-theme="dark" data-a11y-animated-images="system">
   <head>
 <p align="center" dir="auto" name="topo">
-    <a href="#o-projeto">O Projeto</a> | 
+<!--     <a href="#o-projeto">O Projeto</a> | 
     <a href="#tecnologias">Tecnologias</a> | 
     <a href="#objetivos">Objetivos da Sprint</a> | 
     <a href="#levantamento">Levantamento de Requisitos</a> |  
     <a href="#prototipo">Protótipo</a> | 
     <a href="#org-equipe">Organização da Equipe</a> | 
-    <a href="#org-repo">Organização do Repositório</a>
+    <a href="#org-repo">Organização do Repositório</a> -->
 </p>
 
 # API_MirageGroup
