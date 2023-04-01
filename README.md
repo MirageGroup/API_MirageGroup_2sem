@@ -1,9 +1,12 @@
-# API_MirageGroup_2sem
-Repositório do projeto de API do 2º semestre.
 <!DOCTYPE html>
 <html lang="en" data-color-mode="auto" data-light-theme="light" data-dark-theme="dark" data-a11y-animated-images="system">
   <head>
 <p align="center" dir="auto" name="topo">
+  
+  <div align="center"  dir="auto">
+<img id="logo" src="docs/miragegroup-logo.png" alt="logo-mirage-group" width=400px>
+</div>
+  
 <!--     <a href="#o-projeto">O Projeto</a> | 
     <a href="#tecnologias">Tecnologias</a> | 
     <a href="#objetivos">Objetivos da Sprint</a> | 
@@ -12,13 +15,6 @@ Repositório do projeto de API do 2º semestre.
     <a href="#org-equipe">Organização da Equipe</a> | 
     <a href="#org-repo">Organização do Repositório</a> -->
 </p>
-
-# API_MirageGroup
-
-<div align="center"  dir="auto">
-<img id="logo" src="docs/miragegroup-logo.png" alt="logo-mirage-group" width=400px>
-</div>
-
 
 <h3 align="center" dir="auto">Repositório do projeto de API do 2º semestre do MirageGroup, da 2º turma de ADS da Fatec SJC 2023.</h3>
 
