@@ -78,6 +78,7 @@ Repositório do projeto de API do 2º semestre.
 <br>
 ![Diagrama estrutural](https://user-images.githubusercontent.com/101465349/229308790-10d3ab87-1fcd-47f7-967b-4b739f6b12dc.png)
 
+<br>
 
 ![Diagrama estrutural DB](https://user-images.githubusercontent.com/101465349/229308801-0231162f-0516-4682-939e-fd77fe26e55e.png)
 
