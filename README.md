@@ -89,7 +89,7 @@ Repositório do projeto de API do 2º semestre.
 
 <br>
 
-![Diagrama](https://user-images.githubusercontent.com/56747051/204163427-00c80b24-2ab3-443d-8448-2361b54e6426.jpg)
+![Diagrama](https://imgur.com/a/YVJqRGQ)
 
 <h2>Equipe<h2>
   
