@@ -79,6 +79,19 @@
 ![Diagrama estrutural DB](https://user-images.githubusercontent.com/101465349/229308801-0231162f-0516-4682-939e-fd77fe26e55e.png)
 
 <span id="user-content-org-equipe">
+<h2 align="center" dir="auto"><a id="user-content-busts_in_silhouette-organização-da-equipe" class="anchor" aria-hidden="true" href="#busts_in_silhouette-organização-da-equipe"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><g-emoji class="g-emoji" alias="busts_in_silhouette" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4ca.png?v8">📊</g-emoji> BurnDown 1º Sprint</h2>
+<div align="center" dir="auto">
+<div align="center" dir="auto">
+<p dir="auto">
+  O burndown é uma ferramenta utilizada em um Scrum Team para monitorar o progresso do trabalho ao longo do tempo. Ele é representado em um gráfico que mostra o progresso do trabalho em relação ao tempo. Durante o sprint, a equipe atualiza o gráfico com a quantidade de trabalho restante para verificar se está no caminho certo para alcançar o objetivo. O gráfico ajuda a identificar problemas e prever se a equipe concluirá todas as tarefas dentro do prazo do sprint. O burndown é importante para manter a transparência e a visibilidade do trabalho da equipe. Em resumo, o burndown é uma ferramenta útil para gerenciar o trabalho em um ambiente ágil.
+</p>
+<br>
+![BurnDown 1ºSprint2023(2ºSemestre)](https://user-images.githubusercontent.com/101465349/229377294-bc17795d-5680-4abb-839c-3af1d345f836.png)
+
+
+</div>
+
+<span id="user-content-org-equipe">
 <h2 align="center" dir="auto"><a id="user-content-busts_in_silhouette-organização-da-equipe" class="anchor" aria-hidden="true" href="#busts_in_silhouette-organização-da-equipe"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><g-emoji class="g-emoji" alias="busts_in_silhouette" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f465.png">👥</g-emoji> Organização da Equipe</h2>
 <div align="center" dir="auto">
 <p dir="auto">Para melhor organização do projeto, foi levantado as habilidades técnicas da equipe assim que decididas as ferramentas e tecnologias que seriam usadas, dividindo provisoriamente os integrantes em dois times principais: time Front-end e time back-end, cada um com responsabilidades distintas mas sempre em comunicação.</p>
