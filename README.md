@@ -37,7 +37,7 @@
 ![API Sprint 3 (1)](https://user-images.githubusercontent.com/111614142/204145483-193e4566-5e09-4b4b-b632-3f78abca74f2.png)
 
 <br> 
-
+<div>
 <h2 align="center">Tecnologias</h2>
 
 <h4 align="center">
@@ -46,7 +46,7 @@
  <a href="https://help.figma.com/hc/en-us"><img src = "https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white"/></a>
  <a href="https://dev.mysql.com/doc/"><img src = "https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white"/></a>
 </h4>
-
+</div>
 ![API Sprint 2 (1)](https://user-images.githubusercontent.com/111614142/200129675-2a913fcb-76cd-4788-8c1a-8c02b10d4cc4.png) -->
 
 
