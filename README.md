@@ -85,7 +85,7 @@
 <p dir="auto">
   O burndown é uma ferramenta utilizada em um Scrum Team para monitorar o progresso do trabalho ao longo do tempo. Ele é representado em um gráfico que mostra o progresso do trabalho em relação ao tempo. Durante o sprint, a equipe atualiza o gráfico com a quantidade de trabalho restante para verificar se está no caminho certo para alcançar o objetivo. O gráfico ajuda a identificar problemas e prever se a equipe concluirá todas as tarefas dentro do prazo do sprint. O burndown é importante para manter a transparência e a visibilidade do trabalho da equipe. Em resumo, o burndown é uma ferramenta útil para gerenciar o trabalho em um ambiente ágil.
 </p>
-<br>
+
 ![BurnDown 1ºSprint2023(2ºSemestre)](https://user-images.githubusercontent.com/101465349/229377294-bc17795d-5680-4abb-839c-3af1d345f836.png)
 
 
