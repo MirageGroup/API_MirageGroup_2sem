@@ -1,4 +1,4 @@
-package classes;
+package models;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -8,14 +8,14 @@ public class Student {
     private String name;
     private double grade;
    
-    private List<Class> class_list = new LinkedList<Class>();
+    private List<Classes> class_list = new LinkedList<Classes>();
 
-    public List<Class> getClasses() {
+    public List<Classes> getClasses() {
         return this.class_list;
     }
 
-    public Class getClassPerName(String name) {
-        for (Class eachClass : this.class_list) {
+    public Classes getClassPerName(String name) {
+        for (Classes eachClass : this.class_list) {
             if (eachClass.getName().equals(name)) {
                 return eachClass;
             }else{
@@ -33,7 +33,7 @@ public class Student {
         this.grade = grade;
     }
 
-    public void add_class(Class adding_class){
+    public void add_class(Classes adding_class){
         this.class_list.add(adding_class);
     }
 

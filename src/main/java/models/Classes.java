@@ -1,12 +1,24 @@
-package classes;
+package models;
 
 import java.util.LinkedList;
 import java.util.List;
+import jakarta.persistence.*;
 
-public class Class {
+@Entity
+@Table(name = "classes")
+public class Classes {
+
+    @Id
+    @GeneratedValue
     private int id;
+
+    @Column(name="name_class")
     private String name;
+
+    @Column(name="time_class")
     private String hour;
+
+    @Column(name="students")
     private List<Student> student_list = new LinkedList<Student>();
 
 

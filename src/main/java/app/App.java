@@ -5,9 +5,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import models.Classes;
 
 import java.io.IOException;
-
+import jakarta.persistence.*;
+import dao.Classdao;
 /**
  * JavaFX App
  */
@@ -32,7 +34,25 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
+        
+
+        // teste do hibernate
+
+        Classes novaSala = new Classes();
+        novaSala.setName("sala1");
+        novaSala.setHour("19h");
+        System.out.println("iniciou");
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("api");
+        System.out.println("iniciou2");
+        EntityManager em = factory.createEntityManager();
+        System.out.println("iniciou3");
+        Classdao dao = new Classdao();
+        dao.ProdutoDao(em);
+        dao.cadastrar(novaSala);
+        
+
         launch();
+
     }
 
 }
