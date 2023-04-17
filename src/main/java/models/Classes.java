@@ -1,7 +1,5 @@
 package models;
 
-import java.util.LinkedList;
-import java.util.List;
 import jakarta.persistence.*;
 
 @Entity
@@ -9,55 +7,32 @@ import jakarta.persistence.*;
 public class Classes {
 
     @Id
-    @GeneratedValue
-    private int id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id_class;
 
     @Column(name="name_class")
-    private String name;
+    private String name_class;
 
     @Column(name="time_class")
-    private String hour;
-
-    @Column(name="students")
-    private List<Student> student_list = new LinkedList<Student>();
-
-
-    public List<Student> get_student_list(){
-        return this.student_list;
-    }
-
-    public Student get_student_per_id(int id){
-        for (Student each_student : this.student_list) {
-            if (each_student.getId() == id) {
-                return each_student;
-            }else{
-                return null;
-            }
-        }
-        return null; //in case no class has the name in question
-    }
-    
-    public void add_Student_list(Student student){
-        this.student_list.add(student);
-    }
+    private String time_class;
 
     public int getId(){
-        return id;
+        return id_class;
     }
-    public void setId(int id) {
-        this.id = id;
+    public void setId(int id_class) {
+        this.id_class = id_class;
     }
     public String getName() {
-        return name;
+        return name_class;
     }
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String name_class) {
+        this.name_class = name_class;
     }
-    public String getHour() {
-        return hour;
+    public String getTime() {
+        return time_class;
     }
-    public void setHour(String hour) {
-        this.hour = hour;
+    public void setHour(String time_class) {
+        this.time_class = time_class;
     }
     
 }
