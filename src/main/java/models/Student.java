@@ -3,51 +3,47 @@ package models;
 import java.util.LinkedList;
 import java.util.List;
 
+import jakarta.persistence.CollectionTable;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "students")
 public class Student {
-    private int id;
-    private String name;
-    private double grade;
-   
-    private List<Classes> class_list = new LinkedList<Classes>();
 
-    public List<Classes> getClasses() {
-        return this.class_list;
-    }
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id_student;
 
-    public Classes getClassPerName(String name) {
-        for (Classes eachClass : this.class_list) {
-            if (eachClass.getName().equals(name)) {
-                return eachClass;
-            }else{
-                return null;
-            }
-        }
-        return null; //in case no class has the name in question
-    }
+    @Column(name = "name_student")
+    private String name_student;
+
+    @Column(name = "grade_student")
+    private double grade_student;
 
     public double getGrade() {
-        return grade;
+        return this.grade_student;
     }
 
-    public void setGrade(double grade) {
-        this.grade = grade;
-    }
-
-    public void add_class(Classes adding_class){
-        this.class_list.add(adding_class);
+    public void setGrade(double grade_student) {
+        this.grade_student = grade_student;
     }
 
     public int getId() {
-        return id;
+        return id_student;
     }
-    public void setId(int id) {
-        this.id = id;
+    public void setId(int id_student) {
+        this.id_student = id_student;
     }
     public String getName() {
-        return name;
+        return name_student;
     }
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String name_student) {
+        this.name_student = name_student;
     }
 
     
