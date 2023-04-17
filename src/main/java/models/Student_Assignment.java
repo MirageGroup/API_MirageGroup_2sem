@@ -14,6 +14,7 @@ import jakarta.persistence.Table;
 @Table(name = "student_assignment")
 public class Student_Assignment {
     
+    @Id
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn( name = "fk_Students_id_student")
     private int id_student;

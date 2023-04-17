@@ -40,15 +40,20 @@ public class App extends Application {
 
         Classes novaSala = new Classes();
         novaSala.setName("sala1");
-        novaSala.setHour("19h");
+        // novaSala.setHour("19:20:20");
         System.out.println("iniciou");
+
+        
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("api");
-        System.out.println("iniciou2");
         EntityManager em = factory.createEntityManager();
-        System.out.println("iniciou3");
+        em.getTransaction().begin();
+        
         Classdao dao = new Classdao();
         dao.ProdutoDao(em);
         dao.cadastrar(novaSala);
+        em.getTransaction().commit();
+
+        em.close();
         
 
         launch();
