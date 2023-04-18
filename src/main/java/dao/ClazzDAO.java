@@ -12,7 +12,9 @@ public class ClazzDAO extends DAO {
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1, clazz.getName());
             stmt.setString(2, clazz.getWeekday());
-            stmt.setTime(3, clazz.getTime());
+            stmt.setString(3, clazz.getTime());
+            stmt.execute();
+            stmt.close();
         }catch(SQLException e){
             throw new RuntimeException(e);
         }
