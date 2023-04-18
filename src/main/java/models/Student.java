@@ -1,14 +1,18 @@
 package models;
 
+import java.math.BigDecimal;
 import java.util.LinkedList;
 import java.util.List;
 
 import jakarta.persistence.CollectionTable;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Persistence;
 import jakarta.persistence.Table;
 
 @Entity
@@ -24,6 +28,23 @@ public class Student {
 
     @Column(name = "grade_student")
     private double grade_student;
+
+    // public static void main(String[] args) {
+    //     //Teste
+    //     Classes student = new Classes();
+    //     student.setName("Victor");
+    //     student.setId(0);
+    //     //Criar o: student.setGrade(9);
+
+    //     EntityManagerFactory factory = Persistence.createEntityManagerFactory("api");
+    //     EntityManager st = factory.createEntityManager();
+
+    //     st.getTransaction().begin();
+    //     st.persist(student);
+    //     st.getTransaction().commit();
+    //     st.close();
+
+    // }
 
     public double getGrade() {
         return this.grade_student;
