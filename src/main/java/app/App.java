@@ -45,6 +45,10 @@ public class App extends Application {
         StudentDAO dao = new StudentDAO();
         dao.save(student);
 
+        student.setId(10);
+        student.setName("Pedrão");
+        dao.update(student);
+
         Clazz clazz = new Clazz();
         clazz.setName("Matematics");
         clazz.setTime("07:30:00");
