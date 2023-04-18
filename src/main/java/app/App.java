@@ -5,11 +5,16 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import models.Classes;
+import models.Clazz;
+import models.Student;
 
 import java.io.IOException;
-import jakarta.persistence.*;
-import dao.Classdao;
+import java.sql.Connection;
+import java.sql.SQLException;
+
+import dao.ClazzDAO;
+import dao.StudentDAO;
+import factory.ConnectionFactory;
 /**
  * JavaFX App
  */
@@ -34,27 +39,18 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
-        
 
-        // teste do hibernate
+        Student student = new Student();
+        student.setName("Bambam");
+        StudentDAO dao = new StudentDAO();
+        dao.save(student);
 
-        Classes novaSala = new Classes();
-        novaSala.setName("sala1");
-        // novaSala.setHour("19:20:20");
-        System.out.println("iniciou");
-
-        
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("api");
-        EntityManager em = factory.createEntityManager();
-        em.getTransaction().begin();
-        
-        Classdao dao = new Classdao();
-        dao.ProdutoDao(em);
-        dao.cadastrar(novaSala);
-        em.getTransaction().commit();
-
-        em.close();
-        
+        Clazz clazz = new Clazz();
+        clazz.setName("Matematics");
+        clazz.setTime("07:30:00");
+        clazz.setWeekday("Terça");
+        ClazzDAO dao1 = new ClazzDAO();
+        dao1.save(clazz);
 
         launch();
 
