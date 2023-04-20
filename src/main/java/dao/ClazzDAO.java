@@ -4,6 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import models.Clazz;
+import models.Student;
 
 public class ClazzDAO extends DAO {
 
@@ -44,14 +45,28 @@ public class ClazzDAO extends DAO {
           ResultSet rs = stmt.executeQuery();
           Clazz clazz = new Clazz();
           while(rs.next()){
-              clazz.setId(rs.getInt("id_class"));
-              clazz.setName(rs.getString("name_class"));
-              clazz.setWeekday(rs.getString("time_weekday"));
-              clazz.setTime(rs.getString("time_class"));
+            clazz.setId(rs.getInt("id_class"));
+            clazz.setName(rs.getString("name_class"));
+            clazz.setWeekday(rs.getString("time_weekday"));
+            clazz.setTime(rs.getString("time_class"));
           }
+          stmt.close();
           return clazz;
       }catch(SQLException e){
           throw new RuntimeException(e);
       }
   }
+
+    public void addStudent(Clazz clazz, Student student){
+        String sql = "INSERT INTO student_class(fk_Classes_id_class, fk_Students_id_student) VALUES (?, ?)";
+        try{
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, clazz.getId());
+            stmt.setInt(2, student.getId());
+            stmt.execute();
+            stmt.close();
+        }catch(SQLException e){
+          throw new RuntimeException(e);
+        }
+    }
 }

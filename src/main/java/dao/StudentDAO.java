@@ -41,10 +41,11 @@ public class StudentDAO extends DAO {
             ResultSet rs = stmt.executeQuery();
             Student student = new Student();
             while(rs.next()){
-                student.setId(rs.getInt("id_student"));
-                student.setName(rs.getString("name_student"));
-                student.setGrade(rs.getDouble("grade_student"));
+              student.setId(rs.getInt("id_student"));
+              student.setName(rs.getString("name_student"));
+              student.setGrade(rs.getDouble("grade_student"));
             }
+            stmt.close();
             return student;
         }catch(SQLException e){
             throw new RuntimeException(e);
