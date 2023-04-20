@@ -20,11 +20,12 @@ public class StudentDAO extends DAO {
     }
 
     public void update(Student student){
-        String sql = "UPDATE students SET name_student = ? WHERE id_student = ?";
+        String sql = "UPDATE students SET name_student = ?, grade_student = ? WHERE id_student = ?";
         try{
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1, student.getName());
-            stmt.setInt(2, student.getId());
+            stmt.setDouble(2, student.getGrade());
+            stmt.setInt(3, student.getId());
             stmt.execute();
             stmt.close();
         }catch(SQLException e){
