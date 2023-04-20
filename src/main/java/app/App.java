@@ -40,22 +40,6 @@ public class App extends Application {
 
     public static void main(String[] args) {
 
-        Student student = new Student();
-        student.setName("Bambam");
-        StudentDAO dao = new StudentDAO();
-        dao.save(student);
-
-        student.setId(10);
-        student.setName("Pedrão");
-        dao.update(student);
-
-        Clazz clazz = new Clazz();
-        clazz.setName("Matematics");
-        clazz.setTime("07:30:00");
-        clazz.setWeekday("Terça");
-        ClazzDAO dao1 = new ClazzDAO();
-        dao1.save(clazz);
-
         launch();
 
     }
