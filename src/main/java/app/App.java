@@ -40,7 +40,13 @@ public class App extends Application {
 
     public static void main(String[] args) {
 
-        launch();
+        ClazzDAO dao = new ClazzDAO();
+
+        Clazz clazz = dao.getById(11);
+        clazz.setName("Calculus");
+        clazz.setWeekday("Quinta");
+
+        dao.update(clazz);
 
     }
 
