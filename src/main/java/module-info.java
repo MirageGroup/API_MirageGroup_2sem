@@ -1,10 +1,7 @@
-module app {
-    requires javafx.controls;
-    requires javafx.fxml;
-    requires java.logging;
+module gui {
+    requires java.desktop;
     requires java.sql;
-    requires jakarta.persistence;
 
-    opens app to javafx.fxml;
-    exports app;
+    opens gui to javax.swing;
+    exports gui;
 }
