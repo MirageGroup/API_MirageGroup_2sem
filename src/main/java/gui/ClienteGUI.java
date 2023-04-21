@@ -24,6 +24,7 @@ public class ClienteGUI extends javax.swing.JFrame {
      */
     public ClienteGUI() {
         initComponents();
+        setTitle("Controle de Turmas");
     }
 
     /**
