@@ -3,10 +3,14 @@ package dao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+
 import models.Clazz;
 import models.Student;
 
 public class ClazzDAO extends DAO {
+
+    private ArrayList<Clazz> lista = new ArrayList<>(null); 
 
     public void save(Clazz clazz){
         String sql = "INSERT INTO classes(name_class, time_weekday, time_class) VALUES (?, ?, ?)";
@@ -36,7 +40,19 @@ public class ClazzDAO extends DAO {
             throw new RuntimeException(e);
         }
     }
-
+   
+    public void addStudent(Clazz clazz, Student student){
+        String sql = "INSERT INTO student_class(fk_Classes_id_class, fk_Students_id_student) VALUES (?, ?)";
+        try{
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, clazz.getId());
+            stmt.setInt(2, student.getId());
+            stmt.execute();
+            stmt.close();
+        }catch(SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
     public Clazz getById(int id){
       String sql = "SELECT * FROM classes WHERE id_class = ?";
       try{
@@ -57,16 +73,20 @@ public class ClazzDAO extends DAO {
       }
   }
 
-    public void addStudent(Clazz clazz, Student student){
-        String sql = "INSERT INTO student_class(fk_Classes_id_class, fk_Students_id_student) VALUES (?, ?)";
+    public ArrayList<Clazz>getAll(){
+        String sql = "SELECT * FROM classes";
         try{
-            PreparedStatement stmt = conn.prepareStatement(sql);
-            stmt.setInt(1, clazz.getId());
-            stmt.setInt(2, student.getId());
-            stmt.execute();
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        ResultSet rs = stmt.executeQuery();
+        while(rs.next()){
+            Clazz clazz = new Clazz();
+            clazz.setId(rs.getInt("id_class"));
+            clazz.setName(rs.getString("name_class"));            
+        }
             stmt.close();
+            return this.lista;
         }catch(SQLException e){
-          throw new RuntimeException(e);
+            throw new RuntimeException(e);
         }
     }
 }

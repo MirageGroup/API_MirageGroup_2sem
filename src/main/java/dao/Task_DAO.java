@@ -22,11 +22,9 @@ public class Task_DAO extends DAO {
             stmt.setDouble(5, task.getMax_grade());
             stmt.execute();
             stmt.close();
-        }catch(SQLException e ){
-    
+        }catch(SQLException e ){    
         }
-
     }
-    
 }
+
 }

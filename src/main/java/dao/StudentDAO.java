@@ -3,9 +3,13 @@ package dao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+
 import models.Student;
 
 public class StudentDAO extends DAO {
+
+    private ArrayList<Student> lista = new ArrayList<>(null); 
 
     public void save(Student student){
         String sql = "INSERT INTO students(name_student) VALUES (?)";
@@ -47,6 +51,23 @@ public class StudentDAO extends DAO {
             }
             stmt.close();
             return student;
+        }catch(SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    public ArrayList<Student>getAll(){
+        String sql = "SELECT * FROM students";
+        try{
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        ResultSet rs = stmt.executeQuery();
+        while(rs.next()){
+            Student aluno = new Student();
+            aluno.setId(rs.getInt("id_student"));
+            aluno.setName(rs.getString("name_student"));            
+        }
+            stmt.close();
+            return this.lista;
         }catch(SQLException e){
             throw new RuntimeException(e);
         }
