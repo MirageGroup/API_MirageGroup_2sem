@@ -23,5 +23,7 @@ public class Student {
     public void setGrade(double grade) {
         this.grade = grade;
     }
+    public void setStudent(String text) {
+    }
 
 }

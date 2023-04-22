@@ -635,18 +635,18 @@ public class ClienteGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_EstatisticasActionPerformed
 
     private void EnviarCadAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnviarCadAlunoActionPerformed
-        // Aluno aluno = new Aluno();
-        //    aluno.setNome(EnviarCadAluno.getText());
+        Student student = new Student();
+        student.setStudent(EnviarCadAluno.getText());
            
-        // if((EnviarCadAluno.getText().isEmpty())){
-        //     JOptionPane.showMessageDialog(null, "O campo não pode estar vazio");
-        // }
-        // else{
-        //     AlunoDAO dao = new AlunoDAO();
-        //     dao.adiciona(aluno);
-        //     JOptionPane.showMessageDialog(null,"Aluno"+EnviarCadAluno.getText()+"cadastrado");
-        // }
-        // EnviarCadAluno.setText(" ");
+         if((EnviarCadAluno.getText().isEmpty())){
+             JOptionPane.showMessageDialog(null, "O campo não pode estar vazio");
+        }
+         else{
+             StudentDAO dao = new StudentDAO();
+             dao.insertStudent(student);
+             JOptionPane.showMessageDialog(null,"Aluno"+EnviarCadAluno.getText()+"cadastrado");
+         }
+         EnviarCadAluno.setText(" ");
     }//GEN-LAST:event_EnviarCadAlunoActionPerformed
 
     private void EnviarCadSalasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnviarCadSalasActionPerformed
