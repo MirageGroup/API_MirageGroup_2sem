@@ -1,0 +1,10 @@
+D:\ADS\API_MirageGroup_2sem\src\main\java\module-info.java
+D:\ADS\API_MirageGroup_2sem\src\main\java\models\Task.java
+D:\ADS\API_MirageGroup_2sem\src\main\java\gui\ClienteGUI.java
+D:\ADS\API_MirageGroup_2sem\src\main\java\models\Clazz.java
+D:\ADS\API_MirageGroup_2sem\src\main\java\factory\ConnectionFactory.java
+D:\ADS\API_MirageGroup_2sem\src\main\java\dao\Task_DAO.java
+D:\ADS\API_MirageGroup_2sem\src\main\java\dao\ClazzDAO.java
+D:\ADS\API_MirageGroup_2sem\src\main\java\dao\DAO.java
+D:\ADS\API_MirageGroup_2sem\src\main\java\dao\StudentDAO.java
+D:\ADS\API_MirageGroup_2sem\src\main\java\models\Student.java
