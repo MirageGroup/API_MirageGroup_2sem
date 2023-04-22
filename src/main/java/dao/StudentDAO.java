@@ -9,14 +9,18 @@ import models.Student;
 
 public class StudentDAO extends DAO {
 
-    private ArrayList<Student> lista = new ArrayList<>(); 
+    private ArrayList<Student> lista = new ArrayList<>();
 
     public void save(Student student){
         String sql = "INSERT INTO students(name_student) VALUES (?)";
         try{
-            PreparedStatement stmt = conn.prepareStatement(sql);
+            PreparedStatement stmt = conn.prepareStatement(sql, java.sql.Statement.RETURN_GENERATED_KEYS);
             stmt.setString(1, student.getName());
             stmt.execute();
+            ResultSet rs = stmt.getGeneratedKeys();
+            if(rs.next()){
+                student.setId(rs.getInt(1));
+            }
             stmt.close();
         }catch(SQLException e){
             throw new RuntimeException(e);
@@ -45,9 +49,9 @@ public class StudentDAO extends DAO {
             ResultSet rs = stmt.executeQuery();
             Student student = new Student();
             while(rs.next()){
-              student.setId(rs.getInt("id_student"));
-              student.setName(rs.getString("name_student"));
-              student.setGrade(rs.getDouble("grade_student"));
+                student.setId(rs.getInt("id_student"));
+                student.setName(rs.getString("name_student"));
+                student.setGrade(rs.getDouble("grade_student"));
             }
             stmt.close();
             return student;
@@ -56,7 +60,7 @@ public class StudentDAO extends DAO {
         }
     }
 
-    public ArrayList<Student>getAll(){
+    public ArrayList<Student> getAll(){
         String sql = "SELECT * FROM students";
         try{
         PreparedStatement stmt = conn.prepareStatement(sql);
@@ -71,20 +75,6 @@ public class StudentDAO extends DAO {
         }catch(SQLException e){
             throw new RuntimeException(e);
         }
-    }
-
-    public void insertStudent(Student student){
-        String sql = "INSERT INTO students(name_student) VALUES (?)";
-        try{
-            PreparedStatement stmt = conn.prepareStatement(sql);
-            stmt.setString(1, student.getName());
-            stmt.execute();
-            stmt.close();
-        }catch(SQLException e){
-            throw new RuntimeException(e);
-        }
-    }
-
-   
+    }  
 
 }

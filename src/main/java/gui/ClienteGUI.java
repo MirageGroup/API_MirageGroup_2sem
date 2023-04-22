@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 import controllers.models.ClazzController;
 import dao.ClazzDAO;
 import dao.StudentDAO;
+import models.Clazz;
 import models.Student;
 
 /**
@@ -490,7 +491,11 @@ public class ClienteGUI extends javax.swing.JFrame {
         EnviarCadAluno.setText("Enviar");
         EnviarCadAluno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EnviarCadAlunoActionPerformed(evt);
+                try {
+                  EnviarCadAlunoActionPerformed(evt);
+                } catch (SQLException e) {
+                  e.printStackTrace();
+                }
             }
         });
 
@@ -616,141 +621,150 @@ public class ClienteGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_ComboSalasCadActionPerformed
 
     private void CadAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadAlunoActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_CadAlunoActionPerformed
 
     private void VgeralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VgeralActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_VgeralActionPerformed
 
     private void AlunosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AlunosActionPerformed
-               
+
     }//GEN-LAST:event_AlunosActionPerformed
 
     private void AtividadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AtividadesActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_AtividadesActionPerformed
 
     private void EstatisticasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EstatisticasActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_EstatisticasActionPerformed
 
-    private void EnviarCadAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnviarCadAlunoActionPerformed
+    private void EnviarCadAlunoActionPerformed(java.awt.event.ActionEvent evt) throws SQLException {//GEN-FIRST:event_EnviarCadAlunoActionPerformed
       if((CadAluno.getText().isEmpty())){
-        JOptionPane.showMessageDialog(null, "O campo não pode estar vazio");
+          JOptionPane.showMessageDialog(null, "O campo não pode estar vazio");
       }
       else{
-            Student student = new Student();
-            student.setName(CadAluno.getText());
-            StudentDAO dao = new StudentDAO();
-            dao.insertStudent(student);
-            JOptionPane.showMessageDialog(null,"Aluno "+CadAluno.getText()+" cadastrado");
-            CadAluno.setText("");
+          Student student = new Student();
+          student.setName(CadAluno.getText());
+          
+          // Salvando o aluno com o nome inserido na tabela student
+          StudentDAO studentdao = new StudentDAO();
+          studentdao.save(student);
+          JOptionPane.showMessageDialog(null,"Aluno "+CadAluno.getText()+" cadastrado na turma "+ComboSalasCad.getSelectedItem().toString());
+          CadAluno.setText("");
+
+          // Salvando o aluno na turma em que ele foi cadastrado
+          ClazzDAO clazzdao = new ClazzDAO();
+          Clazz clazz = clazzdao.getByName(ComboSalasCad.getSelectedItem().toString());
+          clazzdao.addStudent(clazz, student);
+          clazzdao.closeConn();
+          studentdao.closeConn();
          }
     }//GEN-LAST:event_EnviarCadAlunoActionPerformed
 
     private void EnviarCadSalasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnviarCadSalasActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_EnviarCadSalasActionPerformed
 
     private void CadSalasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadSalasActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_CadSalasActionPerformed
 
     private void ComboSalasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboSalasActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_ComboSalasActionPerformed
 
     private void CadAtividadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadAtividadesActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_CadAtividadesActionPerformed
 
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jTextField4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void EnviarCadAtvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnviarCadAtvActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_EnviarCadAtvActionPerformed
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jCheckBox2ActionPerformed
 
     private void jCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox3ActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jCheckBox3ActionPerformed
 
     private void jCheckBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox4ActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jCheckBox4ActionPerformed
 
     private void jCheckBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox5ActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jCheckBox5ActionPerformed
 
     private void jCheckBox6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox6ActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jCheckBox6ActionPerformed
 
     private void jCheckBox7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox7ActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jCheckBox7ActionPerformed
 
     private void jCheckBox8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox8ActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jCheckBox8ActionPerformed
 
     private void jCheckBox9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox9ActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jCheckBox9ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void AlunosComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_AlunosComponentAdded
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_AlunosComponentAdded
 
     /**

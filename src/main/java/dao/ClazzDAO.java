@@ -73,6 +73,26 @@ public class ClazzDAO extends DAO {
       }
   }
 
+    public Clazz getByName(String name){
+        String sql = "SELECT * FROM classes WHERE name_class = ?";
+        try{
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, name);
+            ResultSet rs = stmt.executeQuery();
+            Clazz clazz = new Clazz();
+            while(rs.next()){
+                clazz.setId(rs.getInt("id_class"));
+                clazz.setName(rs.getString("name_class"));
+                clazz.setWeekday(rs.getString("time_weekday"));
+                clazz.setTime(rs.getString("time_class"));
+            }
+            stmt.close();
+            return clazz;
+        }catch(SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
+
     public ArrayList<Clazz>getAll(){
         String sql = "SELECT * FROM classes";
         try{
