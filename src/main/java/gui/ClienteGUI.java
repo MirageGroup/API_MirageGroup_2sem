@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 // import modelo.Aluno;
 
 import controllers.models.ClazzController;
+import controllers.models.ClazzController.StudentController;
 import dao.ClazzDAO;
 import dao.StudentDAO;
 import models.Student;
@@ -112,13 +113,16 @@ public class ClienteGUI extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel7.setText("Lista de Alunos");
 
-        jCheckBox1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jCheckBox1.setText("Ana Laura Silva");
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
-            }
-        });
+        // for(int i = 0; i<=student.size();i++){
+        // }
+        //     jCheckBox1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        //     jCheckBox1.setText("Ana Laura Silva");
+        //     jCheckBox1.addActionListener(new java.awt.event.ActionListener<>(//StudentController.GetAllStudentsName()) {
+        //         public void actionPerformed(java.awt.event.ActionEvent evt) {
+        //             jCheckBox1ActionPerformed(evt);
+        //         }
+        //     });
+    
 
         jCheckBox2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jCheckBox2.setText("Ana Laura Silva");
