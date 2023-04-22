@@ -1,22 +1,35 @@
 <!DOCTYPE html>
 <html lang="en" data-color-mode="auto" data-light-theme="light" data-dark-theme="dark" data-a11y-animated-images="system">
   <head>
+  
+<p align="center" dir="auto" name="topo"> 
+    <a href="#objetivos">Objetivos da Sprint</a> | 
+    <a href="#levantamento">Levantamento de Requisitos</a> |  
+    <a href="#prototipo">Protótipo</a> | 
+    <a href="#diagrama">Diagrama</a> |
+    <a href="#org-equipe">Organização da Equipe</a> | 
+    <a href="#org-repo">Organização do Repositório</a>
+</p>
 <p align="center" dir="auto" name="topo">
   
   <div align="center"  dir="auto">
 <img id="logo" src="docs/miragegroup-logo.png" alt="logo-mirage-group" width=400px>
 </div>
   
-<!--     <a href="#o-projeto">O Projeto</a> | 
-    <a href="#tecnologias">Tecnologias</a> | 
-    <a href="#objetivos">Objetivos da Sprint</a> | 
-    <a href="#levantamento">Levantamento de Requisitos</a> |  
-    <a href="#prototipo">Protótipo</a> | 
-    <a href="#org-equipe">Organização da Equipe</a> | 
-    <a href="#org-repo">Organização do Repositório</a> -->
-</p>
 
 <h3 align="center" dir="auto">Repositório do projeto de API do 2º semestre do MirageGroup, da 2º turma de ADS da Fatec SJC 2023.</h3>
+
+<div align="center" dir="auto">
+<h3>### Entregas de Sprints</h3>
+
+Cada entrega foi realizada a partir da criação de uma **tag**. Observe a relação a seguir:
+| Sprint| Tag | Lançamento | Status | Histórico |
+|:-----:|:-------------:|:----------:|:---------:|:---------:|
+| 01 | [sprint-01](https://github.com/MirageGroup/API_MirageGroup_2sem/tree/entrega/sprint-1) | 02/04/2023 | Entregue | [ver relatório](https://github.com/MirageGroup/API_MirageGroup_2sem/tree/entrega/sprint-1#readme) |
+| 02 | [sprint-02](https://github.com/MirageGroup/API_MirageGroup_2sem/tree/entrega/sprint-2) | 23/04/2023 | Em desenvolvimento | [ver relatório](https://github.com/MirageGroup/API_MirageGroup_2sem/tree/entrega/sprint-2#readme) |
+| 03 | [sprint-03]() |  | Não Iniciada | [ver relatório]() |
+| 04 | [sprint-04]() |  | Não iniciada | [ver relatório]() |
+
 
 <div align="center" dir="auto">
 
@@ -26,7 +39,7 @@
 # Iniciar
 
 
-  <h1 align="center" dir="auto"><a id="user-content--sprint-1-08032021-a-28032021-" class="anchor" aria-hidden="true" href="#-sprint-1-08032021-a-28032021-"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> Sprint 1: 13/03/2023 a 02/04/2023 <br> <a href="" target="_blank" align="center"><img src="https://img.shields.io/badge/sprint%20status-entregue-green"></a> </h1> <br>
+  <h1 align="center" dir="auto"><a id="user-content--sprint-1-08032021-a-28032021-" class="anchor" aria-hidden="true" href="#-sprint-1-08032021-a-28032021-"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> Sprint 2: 03/04/2023 a 23/04/2023 <br> <a href="" target="_blank" align="center"><img src="https://img.shields.io/badge/sprint%20status-entregue-green"></a> </h1> <br>
 
 <img src="docs/mvp-sprint4.gif"><br>
 
@@ -68,7 +81,7 @@
 <li>A primeira fase do protótipo dinâmico foi realizada também com a utilização do Figma, onde é possível acessar o protótipo por meio <a href="https://www.figma.com/file/7A2kfdx0NGFgIC6Kr9HNVP/Prototipo?node-id=0-1&t=Cq5QvALK6oE8nmmQ-0" rel="nofollow">deste link</a>.</li>
 </ul>
 
-<span id="user-content-org-equipe">
+<span id="user-content-diagrama">
 <h2 align="center" dir="auto"><a id="user-content-busts_in_silhouette-diagrama-de-classes" class="anchor" aria-hidden="true" href="#busts_in_silhouette-diagrama-de-classes"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><g-emoji class="g-emoji" alias="busts_in_silhouette" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c6.png?v8">📆</g-emoji> Diagrama</h2>
 
 ![Diagrama estrutural1](https://user-images.githubusercontent.com/101465349/229377774-1d35d5fc-5f46-44a0-9ff7-fb84d90546b7.png)
