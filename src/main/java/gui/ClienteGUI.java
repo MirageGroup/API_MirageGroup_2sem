@@ -10,6 +10,7 @@ import java.util.Scanner;
 import javax.swing.JOptionPane;
 // import modelo.Aluno;
 
+import controllers.models.ClazzController;
 import dao.ClazzDAO;
 import dao.StudentDAO;
 import models.Student;
@@ -428,7 +429,7 @@ public class ClienteGUI extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setText("Salas:");
 
-        ComboSalas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        ComboSalas.setModel(new javax.swing.DefaultComboBoxModel<>( ClazzController.GetAllClazzesName() ));
         ComboSalas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ComboSalasActionPerformed(evt);
@@ -452,7 +453,7 @@ public class ClienteGUI extends javax.swing.JFrame {
             }
         });
 
-        ComboSalasCad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        ComboSalasCad.setModel(new javax.swing.DefaultComboBoxModel<>( ClazzController.GetAllClazzesName() ));
         ComboSalasCad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ComboSalasCadActionPerformed(evt);
@@ -635,18 +636,17 @@ public class ClienteGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_EstatisticasActionPerformed
 
     private void EnviarCadAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnviarCadAlunoActionPerformed
-        Student student = new Student();
-        student.setStudent(EnviarCadAluno.getText());
-           
-         if((EnviarCadAluno.getText().isEmpty())){
-             JOptionPane.showMessageDialog(null, "O campo não pode estar vazio");
-        }
-         else{
-             StudentDAO dao = new StudentDAO();
-             dao.insertStudent(student);
-             JOptionPane.showMessageDialog(null,"Aluno"+EnviarCadAluno.getText()+"cadastrado");
+      if((CadAluno.getText().isEmpty())){
+        JOptionPane.showMessageDialog(null, "O campo não pode estar vazio");
+      }
+      else{
+            Student student = new Student();
+            student.setName(CadAluno.getText());
+            StudentDAO dao = new StudentDAO();
+            dao.insertStudent(student);
+            JOptionPane.showMessageDialog(null,"Aluno "+CadAluno.getText()+" cadastrado");
+            CadAluno.setText("");
          }
-         EnviarCadAluno.setText(" ");
     }//GEN-LAST:event_EnviarCadAlunoActionPerformed
 
     private void EnviarCadSalasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnviarCadSalasActionPerformed

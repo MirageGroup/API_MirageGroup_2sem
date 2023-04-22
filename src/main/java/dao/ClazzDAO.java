@@ -82,6 +82,8 @@ public class ClazzDAO extends DAO {
             Clazz clazz = new Clazz();
             clazz.setId(rs.getInt("id_class"));
             clazz.setName(rs.getString("name_class"));
+            clazz.setWeekday(rs.getString("time_weekday"));
+            clazz.setTime(rs.getString("time_class"));
             this.lista.add(clazz);
         }
             stmt.close();

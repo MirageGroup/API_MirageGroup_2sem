@@ -9,7 +9,7 @@ import models.Student;
 
 public class StudentDAO extends DAO {
 
-    private ArrayList<Student> lista = new ArrayList<>(null); 
+    private ArrayList<Student> lista = new ArrayList<>(); 
 
     public void save(Student student){
         String sql = "INSERT INTO students(name_student) VALUES (?)";
