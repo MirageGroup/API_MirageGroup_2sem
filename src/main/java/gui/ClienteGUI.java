@@ -10,6 +10,7 @@ import java.util.Scanner;
 import javax.swing.JOptionPane;
 // import modelo.Aluno;
 
+import dao.ClazzDAO;
 import dao.StudentDAO;
 import models.Student;
 

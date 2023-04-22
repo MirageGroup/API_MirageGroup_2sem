@@ -10,7 +10,7 @@ import models.Student;
 
 public class ClazzDAO extends DAO {
 
-    private ArrayList<Clazz> lista = new ArrayList<>(null); 
+    private ArrayList<Clazz> lista = new ArrayList<>(); 
 
     public void save(Clazz clazz){
         String sql = "INSERT INTO classes(name_class, time_weekday, time_class) VALUES (?, ?, ?)";
@@ -81,7 +81,8 @@ public class ClazzDAO extends DAO {
         while(rs.next()){
             Clazz clazz = new Clazz();
             clazz.setId(rs.getInt("id_class"));
-            clazz.setName(rs.getString("name_class"));            
+            clazz.setName(rs.getString("name_class"));
+            this.lista.add(clazz);
         }
             stmt.close();
             return this.lista;
