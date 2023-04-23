@@ -13,6 +13,8 @@ import javax.swing.JOptionPane;
 import dao.ClazzDAO;
 import dao.StudentDAO;
 import models.Student;
+import java.awt.BorderLayout;
+import javax.swing.JFrame;
 
 /**
  *
@@ -27,7 +29,7 @@ public class ClienteGUI extends javax.swing.JFrame {
         initComponents();
         setTitle("Controle de Turmas");
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -39,6 +41,7 @@ public class ClienteGUI extends javax.swing.JFrame {
 
         Logo = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
         VgeralPanel = new javax.swing.JPanel();
         AlunosPanel = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
@@ -66,10 +69,6 @@ public class ClienteGUI extends javax.swing.JFrame {
         jButton13 = new javax.swing.JButton();
         AtividadesPanel = new javax.swing.JPanel();
         EstatisticasPanel = new javax.swing.JPanel();
-        Vgeral = new javax.swing.JButton();
-        Atividades = new javax.swing.JButton();
-        Alunos = new javax.swing.JButton();
-        Estatisticas = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         ComboSalas = new javax.swing.JComboBox<>();
         jButton5 = new javax.swing.JButton();
@@ -106,7 +105,22 @@ public class ClienteGUI extends javax.swing.JFrame {
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        VgeralPanel.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 0, 0)));
+        VgeralPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        javax.swing.GroupLayout VgeralPanelLayout = new javax.swing.GroupLayout(VgeralPanel);
+        VgeralPanel.setLayout(VgeralPanelLayout);
+        VgeralPanelLayout.setHorizontalGroup(
+            VgeralPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 926, Short.MAX_VALUE)
+        );
+        VgeralPanelLayout.setVerticalGroup(
+            VgeralPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 475, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Visão Geral", VgeralPanel);
+
+        AlunosPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel7.setText("Lista de Alunos");
@@ -265,7 +279,7 @@ public class ClienteGUI extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AlunosPanelLayout.createSequentialGroup()
                         .addGroup(AlunosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(AlunosPanelLayout.createSequentialGroup()
-                                .addGap(0, 411, Short.MAX_VALUE)
+                                .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(jButton13)
                                 .addGap(18, 18, 18)
                                 .addComponent(jButton12)
@@ -284,15 +298,16 @@ public class ClienteGUI extends javax.swing.JFrame {
                                     .addComponent(jCheckBox7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(AlunosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton2)
-                                    .addComponent(jButton1)
-                                    .addComponent(jButton4)
-                                    .addComponent(jButton3)
-                                    .addComponent(jButton9)
                                     .addComponent(jButton8)
                                     .addComponent(jButton7)
                                     .addComponent(jButton6)
-                                    .addComponent(jButton10))
+                                    .addComponent(jButton10)
+                                    .addGroup(AlunosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jButton9)
+                                        .addComponent(jButton2)
+                                        .addComponent(jButton1)
+                                        .addComponent(jButton4)
+                                        .addComponent(jButton3)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jScrollBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(41, 41, 41))))
@@ -300,11 +315,14 @@ public class ClienteGUI extends javax.swing.JFrame {
         AlunosPanelLayout.setVerticalGroup(
             AlunosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AlunosPanelLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jLabel7)
                 .addGroup(AlunosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(AlunosPanelLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
+                        .addGap(24, 24, 24)
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(AlunosPanelLayout.createSequentialGroup()
+                        .addGap(76, 76, 76)
                         .addGroup(AlunosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jCheckBox1)
                             .addComponent(jButton2))
@@ -316,7 +334,7 @@ public class ClienteGUI extends javax.swing.JFrame {
                         .addGroup(AlunosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jCheckBox3)
                             .addComponent(jButton4))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(7, 7, 7)
                         .addGroup(AlunosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jCheckBox6)
                             .addComponent(jButton3))
@@ -324,7 +342,7 @@ public class ClienteGUI extends javax.swing.JFrame {
                         .addGroup(AlunosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jCheckBox5)
                             .addComponent(jButton9))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(7, 7, 7)
                         .addGroup(AlunosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jCheckBox4)
                             .addComponent(jButton8))
@@ -339,91 +357,46 @@ public class ClienteGUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(AlunosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jCheckBox7)
-                            .addComponent(jButton6)))
-                    .addGroup(AlunosPanelLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jButton6))))
                 .addGap(18, 18, 18)
                 .addGroup(AlunosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton11)
                     .addComponent(jButton12)
                     .addComponent(jButton13))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        jTabbedPane1.addTab("Alunos", AlunosPanel);
+
+        AtividadesPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout AtividadesPanelLayout = new javax.swing.GroupLayout(AtividadesPanel);
         AtividadesPanel.setLayout(AtividadesPanelLayout);
         AtividadesPanelLayout.setHorizontalGroup(
             AtividadesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 916, Short.MAX_VALUE)
+            .addGap(0, 926, Short.MAX_VALUE)
         );
         AtividadesPanelLayout.setVerticalGroup(
             AtividadesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 447, Short.MAX_VALUE)
+            .addGap(0, 475, Short.MAX_VALUE)
         );
+
+        jTabbedPane1.addTab("Atividades", AtividadesPanel);
+
+        EstatisticasPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout EstatisticasPanelLayout = new javax.swing.GroupLayout(EstatisticasPanel);
         EstatisticasPanel.setLayout(EstatisticasPanelLayout);
         EstatisticasPanelLayout.setHorizontalGroup(
             EstatisticasPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 928, Short.MAX_VALUE)
+            .addGap(0, 926, Short.MAX_VALUE)
         );
         EstatisticasPanelLayout.setVerticalGroup(
             EstatisticasPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 459, Short.MAX_VALUE)
+            .addGap(0, 475, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout VgeralPanelLayout = new javax.swing.GroupLayout(VgeralPanel);
-        VgeralPanel.setLayout(VgeralPanelLayout);
-        VgeralPanelLayout.setHorizontalGroup(
-            VgeralPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(AlunosPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(VgeralPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(AtividadesPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(VgeralPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(EstatisticasPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        VgeralPanelLayout.setVerticalGroup(
-            VgeralPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(AlunosPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(VgeralPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(AtividadesPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(VgeralPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(EstatisticasPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        Vgeral.setText("Visão geral");
-        Vgeral.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                VgeralActionPerformed(evt);
-            }
-        });
-
-        Atividades.setText("Atividades");
-        Atividades.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AtividadesActionPerformed(evt);
-            }
-        });
-
-        Alunos.setText("Alunos");
-        Alunos.addContainerListener(new java.awt.event.ContainerAdapter() {
-            public void componentAdded(java.awt.event.ContainerEvent evt) {
-                AlunosComponentAdded(evt);
-            }
-        });
-        Alunos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AlunosActionPerformed(evt);
-            }
-        });
-
-        Estatisticas.setText("Estatísticas");
-        Estatisticas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EstatisticasActionPerformed(evt);
-            }
-        });
+        jTabbedPane1.addTab("Estatisticas", EstatisticasPanel);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setText("Salas:");
@@ -521,7 +494,7 @@ public class ClienteGUI extends javax.swing.JFrame {
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(ComboSalas, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -536,7 +509,7 @@ public class ClienteGUI extends javax.swing.JFrame {
                             .addComponent(jLabel5)
                             .addComponent(CadSalas, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(EnviarCadSalas, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(107, 107, 107)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -548,18 +521,15 @@ public class ClienteGUI extends javax.swing.JFrame {
                                 .addComponent(EnviarCadAtv)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jButton5)))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addContainerGap(140, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(Vgeral)
-                        .addGap(49, 49, 49)
-                        .addComponent(Alunos)
-                        .addGap(62, 62, 62)
-                        .addComponent(Atividades)
-                        .addGap(54, 54, 54)
-                        .addComponent(Estatisticas))
-                    .addComponent(VgeralPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
-                .addContainerGap(51, Short.MAX_VALUE))
+                        .addComponent(jLabel6)
+                        .addContainerGap(845, Short.MAX_VALUE))))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(216, 216, 216)
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 928, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(48, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -567,16 +537,7 @@ public class ClienteGUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 6, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(Vgeral, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(Alunos, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(Estatisticas, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(Atividades, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(VgeralPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(0, 543, Short.MAX_VALUE)
                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(9, 9, 9))
                     .addGroup(layout.createSequentialGroup()
@@ -604,6 +565,11 @@ public class ClienteGUI extends javax.swing.JFrame {
                     .addComponent(EnviarCadSalas)
                     .addComponent(EnviarCadAtv))
                 .addContainerGap())
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(32, 32, 32)
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(140, Short.MAX_VALUE)))
         );
 
         pack();
@@ -617,22 +583,6 @@ public class ClienteGUI extends javax.swing.JFrame {
     private void CadAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadAlunoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_CadAlunoActionPerformed
-
-    private void VgeralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VgeralActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_VgeralActionPerformed
-
-    private void AlunosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AlunosActionPerformed
-               
-    }//GEN-LAST:event_AlunosActionPerformed
-
-    private void AtividadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AtividadesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AtividadesActionPerformed
-
-    private void EstatisticasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EstatisticasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_EstatisticasActionPerformed
 
     private void EnviarCadAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnviarCadAlunoActionPerformed
         // Aluno aluno = new Aluno();
@@ -749,10 +699,6 @@ public class ClienteGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton10ActionPerformed
 
-    private void AlunosComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_AlunosComponentAdded
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AlunosComponentAdded
-
     /**
      * @param args the command line arguments
      */
@@ -789,9 +735,7 @@ public class ClienteGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Alunos;
     private javax.swing.JPanel AlunosPanel;
-    private javax.swing.JButton Atividades;
     private javax.swing.JPanel AtividadesPanel;
     private javax.swing.JTextField CadAluno;
     private javax.swing.JTextField CadAtividades;
@@ -801,10 +745,8 @@ public class ClienteGUI extends javax.swing.JFrame {
     private javax.swing.JButton EnviarCadAluno;
     private javax.swing.JButton EnviarCadAtv;
     private javax.swing.JButton EnviarCadSalas;
-    private javax.swing.JButton Estatisticas;
     private javax.swing.JPanel EstatisticasPanel;
     private javax.swing.JPanel Logo;
-    private javax.swing.JButton Vgeral;
     private javax.swing.JPanel VgeralPanel;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
@@ -836,6 +778,7 @@ public class ClienteGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollBar jScrollBar1;
+    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField jTextField4;
     // End of variables declaration//GEN-END:variables
 }
