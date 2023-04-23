@@ -5,13 +5,11 @@
 package gui;
 
 import java.sql.SQLException;
-// import dao.AlunoDAO;
+import java.util.ArrayList;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
-// import modelo.Aluno;
 
 import controllers.models.ClazzController;
-import controllers.models.ClazzController.StudentController;
 import dao.ClazzDAO;
 import dao.StudentDAO;
 import models.Clazz;
@@ -651,7 +649,7 @@ public class ClienteGUI extends javax.swing.JFrame {
       else{
           Student student = new Student();
           student.setName(CadAluno.getText());
-          
+
           // Salvando o aluno com o nome inserido na tabela student
           StudentDAO studentdao = new StudentDAO();
           studentdao.save(student);
@@ -662,6 +660,7 @@ public class ClienteGUI extends javax.swing.JFrame {
           ClazzDAO clazzdao = new ClazzDAO();
           Clazz clazz = clazzdao.getByName(ComboSalasCad.getSelectedItem().toString());
           clazzdao.addStudent(clazz, student);
+
           clazzdao.closeConn();
           studentdao.closeConn();
          }
