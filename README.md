@@ -1,22 +1,35 @@
 <!DOCTYPE html>
 <html lang="en" data-color-mode="auto" data-light-theme="light" data-dark-theme="dark" data-a11y-animated-images="system">
   <head>
+  
+<p align="center" dir="auto" name="topo"> 
+    <a href="#objetivos">Objetivos da Sprint</a> | 
+    <a href="#levantamento">Levantamento de Requisitos</a> |  
+    <a href="#prototipo">Protótipo</a> | 
+    <a href="#diagrama">Diagrama</a> |
+    <a href="#org-equipe">Organização da Equipe</a> | 
+    <a href="#org-repo">Organização do Repositório</a>
+</p>
 <p align="center" dir="auto" name="topo">
   
   <div align="center"  dir="auto">
 <img id="logo" src="docs/miragegroup-logo.png" alt="logo-mirage-group" width=400px>
 </div>
   
-<!--     <a href="#o-projeto">O Projeto</a> | 
-    <a href="#tecnologias">Tecnologias</a> | 
-    <a href="#objetivos">Objetivos da Sprint</a> | 
-    <a href="#levantamento">Levantamento de Requisitos</a> |  
-    <a href="#prototipo">Protótipo</a> | 
-    <a href="#org-equipe">Organização da Equipe</a> | 
-    <a href="#org-repo">Organização do Repositório</a> -->
-</p>
 
 <h3 align="center" dir="auto">Repositório do projeto de API do 2º semestre do MirageGroup, da 2º turma de ADS da Fatec SJC 2023.</h3>
+
+<div align="center" dir="auto">
+<h3>### Entregas de Sprints</h3>
+
+Cada entrega foi realizada a partir da criação de uma **tag**. Observe a relação a seguir:
+| Sprint| Tag | Lançamento | Status | Histórico |
+|:-----:|:-------------:|:----------:|:---------:|:---------:|
+| 01 | [sprint-01](https://github.com/MirageGroup/API_MirageGroup_2sem/tree/entrega/sprint-1) | 02/04/2023 | Entregue | [ver relatório](https://github.com/MirageGroup/API_MirageGroup_2sem/tree/entrega/sprint-1#readme) |
+| 02 | [sprint-02](https://github.com/MirageGroup/API_MirageGroup_2sem/tree/entrega/sprint-2) | 23/04/2023 | Em desenvolvimento | [ver relatório](https://github.com/MirageGroup/API_MirageGroup_2sem/tree/entrega/sprint-2#readme) |
+| 03 | [sprint-03]() |  | Não Iniciada | [ver relatório]() |
+| 04 | [sprint-04]() |  | Não iniciada | [ver relatório]() |
+
 
 <div align="center" dir="auto">
 
@@ -26,7 +39,7 @@
 # Iniciar
 
 
-  <h1 align="center" dir="auto"><a id="user-content--sprint-1-08032021-a-28032021-" class="anchor" aria-hidden="true" href="#-sprint-1-08032021-a-28032021-"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> Sprint 1: 13/03/2023 a 02/04/2023 <br> <a href="" target="_blank" align="center"><img src="https://img.shields.io/badge/sprint%20status-entregue-green"></a> </h1> <br>
+  <h1 align="center" dir="auto"><a id="user-content--sprint-1-08032021-a-28032021-" class="anchor" aria-hidden="true" href="#-sprint-1-08032021-a-28032021-"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> Sprint 2: 03/04/2023 a 23/04/2023 <br> <a href="" target="_blank" align="center"><img src="https://img.shields.io/badge/sprint%20status-entregue-green"></a> </h1> <br>
 
 <img src="docs/mvp-sprint4.gif"><br>
 
@@ -49,8 +62,8 @@
 <h2 align="center" dir="auto"><a id="user-content-dart-objetivos-da-sprint" class="anchor" aria-hidden="true" href="#dart-objetivos-da-sprint"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><g-emoji class="g-emoji" alias="dart" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f3af.png">🎯</g-emoji> Objetivos da Sprint</h2>
 
 <br>
-  
-![1ºSprint](https://user-images.githubusercontent.com/101465349/229379817-8c172af5-43c2-4f65-a032-b78befa7a317.png)
+ 
+![MirageGroup](https://user-images.githubusercontent.com/111614142/233867938-bbd44e47-7d67-4066-abf5-7ed82245aeec.jpg)
 
 <p dir="auto">→ <a href="#topo">Voltar ao topo</a></p>
 <span id="user-content-levantamento">
@@ -63,12 +76,12 @@
 <p dir="auto">→ <a href="#topo">Voltar ao topo</a></p>
 <span id="user-content-prototipo">
 <h2 align="center" dir="auto"><a id="user-content-desktop_computer-protótipo" class="anchor" aria-hidden="true" href="#desktop_computer-protótipo"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><g-emoji class="g-emoji" alias="desktop_computer" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f5a5.png">✏️</g-emoji> Protótipo</h2>
-<p dir="auto">Depois da definição do wireframe, iniciou-se o trabalho de codificação, passando os desenhos para arquivos de Java FX e CSS. O protótipo já conta com cores, tipografia e exemplos do resultado de uma busca, proporcionando a experiência esperada que o usuário terá ao manipular o produto final.</p>
+<p dir="auto">Depois da definição do wireframe, iniciou-se o trabalho de codificação, passando os desenhos para arquivos de JavaSwing. O protótipo já conta com cores, tipografia e exemplos do resultado de uma busca, proporcionando a experiência esperada que o usuário terá ao manipular o produto final.</p>
 <ul dir="auto">
 <li>A primeira fase do protótipo dinâmico foi realizada também com a utilização do Figma, onde é possível acessar o protótipo por meio <a href="https://www.figma.com/file/7A2kfdx0NGFgIC6Kr9HNVP/Prototipo?node-id=0-1&t=Cq5QvALK6oE8nmmQ-0" rel="nofollow">deste link</a>.</li>
 </ul>
 
-<span id="user-content-org-equipe">
+<span id="user-content-diagrama">
 <h2 align="center" dir="auto"><a id="user-content-busts_in_silhouette-diagrama-de-classes" class="anchor" aria-hidden="true" href="#busts_in_silhouette-diagrama-de-classes"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><g-emoji class="g-emoji" alias="busts_in_silhouette" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c6.png?v8">📆</g-emoji> Diagrama</h2>
 
 ![Diagrama estrutural1](https://user-images.githubusercontent.com/101465349/229377774-1d35d5fc-5f46-44a0-9ff7-fb84d90546b7.png)
@@ -78,14 +91,14 @@
 ![Diagrama estrutural DB](https://user-images.githubusercontent.com/101465349/229308801-0231162f-0516-4682-939e-fd77fe26e55e.png)
 
 <span id="user-content-org-equipe">
-<h2 align="center" dir="auto"><a id="user-content-busts_in_silhouette-organização-da-equipe" class="anchor" aria-hidden="true" href="#busts_in_silhouette-organização-da-equipe"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><g-emoji class="g-emoji" alias="busts_in_silhouette" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4ca.png?v8">📊</g-emoji> BurnDown 1º Sprint</h2>
+<h2 align="center" dir="auto"><a id="user-content-busts_in_silhouette-organização-da-equipe" class="anchor" aria-hidden="true" href="#busts_in_silhouette-organização-da-equipe"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><g-emoji class="g-emoji" alias="busts_in_silhouette" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4ca.png?v8">📊</g-emoji> BurnDown 2º Sprint</h2>
 <div align="center" dir="auto">
 <div align="center" dir="auto">
 <p dir="auto">
   O burndown é uma ferramenta utilizada em um Scrum Team para monitorar o progresso do trabalho ao longo do tempo. Ele é representado em um gráfico que mostra o progresso do trabalho em relação ao tempo. Durante o sprint, a equipe atualiza o gráfico com a quantidade de trabalho restante para verificar se está no caminho certo para alcançar o objetivo. O gráfico ajuda a identificar problemas e prever se a equipe concluirá todas as tarefas dentro do prazo do sprint. O burndown é importante para manter a transparência e a visibilidade do trabalho da equipe. Em resumo, o burndown é uma ferramenta útil para gerenciar o trabalho em um ambiente ágil.
 </p>
 
-![BurnDown 1ºSprint2023(2ºSemestre)](https://user-images.githubusercontent.com/101465349/229377294-bc17795d-5680-4abb-839c-3af1d345f836.png)
+![WhatsApp Image 2023-04-23 at 6 33 21 PM](https://user-images.githubusercontent.com/111614142/233867534-47a3dd33-0fdd-4626-8e6f-774b1de93755.jpeg)
 
 
 </div>
