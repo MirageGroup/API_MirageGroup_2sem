@@ -108,6 +108,8 @@ public class ClienteGUI extends javax.swing.JFrame {
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        jTabbedPane1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+
         VgeralPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout VgeralPanelLayout = new javax.swing.GroupLayout(VgeralPanel);
@@ -118,7 +120,7 @@ public class ClienteGUI extends javax.swing.JFrame {
         );
         VgeralPanelLayout.setVerticalGroup(
             VgeralPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 475, Short.MAX_VALUE)
+            .addGap(0, 472, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Visão Geral", VgeralPanel);
@@ -128,16 +130,13 @@ public class ClienteGUI extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel7.setText("Lista de Alunos");
 
-        // for(int i = 0; i<=student.size();i++){
-        // }
-        //     jCheckBox1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        //     jCheckBox1.setText("Ana Laura Silva");
-        //     jCheckBox1.addActionListener(new java.awt.event.ActionListener<>(//StudentController.GetAllStudentsName()) {
-        //         public void actionPerformed(java.awt.event.ActionEvent evt) {
-        //             jCheckBox1ActionPerformed(evt);
-        //         }
-        //     });
-    
+        jCheckBox1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jCheckBox1.setText("Ana Laura Silva");
+        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox1ActionPerformed(evt);
+            }
+        });
 
         jCheckBox2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jCheckBox2.setText("Ana Laura Silva");
@@ -308,12 +307,11 @@ public class ClienteGUI extends javax.swing.JFrame {
                                     .addComponent(jButton7)
                                     .addComponent(jButton6)
                                     .addComponent(jButton10)
-                                    .addGroup(AlunosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jButton9)
-                                        .addComponent(jButton2)
-                                        .addComponent(jButton1)
-                                        .addComponent(jButton4)
-                                        .addComponent(jButton3)))
+                                    .addComponent(jButton9)
+                                    .addComponent(jButton2)
+                                    .addComponent(jButton1)
+                                    .addComponent(jButton4)
+                                    .addComponent(jButton3))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jScrollBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(41, 41, 41))))
@@ -384,7 +382,7 @@ public class ClienteGUI extends javax.swing.JFrame {
         );
         AtividadesPanelLayout.setVerticalGroup(
             AtividadesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 475, Short.MAX_VALUE)
+            .addGap(0, 472, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Atividades", AtividadesPanel);
@@ -399,7 +397,7 @@ public class ClienteGUI extends javax.swing.JFrame {
         );
         EstatisticasPanelLayout.setVerticalGroup(
             EstatisticasPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 475, Short.MAX_VALUE)
+            .addGap(0, 472, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Estatisticas", EstatisticasPanel);
@@ -469,10 +467,11 @@ public class ClienteGUI extends javax.swing.JFrame {
         EnviarCadAluno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 try {
-                  EnviarCadAlunoActionPerformed(evt);
-                } catch (SQLException e) {
-                  e.printStackTrace();
-                }
+                    EnviarCadAlunoActionPerformed(evt);
+                  } catch (SQLException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                  };
             }
         });
 
@@ -535,11 +534,9 @@ public class ClienteGUI extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(EnviarCadAtv)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton5)))
-                        .addContainerGap(140, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addContainerGap(845, Short.MAX_VALUE))))
+                                .addComponent(jButton5))))
+                    .addComponent(jLabel6))
+                .addContainerGap(140, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(216, 216, 216)
