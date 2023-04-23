@@ -32,7 +32,7 @@ public class ClienteGUI extends javax.swing.JFrame {
         initComponents();
         setTitle("Controle de Turmas");
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -479,7 +479,12 @@ public class ClienteGUI extends javax.swing.JFrame {
         EnviarCadSalas.setText("Enviar");
         EnviarCadSalas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EnviarCadSalasActionPerformed(evt);
+                try {
+                  EnviarCadSalasActionPerformed(evt);
+                } catch (SQLException e) {
+                  // TODO Auto-generated catch block
+                  e.printStackTrace();
+                }
             }
         });
 
@@ -633,9 +638,25 @@ public class ClienteGUI extends javax.swing.JFrame {
          }
     }//GEN-LAST:event_EnviarCadAlunoActionPerformed
 
-    private void EnviarCadSalasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnviarCadSalasActionPerformed
+    private void EnviarCadSalasActionPerformed(java.awt.event.ActionEvent evt) throws SQLException {
+        if(CadSalas.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "O campo não pode estar vazio");
+        } else {
+            Clazz clazz = new Clazz();
+            clazz.setName(CadSalas.getText());
 
-    }//GEN-LAST:event_EnviarCadSalasActionPerformed
+            ClazzDAO clazzdao = new ClazzDAO();
+            clazzdao.save(clazz);
+            JOptionPane.showMessageDialog(null, "Turma "+CadSalas.getText()+" cadastrada");
+            CadSalas.setText("");
+
+            ComboSalas.setModel(new javax.swing.DefaultComboBoxModel<>( ClazzController.GetAllClazzesName() ));
+            ComboSalasCad.setModel(new javax.swing.DefaultComboBoxModel<>( ClazzController.GetAllClazzesName() ));
+
+            clazzdao.closeConn();
+        }
+
+    }
 
     private void CadSalasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadSalasActionPerformed
 
