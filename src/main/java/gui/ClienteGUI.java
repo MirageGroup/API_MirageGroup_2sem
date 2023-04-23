@@ -117,8 +117,8 @@ public class ClienteGUI extends javax.swing.JFrame {
         // for(int i = 0; i<=student.size();i++){
         // }
         //     jCheckBox1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        //     jCheckBox1.setText("Ana Laura Silva");
-        //     jCheckBox1.addActionListener(new java.awt.event.ActionListener<>(//StudentController.GetAllStudentsName()) {
+        //     jCheckBox1.setText("Ola");
+        //     jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
         //         public void actionPerformed(java.awt.event.ActionEvent evt) {
         //             jCheckBox1ActionPerformed(evt);
         //         }
@@ -506,7 +506,11 @@ public class ClienteGUI extends javax.swing.JFrame {
         EnviarCadSalas.setText("Enviar");
         EnviarCadSalas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EnviarCadSalasActionPerformed(evt);
+                try {
+                    EnviarCadSalasActionPerformed(evt);
+                } catch (SQLException e) {
+                  e.printStackTrace();
+                }
             }
         });
 
@@ -667,7 +671,22 @@ public class ClienteGUI extends javax.swing.JFrame {
          }
     }//GEN-LAST:event_EnviarCadAlunoActionPerformed
 
-    private void EnviarCadSalasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnviarCadSalasActionPerformed
+    private void EnviarCadSalasActionPerformed(java.awt.event.ActionEvent evt) throws SQLException {//GEN-FIRST:event_EnviarCadSalasActionPerformed
+
+        if((CadSalas.getText().isEmpty())){
+            System.out.println("vazio");
+            JOptionPane.showMessageDialog(null, "O campo não pode estar vazio");
+        }
+        else{
+            Clazz clazz = new Clazz();
+            clazz.setName(CadSalas.getText());
+            System.out.println("vazio1");
+            // Salvando a matéria com o nome inserido na tabela classes
+            ClazzDAO clazzdao = new ClazzDAO();
+            clazzdao.insertClazz(clazz);
+            JOptionPane.showMessageDialog(null,"A matéria "+CadSalas.getText()+" foi cadastrada "+ComboSalasCad.getSelectedItem().toString());
+            CadSalas.setText("");
+        }
 
     }//GEN-LAST:event_EnviarCadSalasActionPerformed
 

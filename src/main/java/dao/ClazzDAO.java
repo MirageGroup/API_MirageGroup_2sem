@@ -4,6 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.jar.Attributes.Name;
 
 import models.Clazz;
 import models.Student;
@@ -73,6 +74,19 @@ public class ClazzDAO extends DAO {
       }
   }
 
+    public void insertClazz(Clazz clazz){
+        String sql = "INSERT INTO id_class(name_class) VALUES (?)";
+        try{
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setInt(1,clazz.getId());
+            stmt.execute();
+            stmt.close();
+        }catch(SQLException e){
+            throw new RuntimeException(e);
+        }       
+    }
+    
+
     public Clazz getByName(String name){
         String sql = "SELECT * FROM classes WHERE name_class = ?";
         try{
@@ -112,4 +126,6 @@ public class ClazzDAO extends DAO {
             throw new RuntimeException(e);
         }
     }
+
+    
 }

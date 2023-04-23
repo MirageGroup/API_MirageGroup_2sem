@@ -34,7 +34,6 @@ public class ClazzController {
             }
 
             return students;
-
         }
     }
 }
