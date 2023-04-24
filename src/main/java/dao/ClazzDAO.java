@@ -75,10 +75,10 @@ public class ClazzDAO extends DAO {
   }
 
     public void insertClazz(Clazz clazz){
-        String sql = "INSERT INTO id_class(name_class) VALUES (?)";
+        String sql = "INSERT INTO classes(name_class) VALUES (?)";
         try{
             PreparedStatement stmt = conn.prepareStatement(sql);
-            stmt.setInt(1,clazz.getId());
+            stmt.setString(1,clazz.getName());
             stmt.execute();
             stmt.close();
         }catch(SQLException e){

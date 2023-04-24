@@ -684,7 +684,7 @@ public class ClienteGUI extends javax.swing.JFrame {
             // Salvando a matéria com o nome inserido na tabela classes
             ClazzDAO clazzdao = new ClazzDAO();
             clazzdao.insertClazz(clazz);
-            JOptionPane.showMessageDialog(null,"A matéria "+CadSalas.getText()+" foi cadastrada "+ComboSalasCad.getSelectedItem().toString());
+            JOptionPane.showMessageDialog(null,"A matéria "+CadSalas.getText()+" foi cadastrada ");
             CadSalas.setText("");
         }
 
