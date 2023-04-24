@@ -89,6 +89,134 @@ public class ClienteGUI extends javax.swing.JFrame {
         );
 
         jTabbedPane1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        VgeralPanel.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 0, 0)));
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel7.setText("Lista de Alunos");
+
+        // for(int i = 0; i<=student.size();i++){
+        // }
+        //     jCheckBox1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        //     jCheckBox1.setText("Ola");
+        //     jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+        //         public void actionPerformed(java.awt.event.ActionEvent evt) {
+        //             jCheckBox1ActionPerformed(evt);
+        //         }
+        //     });
+    
+
+        jCheckBox2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jCheckBox2.setText("Ana Laura Silva");
+        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox2ActionPerformed(evt);
+            }
+        });
+
+        jCheckBox3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jCheckBox3.setText("Ana Laura Silva");
+        jCheckBox3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox3ActionPerformed(evt);
+            }
+        });
+
+        jCheckBox4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jCheckBox4.setText("Ana Laura Silva");
+        jCheckBox4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox4ActionPerformed(evt);
+            }
+        });
+
+        jCheckBox5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jCheckBox5.setText("Ana Laura Silva");
+        jCheckBox5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox5ActionPerformed(evt);
+            }
+        });
+
+        jCheckBox6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jCheckBox6.setText("Ana Laura Silva");
+        jCheckBox6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox6ActionPerformed(evt);
+            }
+        });
+
+        jCheckBox7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jCheckBox7.setText("Ana Laura Silva");
+        jCheckBox7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox7ActionPerformed(evt);
+            }
+        });
+
+        jCheckBox8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jCheckBox8.setText("Ana Laura Silva");
+        jCheckBox8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox8ActionPerformed(evt);
+            }
+        });
+
+        jCheckBox9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jCheckBox9.setText("Ana Laura Silva");
+        jCheckBox9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox9ActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Editar Cadastro");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Editar Cadastro");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setText("Editar Cadastro");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jButton4.setText("Editar Cadastro");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        jButton6.setText("Editar Cadastro");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+
+        jButton7.setText("Editar Cadastro");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+
+        jButton8.setText("Editar Cadastro");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
 
         VgeralPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -262,7 +390,6 @@ public class ClienteGUI extends javax.swing.JFrame {
                   EnviarCadSalasActionPerformed(evt);
                 } catch (SQLException e) {
                   // TODO Auto-generated catch block
-                  e.printStackTrace();
                 }
             }
         });
