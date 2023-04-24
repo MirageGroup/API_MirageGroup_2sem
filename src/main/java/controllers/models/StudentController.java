@@ -45,11 +45,7 @@ public class StudentController {
                           .addComponent(checkbox)
                           .addComponent(button))
                       .addContainerGap(20, Short.MAX_VALUE))
-          );
-
-          
-
+          );         
       }
     }
-
 }

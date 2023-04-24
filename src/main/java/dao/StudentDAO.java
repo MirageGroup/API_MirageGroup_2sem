@@ -81,4 +81,24 @@ public class StudentDAO extends DAO {
       }
   }
 
+  public ArrayList<Student> getAll(){
+    ArrayList<Student> lista = new ArrayList<>(); // Inicializa a variável lista
+    String sql = "SELECT * FROM students";
+    try{
+    PreparedStatement stmt = conn.prepareStatement(sql);
+    ResultSet rs = stmt.executeQuery();
+    while(rs.next()){
+        Student student = new Student();
+        student.setId(rs.getInt("id_student"));
+        student.setName(rs.getString("name_student"));
+        student.setGrade(rs.getDouble("grade_student"));
+        lista.add(student);
+    }
+        stmt.close();
+        return lista;
+    }catch(SQLException e){
+        throw new RuntimeException(e);
+    }
+}
+
 }
