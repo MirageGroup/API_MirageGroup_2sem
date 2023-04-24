@@ -127,6 +127,7 @@ public class ClienteGUI extends javax.swing.JFrame {
         jLabel7.setText("Lista de Alunos");
 
         jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
@@ -146,8 +147,8 @@ public class ClienteGUI extends javax.swing.JFrame {
             .addGroup(AlunosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(AlunosPanelLayout.createSequentialGroup()
                     .addGap(35, 35, 35)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(557, Short.MAX_VALUE)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 792, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(99, Short.MAX_VALUE)))
         );
         AlunosPanelLayout.setVerticalGroup(
             AlunosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -261,22 +262,23 @@ public class ClienteGUI extends javax.swing.JFrame {
         EnviarCadAluno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 try {
-                    EnviarCadAlunoActionPerformed(evt);
-                  } catch (SQLException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                  }
-        }});
+                  EnviarCadAlunoActionPerformed(evt);
+                } catch (SQLException e) {
+                  // TODO Auto-generated catch block
+                  e.printStackTrace();
+                };
+            }
+        });
 
         EnviarCadSalas.setText("Enviar");
         EnviarCadSalas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 try {
-                    EnviarCadSalasActionPerformed(evt);
-                  } catch (SQLException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                  }
+                  EnviarCadAlunoActionPerformed(evt);
+                } catch (SQLException e) {
+                  // TODO Auto-generated catch block
+                  e.printStackTrace();
+                };
             }
         });
 
