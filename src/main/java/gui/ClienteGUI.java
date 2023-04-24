@@ -445,8 +445,10 @@ public class ClienteGUI extends javax.swing.JFrame {
             CadSalas.setText("");
 
             
-
             clazzdao.closeConn();
+
+            ComboSalas.setModel(new javax.swing.DefaultComboBoxModel<>( ClazzController.GetAllClazzesName() ));
+            ComboSalasCad.setModel(new javax.swing.DefaultComboBoxModel<>( ClazzController.GetAllClazzesName() ));
         }
 
     }
