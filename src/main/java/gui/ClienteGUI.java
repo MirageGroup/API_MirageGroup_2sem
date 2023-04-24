@@ -274,7 +274,7 @@ public class ClienteGUI extends javax.swing.JFrame {
         EnviarCadSalas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 try {
-                  EnviarCadAlunoActionPerformed(evt);
+                    EnviarCadSalasActionPerformed(evt);
                 } catch (SQLException e) {
                   // TODO Auto-generated catch block
                   e.printStackTrace();
@@ -430,7 +430,7 @@ public class ClienteGUI extends javax.swing.JFrame {
           studentdao.closeConn();
           jTextArea1.setText("");
           preencherTextArea();
-        
+          
          }
     }//GEN-LAST:event_EnviarCadAlunoActionPerformed
 
