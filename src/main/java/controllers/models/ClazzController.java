@@ -22,18 +22,4 @@ public class ClazzController {
 
     }
 
-    public class StudentController{
-        public  String[] GetAllStudentsName(){
-            StudentDAO dao = new StudentDAO();
-            
-            ArrayList<Student> list = dao.getAll();
-            String students[] = new String[list.size()];
-
-            for(int i = 0; i < list.size(); i++){
-                students[i] = list.get(i).getName();
-            }
-
-            return students;
-        }
-    }
 }

@@ -54,6 +54,7 @@ public class ClazzDAO extends DAO {
             throw new RuntimeException(e);
         }
     }
+
     public Clazz getById(int id){
       String sql = "SELECT * FROM classes WHERE id_class = ?";
       try{
@@ -107,7 +108,7 @@ public class ClazzDAO extends DAO {
         }
     }
 
-    public ArrayList<Clazz>getAll(){
+    public ArrayList<Clazz> getAll(){
         String sql = "SELECT * FROM classes";
         try{
         PreparedStatement stmt = conn.prepareStatement(sql);

@@ -5,11 +5,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import models.Clazz;
 import models.Student;
 
 public class StudentDAO extends DAO {
-
-    private ArrayList<Student> lista = new ArrayList<>();
 
     public void save(Student student){
         String sql = "INSERT INTO students(name_student) VALUES (?)";
@@ -60,21 +59,26 @@ public class StudentDAO extends DAO {
         }
     }
 
-    public ArrayList<Student> getAll(){
-        String sql = "SELECT * FROM students";
-        try{
-        PreparedStatement stmt = conn.prepareStatement(sql);
-        ResultSet rs = stmt.executeQuery();
-        while(rs.next()){
-            Student aluno = new Student();
-            aluno.setId(rs.getInt("id_student"));
-            aluno.setName(rs.getString("name_student"));            
-        }
-            stmt.close();
-            return this.lista;
-        }catch(SQLException e){
-            throw new RuntimeException(e);
-        }
-    }  
+    public ArrayList<Student> getByClazz(Clazz clazz) {
+      ArrayList<Student> lista = new ArrayList<>(); // Inicializa a variável lista
+  
+      String sql = "SELECT * FROM students INNER JOIN student_class ON student_class.fk_Students_id_student = students.id_student WHERE fk_Classes_id_class = ?";
+      try{
+          PreparedStatement stmt = conn.prepareStatement(sql);
+          stmt.setInt(1, clazz.getId());
+          ResultSet rs = stmt.executeQuery();
+          while(rs.next()){
+              Student student = new Student();
+              student.setId(rs.getInt("id_student"));
+              student.setName(rs.getString("name_student"));
+              student.setGrade(rs.getDouble("grade_student"));
+              lista.add(student);
+          }
+          stmt.close();
+          return lista;
+      } catch(SQLException e){
+          throw new RuntimeException(e);
+      }
+  }
 
 }
