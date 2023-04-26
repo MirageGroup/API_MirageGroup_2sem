@@ -78,9 +78,6 @@ public class StudentDAO extends DAO {
               list.add(student);
           }
           stmt.close();
-          for (Student student : list) {
-            System.out.println(student.getName());
-          }
 
           return list;
       } catch(SQLException e){
