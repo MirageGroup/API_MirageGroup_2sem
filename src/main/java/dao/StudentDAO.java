@@ -60,8 +60,11 @@ public class StudentDAO extends DAO {
     }
 
     public ArrayList<Student> getByClazz(Clazz clazz) {
-      ArrayList<Student> lista = new ArrayList<>(); // Inicializa a variável lista
+      ArrayList<Student> list = new ArrayList<>();
   
+      ClazzDAO clazzDao = new ClazzDAO();
+      clazz = clazzDao.getByName(clazz.getName());
+
       String sql = "SELECT * FROM students INNER JOIN student_class ON student_class.fk_Students_id_student = students.id_student WHERE fk_Classes_id_class = ?";
       try{
           PreparedStatement stmt = conn.prepareStatement(sql);
@@ -72,10 +75,14 @@ public class StudentDAO extends DAO {
               student.setId(rs.getInt("id_student"));
               student.setName(rs.getString("name_student"));
               student.setGrade(rs.getDouble("grade_student"));
-              lista.add(student);
+              list.add(student);
           }
           stmt.close();
-          return lista;
+          for (Student student : list) {
+            System.out.println(student.getName());
+          }
+
+          return list;
       } catch(SQLException e){
           throw new RuntimeException(e);
       }
