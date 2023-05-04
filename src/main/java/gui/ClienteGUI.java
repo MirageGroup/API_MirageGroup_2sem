@@ -411,50 +411,11 @@ public class ClienteGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_EstatisticasActionPerformed
 
     private void EnviarCadAlunoActionPerformed(java.awt.event.ActionEvent evt) throws SQLException {//GEN-FIRST:event_EnviarCadAlunoActionPerformed
-      if((CadAluno.getText().isEmpty())){
-          JOptionPane.showMessageDialog(null, "O campo não pode estar vazio");
-      }
-      else{
-          Student student = new Student();
-          student.setName(CadAluno.getText());
-
-          // Salvando o aluno com o nome inserido na tabela student
-          StudentDAO studentdao = new StudentDAO();
-          studentdao.save(student);
-          JOptionPane.showMessageDialog(null,"Aluno "+CadAluno.getText()+" cadastrado na turma "+ComboSalasCad.getSelectedItem().toString());
-          CadAluno.setText("");
-
-          // Salvando o aluno na turma em que ele foi cadastrado
-          ClazzDAO clazzdao = new ClazzDAO();
-          Clazz clazz = clazzdao.getByName(ComboSalasCad.getSelectedItem().toString());
-          clazzdao.addStudent(clazz, student);
-
-          clazzdao.closeConn();
-          studentdao.closeConn();
-          jTextArea1.setText("");
-          StudentController.showStudentsByClazz();
-         }
+        StudentController.saveStudent();
     }//GEN-LAST:event_EnviarCadAlunoActionPerformed
 
     private void EnviarCadSalasActionPerformed(java.awt.event.ActionEvent evt) throws SQLException {
-        if(CadSalas.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "O campo não pode estar vazio");
-        } else {
-            Clazz clazz = new Clazz();
-            clazz.setName(CadSalas.getText());
-
-            ClazzDAO clazzdao = new ClazzDAO();
-            clazzdao.save(clazz);
-            JOptionPane.showMessageDialog(null, "Turma "+CadSalas.getText()+" cadastrada");
-            CadSalas.setText("");
-
-            
-            clazzdao.closeConn();
-
-            ComboSalas.setModel(new javax.swing.DefaultComboBoxModel<>( ClazzController.GetAllClazzesName() ));
-            ComboSalasCad.setModel(new javax.swing.DefaultComboBoxModel<>( ClazzController.GetAllClazzesName() ));
-        }
-
+        ClazzController.saveClazz();
     }
 
     private void CadSalasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadSalasActionPerformed
@@ -524,12 +485,12 @@ public class ClienteGUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel AlunosPanel;
     private javax.swing.JPanel AtividadesPanel;
-    private javax.swing.JTextField CadAluno;
+    public static javax.swing.JTextField CadAluno;
     private javax.swing.JTextField CadAtividades;
-    private javax.swing.JTextField CadSalas;
+    public static javax.swing.JTextField CadSalas;
     public static javax.swing.JComboBox<String> ComboSalas;
-    private javax.swing.JComboBox<String> ComboSalasCad;
-    private javax.swing.JButton EnviarCadAluno;
+    public static javax.swing.JComboBox<String> ComboSalasCad;
+    public static javax.swing.JButton EnviarCadAluno;
     private javax.swing.JButton EnviarCadAtv;
     private javax.swing.JButton EnviarCadSalas;
     private javax.swing.JPanel EstatisticasPanel;
