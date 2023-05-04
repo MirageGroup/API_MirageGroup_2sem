@@ -14,7 +14,7 @@ public class StudentController {
 
       Clazz clazz = new Clazz();
 
-      clazz.setName(ClienteGUI.ComboSalas.getSelectedItem().toString());
+      clazz.setName((String)ClienteGUI.ComboSalas.getSelectedItem());
 
       ArrayList<Student> studentsList = studentDAO.getByClazz(clazz);
 
