@@ -404,14 +404,24 @@ public class ClienteGUI extends javax.swing.JFrame {
         EnviarCadAluno.setText("Enviar");
         EnviarCadAluno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EnviarCadAlunoActionPerformed(evt);
+                try {
+                    EnviarCadAlunoActionPerformed(evt);
+                } catch (SQLException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
             }
         });
 
         EnviarCadSalas.setText("Enviar");
         EnviarCadSalas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EnviarCadSalasActionPerformed(evt);
+                try {
+                    EnviarCadSalasActionPerformed(evt);
+                } catch (SQLException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -631,11 +641,11 @@ public class ClienteGUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel AlunosPanel;
     private javax.swing.JPanel AtividadesPanel;
-    private javax.swing.JTextField CadAluno;
+    public static javax.swing.JTextField CadAluno;
     private javax.swing.JTextField CadAtividades;
-    private javax.swing.JTextField CadSalas;
-    private javax.swing.JComboBox<String> ComboSalas;
-    private javax.swing.JComboBox<String> ComboSalasCad;
+    public static javax.swing.JTextField CadSalas;
+    public static javax.swing.JComboBox<String> ComboSalas;
+    public static javax.swing.JComboBox<String> ComboSalasCad;
     private javax.swing.JButton EnviarCadAluno;
     private javax.swing.JButton EnviarCadAtv;
     private javax.swing.JButton EnviarCadSalas;
@@ -664,7 +674,7 @@ public class ClienteGUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextArea jTextArea1;
+    public static javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;
     private javax.swing.JTextField jTextField1;
