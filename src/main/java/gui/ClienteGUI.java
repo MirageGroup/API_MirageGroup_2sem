@@ -602,7 +602,7 @@ public class ClienteGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) throws SQLException{
-        GradesController.saveGrade();
+        GradesController.saveGrades();
     }
 
 
