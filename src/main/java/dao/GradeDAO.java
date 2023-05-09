@@ -31,4 +31,20 @@ public class GradeDAO extends DAO {
         }
     }
 
+    public void saveGrade(Grade grade){
+        String sql = "INSERT INTO students(grade_student) VALUES (?)";
+        try{
+            PreparedStatement stmt = conn.prepareStatement(sql, java.sql.Statement.RETURN_GENERATED_KEYS);
+            stmt.setDouble(1, grade.getGrade());
+            stmt.execute();
+            ResultSet rs = stmt.getGeneratedKeys();
+            if(rs.next()){
+                grade.setGrade(rs.getInt(1));
+            }
+            stmt.close();
+        }catch(SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
+
 }

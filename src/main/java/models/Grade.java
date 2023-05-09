@@ -22,7 +22,7 @@ public class Grade {
     public String getFkAss() {
         return fk_Assignments_id_assignment;
     }
-    public void setFkAss(String fk_Assignments_id_assignment ) {
+    public void setFkAss(String fk_Assignments_id_assignment) {
         this.fk_Assignments_id_assignment = fk_Assignments_id_assignment;
     }
     public String getDelivered() {

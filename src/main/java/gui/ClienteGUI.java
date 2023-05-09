@@ -15,6 +15,7 @@ import javax.swing.event.ChangeListener;
 import javax.swing.JCheckBox;
 import javax.swing.JButton;
 import controllers.models.ClazzController;
+import controllers.models.GradesController;
 import controllers.models.StudentController;
 import dao.ClazzDAO;
 import dao.StudentDAO;
@@ -254,8 +255,12 @@ public class ClienteGUI extends javax.swing.JFrame {
         jButton1.setText("Enviar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
+            try{
                 jButton1ActionPerformed(evt);
+            } catch (SQLException e){
+                e.printStackTrace();
             }
+        }
         });
 
         javax.swing.GroupLayout NotasPanelLayout = new javax.swing.GroupLayout(NotasPanel);
@@ -407,7 +412,6 @@ public class ClienteGUI extends javax.swing.JFrame {
                 try {
                     EnviarCadAlunoActionPerformed(evt);
                 } catch (SQLException e) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
             }
@@ -419,7 +423,6 @@ public class ClienteGUI extends javax.swing.JFrame {
                 try {
                     EnviarCadSalasActionPerformed(evt);
                 } catch (SQLException e) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
             }
@@ -598,9 +601,9 @@ public class ClienteGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) throws SQLException{
+        GradesController.saveGrade();
+    }
 
 
     /**
@@ -677,7 +680,7 @@ public class ClienteGUI extends javax.swing.JFrame {
     public static javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;
-    private javax.swing.JTextField jTextField1;
+    public static javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
