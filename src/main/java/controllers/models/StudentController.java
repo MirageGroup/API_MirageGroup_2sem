@@ -4,7 +4,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
+import BotaoEdicaoAlunos.PainelDeAcao;
 import dao.ClazzDAO;
 import dao.StudentDAO;
 import gui.ClienteGUI;
@@ -22,10 +25,10 @@ public class StudentController {
 
       ArrayList<Student> studentsList = studentDAO.getByClazz(clazz);
 
-      ClienteGUI.jTextArea1.setText("");
       for (Student student : studentsList) {
-        ClienteGUI.jTextArea1.setText(ClienteGUI.jTextArea1.getText()+student.getName()+"\n");
+        
       }
+
   }
 
   public static void saveStudent() throws SQLException{
@@ -47,7 +50,6 @@ public class StudentController {
 
         clazzdao.closeConn();
         studentdao.closeConn();
-        ClienteGUI.jTextArea1.setText("");
         StudentController.showStudentsByClazz();
      }
   }
