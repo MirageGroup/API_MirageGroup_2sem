@@ -11,6 +11,7 @@ import BotaoEdicaoAlunos.PainelDeAcao;
 import dao.ClazzDAO;
 import dao.StudentDAO;
 import gui.ClienteGUI;
+import java.awt.Dimension;
 import models.Clazz;
 import models.Student;
 
@@ -23,12 +24,24 @@ public class StudentController {
 
       clazz.setName((String)ClienteGUI.ComboSalas.getSelectedItem());
 
-      ArrayList<Student> studentsList = studentDAO.getByClazz(clazz);
 
-      for (Student student : studentsList) {
+      StudentDAO dao=new StudentDAO();
+        ArrayList<Student> lista = dao.getByClazz(clazz);
+        int contador=0;
         
-      }
-
+        ClienteGUI.painelInserirAlunos.removeAll();
+        
+        for (Student student:lista){
+ 
+            PainelDeAcao painel=new PainelDeAcao(student);
+            
+            ClienteGUI.painelInserirAlunos.add(painel);
+            contador++;
+            
+        }
+        ClienteGUI.painelInserirAlunos.setPreferredSize(new Dimension(901, 40*contador));
+        ClienteGUI.painelInserirAlunos.revalidate();
+        ClienteGUI.painelInserirAlunos.repaint();
   }
 
   public static void saveStudent() throws SQLException{
@@ -53,5 +66,9 @@ public class StudentController {
         StudentController.showStudentsByClazz();
      }
   }
-
+  
+  public void preencherTelaAluno(Clazz clazz){
+        
+        
+}
 }

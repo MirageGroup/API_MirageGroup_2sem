@@ -26,7 +26,9 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jCheckBox3" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="466" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jTextField1" pref="753" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="cmdEditar" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="cmdEdit" min="-2" max="-2" attributes="0"/>
@@ -39,6 +41,7 @@
           <Group type="102" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="jTextField1" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="cmdEdit" min="-2" max="-2" attributes="0"/>
                       <Component id="cmdEditar" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -71,6 +74,14 @@
     <Component class="javax.swing.JCheckBox" name="jCheckBox3">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox3ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextField1">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField1ActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

@@ -4,6 +4,7 @@
  */
 package gui;
 
+import BotaoEdicaoAlunos.PainelDeAcao;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -53,7 +54,8 @@ public class ClienteGUI extends javax.swing.JFrame {
         });
         ComboSalasCad.setModel(new javax.swing.DefaultComboBoxModel<>( ClazzController.GetAllClazzesName() ));
     }
-
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -73,12 +75,8 @@ public class ClienteGUI extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         VgeralPanel = new javax.swing.JPanel();
         AlunosPanel = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
-        jScrollBar1 = new javax.swing.JScrollBar();
-        painelDeAcao1 = new BotaoEdicaoAlunos.PainelDeAcao();
-        AtividadesPanel = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        painelInserirAlunos = new javax.swing.JPanel();
         NotasPanel = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
@@ -97,6 +95,7 @@ public class ClienteGUI extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         EstatisticasPanel = new javax.swing.JPanel();
+        AtividadesPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         ComboSalas = new javax.swing.JComboBox<>();
         jButton5 = new javax.swing.JButton();
@@ -145,7 +144,7 @@ public class ClienteGUI extends javax.swing.JFrame {
         VgeralPanel.setLayout(VgeralPanelLayout);
         VgeralPanelLayout.setHorizontalGroup(
             VgeralPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 926, Short.MAX_VALUE)
+            .addGap(0, 923, Short.MAX_VALUE)
         );
         VgeralPanelLayout.setVerticalGroup(
             VgeralPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,86 +155,24 @@ public class ClienteGUI extends javax.swing.JFrame {
 
         AlunosPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel7.setText("Lista de Alunos");
+        jScrollPane4.setPreferredSize(new java.awt.Dimension(917, 0));
 
-        painelDeAcao1.setBackground(new java.awt.Color(255, 51, 255));
+        painelInserirAlunos.setBackground(new java.awt.Color(102, 102, 102));
+        painelInserirAlunos.setPreferredSize(new java.awt.Dimension(915, 470));
+        jScrollPane4.setViewportView(painelInserirAlunos);
 
         javax.swing.GroupLayout AlunosPanelLayout = new javax.swing.GroupLayout(AlunosPanel);
         AlunosPanel.setLayout(AlunosPanelLayout);
         AlunosPanelLayout.setHorizontalGroup(
             AlunosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(AlunosPanelLayout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addGroup(AlunosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(AlunosPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addContainerGap(729, Short.MAX_VALUE))
-                    .addGroup(AlunosPanelLayout.createSequentialGroup()
-                        .addComponent(painelDeAcao1, javax.swing.GroupLayout.PREFERRED_SIZE, 790, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(41, 41, 41))))
+            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 923, Short.MAX_VALUE)
         );
         AlunosPanelLayout.setVerticalGroup(
             AlunosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(AlunosPanelLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jLabel7)
-                .addGroup(AlunosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(AlunosPanelLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(AlunosPanelLayout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(painelDeAcao1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(75, Short.MAX_VALUE))
+            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 472, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Alunos", AlunosPanel);
-
-        AtividadesPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        jTextField1.setText("nome aluno");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 572, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(337, 337, 337))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(17, 17, 17))
-        );
-
-        javax.swing.GroupLayout AtividadesPanelLayout = new javax.swing.GroupLayout(AtividadesPanel);
-        AtividadesPanel.setLayout(AtividadesPanelLayout);
-        AtividadesPanelLayout.setHorizontalGroup(
-            AtividadesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(AtividadesPanelLayout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 19, Short.MAX_VALUE))
-        );
-        AtividadesPanelLayout.setVerticalGroup(
-            AtividadesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(AtividadesPanelLayout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 418, Short.MAX_VALUE))
-        );
-
-        jTabbedPane1.addTab("Atividades", AtividadesPanel);
 
         jTextArea2.setColumns(20);
         jTextArea2.setRows(5);
@@ -327,7 +264,7 @@ public class ClienteGUI extends javax.swing.JFrame {
                             .addGroup(NotasPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                                 .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)))))
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
         NotasPanelLayout.setVerticalGroup(
             NotasPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -351,7 +288,7 @@ public class ClienteGUI extends javax.swing.JFrame {
                         .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 288, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 273, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(30, 30, 30))
         );
@@ -364,7 +301,7 @@ public class ClienteGUI extends javax.swing.JFrame {
         EstatisticasPanel.setLayout(EstatisticasPanelLayout);
         EstatisticasPanelLayout.setHorizontalGroup(
             EstatisticasPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 926, Short.MAX_VALUE)
+            .addGap(0, 923, Short.MAX_VALUE)
         );
         EstatisticasPanelLayout.setVerticalGroup(
             EstatisticasPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -372,6 +309,21 @@ public class ClienteGUI extends javax.swing.JFrame {
         );
 
         jTabbedPane1.addTab("Estatisticas", EstatisticasPanel);
+
+        AtividadesPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        javax.swing.GroupLayout AtividadesPanelLayout = new javax.swing.GroupLayout(AtividadesPanel);
+        AtividadesPanel.setLayout(AtividadesPanelLayout);
+        AtividadesPanelLayout.setHorizontalGroup(
+            AtividadesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 923, Short.MAX_VALUE)
+        );
+        AtividadesPanelLayout.setVerticalGroup(
+            AtividadesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 472, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Atividades", AtividadesPanel);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setText("Salas:");
@@ -500,8 +452,8 @@ public class ClienteGUI extends javax.swing.JFrame {
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(216, 216, 216)
-                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 928, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(48, Short.MAX_VALUE)))
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 925, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(51, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -537,7 +489,7 @@ public class ClienteGUI extends javax.swing.JFrame {
                 .addGroup(layout.createSequentialGroup()
                     .addGap(32, 32, 32)
                     .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(140, Short.MAX_VALUE)))
+                    .addContainerGap(145, Short.MAX_VALUE)))
         );
 
         pack();
@@ -604,9 +556,6 @@ public class ClienteGUI extends javax.swing.JFrame {
 
     }//GEN-LAST:event_AlunosComponentAdded
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
     private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField5ActionPerformed
@@ -674,38 +623,35 @@ public class ClienteGUI extends javax.swing.JFrame {
     public static javax.swing.JPanel Logo;
     public static javax.swing.JPanel NotasPanel;
     public static javax.swing.JPanel VgeralPanel;
-    public static javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton1;
     public static javax.swing.JButton jButton5;
-    public static javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
-    public static javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem2;
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem2;
     public static javax.swing.JLabel jLabel1;
-    public static javax.swing.JLabel jLabel10;
-    public static javax.swing.JLabel jLabel11;
-    public static javax.swing.JLabel jLabel12;
-    public static javax.swing.JLabel jLabel13;
-    public static javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     public static javax.swing.JLabel jLabel2;
     public static javax.swing.JLabel jLabel3;
-    public static javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel4;
     public static javax.swing.JLabel jLabel5;
     public static javax.swing.JLabel jLabel6;
-    public static javax.swing.JLabel jLabel7;
-    public static javax.swing.JLabel jLabel8;
-    public static javax.swing.JLabel jLabel9;
-    public static javax.swing.JPanel jPanel2;
-    public static javax.swing.JScrollBar jScrollBar1;
-    public static javax.swing.JScrollPane jScrollPane2;
-    public static javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     public static javax.swing.JTabbedPane jTabbedPane1;
-    public static javax.swing.JTextArea jTextArea2;
-    public static javax.swing.JTextArea jTextArea3;
-    public static javax.swing.JTextField jTextField1;
-    public static javax.swing.JTextField jTextField2;
-    public static javax.swing.JTextField jTextField3;
+    private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JTextArea jTextArea3;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
     public static javax.swing.JTextField jTextField4;
-    public static javax.swing.JTextField jTextField5;
-    public static javax.swing.JTextField jTextField6;
-    public static BotaoEdicaoAlunos.PainelDeAcao painelDeAcao1;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
+    public static javax.swing.JPanel painelInserirAlunos;
     // End of variables declaration//GEN-END:variables
     public static javax.swing.JScrollPane jScrollPane1;
 }
