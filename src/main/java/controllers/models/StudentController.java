@@ -13,6 +13,20 @@ import models.Student;
 
 public class StudentController {
 
+
+  public static String[] studentListByClazz(){
+    StudentDAO dao = new StudentDAO();
+
+    ArrayList<Student> list = dao.getAll();
+    String students[] = new String[list.size()];
+
+    for(int i = 0; i < list.size(); i++){
+        students[i] = list.get(i).getName();
+    }
+    return students;
+
+  }
+
   public static void showStudentsByClazz(){
       StudentDAO studentDAO = new StudentDAO();
 
@@ -49,6 +63,8 @@ public class StudentController {
         studentdao.closeConn();
         ClienteGUI.jTextArea1.setText("");
         StudentController.showStudentsByClazz();
+
+        ClienteGUI.ComboAlunos.setModel(new javax.swing.DefaultComboBoxModel<>( StudentController.studentListByClazz()));
      }
   }
 

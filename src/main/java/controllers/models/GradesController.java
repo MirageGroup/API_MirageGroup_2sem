@@ -15,7 +15,7 @@ import models.Student;
 public class GradesController {
     
     public static void saveGrades(String student_name) throws SQLException{
-        if(ClienteGUI.jTextArea2.getText().isEmpty() || ClienteGUI.jTextField6.getText().isEmpty()){
+        if(ClienteGUI.jTextField6.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Insira todas as informações");
         } else {
             Grade grade = new Grade();
