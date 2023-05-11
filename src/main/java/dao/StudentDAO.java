@@ -105,4 +105,23 @@ public class StudentDAO extends DAO {
     }
 }
 
+public Student getByName(String name){
+    String sql = "SELECT * FROM students WHERE name_student = ?";
+    try{
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setString(1, name);
+        ResultSet rs = stmt.executeQuery();
+        Student student = new Student();
+        while(rs.next()){
+            student.setId(rs.getInt("id_student"));
+            student.setName(rs.getString("name_student"));
+            student.setGrade(rs.getDouble("grade_student"));
+        }
+        stmt.close();
+        return student;
+    }catch(SQLException e){
+        throw new RuntimeException(e);
+    }
+}
+
 }
