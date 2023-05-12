@@ -39,7 +39,7 @@ public class StudentController {
             contador++;
             
         }
-        ClienteGUI.painelInserirAlunos.setPreferredSize(new Dimension(901, 40*contador));
+        ClienteGUI.painelInserirAlunos.setPreferredSize(new Dimension(901, 50*contador));
         ClienteGUI.painelInserirAlunos.revalidate();
         ClienteGUI.painelInserirAlunos.repaint();
   }
