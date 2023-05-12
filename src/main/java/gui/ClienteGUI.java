@@ -52,6 +52,7 @@ public class ClienteGUI extends javax.swing.JFrame {
               StudentController.showStudentsByClazz();
             }
         });
+        StudentController.showStudentsByClazz();
         ComboSalasCad.setModel(new javax.swing.DefaultComboBoxModel<>( ClazzController.GetAllClazzesName() ));
     }
     
@@ -677,7 +678,7 @@ public class ClienteGUI extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField3;
     public static javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
+    public static javax.swing.JTextField jTextField6;
     public static javax.swing.JPanel painelInserirAlunos;
     // End of variables declaration//GEN-END:variables
     public static javax.swing.JScrollPane jScrollPane1;
