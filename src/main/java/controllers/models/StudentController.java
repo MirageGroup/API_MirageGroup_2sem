@@ -17,58 +17,61 @@ import models.Student;
 
 public class StudentController {
 
-  public static void showStudentsByClazz(){
-      StudentDAO studentDAO = new StudentDAO();
+    public static void showStudentsByClazz(){
+        StudentDAO studentDAO = new StudentDAO();
 
-      Clazz clazz = new Clazz();
+        Clazz clazz = new Clazz();
 
-      clazz.setName((String)ClienteGUI.ComboSalas.getSelectedItem());
+        clazz.setName((String)ClienteGUI.ComboSalas.getSelectedItem());
 
 
-      StudentDAO dao=new StudentDAO();
-        ArrayList<Student> lista = dao.getByClazz(clazz);
-        int contador=0;
-        
-        ClienteGUI.painelInserirAlunos.removeAll();
-        
-        for (Student student:lista){
- 
-            PainelDeAcao painel=new PainelDeAcao(student);
-            
-            ClienteGUI.painelInserirAlunos.add(painel);
-            contador++;
-            
-        }
-        ClienteGUI.painelInserirAlunos.setPreferredSize(new Dimension(901, 50*contador));
-        ClienteGUI.painelInserirAlunos.revalidate();
-        ClienteGUI.painelInserirAlunos.repaint();
-  }
-
-  public static void saveStudent() throws SQLException{
-    if((ClienteGUI.CadAluno.getText().isEmpty())){
-        JOptionPane.showMessageDialog(null, "O campo não pode estar vazio");
-    }
-    else{
-        Student student = new Student();
-        student.setName(ClienteGUI.CadAluno.getText());
-
-        StudentDAO studentdao = new StudentDAO();
-        studentdao.save(student);
-        JOptionPane.showMessageDialog(null,"Aluno "+ClienteGUI.CadAluno.getText()+" cadastrado na turma "+ClienteGUI.ComboSalasCad.getSelectedItem().toString());
-        ClienteGUI.CadAluno.setText("");
-
-        ClazzDAO clazzdao = new ClazzDAO();
-        Clazz clazz = clazzdao.getByName(ClienteGUI.ComboSalasCad.getSelectedItem().toString());
-        clazzdao.addStudent(clazz, student);
-
-        clazzdao.closeConn();
-        studentdao.closeConn();
-        StudentController.showStudentsByClazz();
-     }
-  }
+        StudentDAO dao=new StudentDAO();
+          ArrayList<Student> lista = dao.getByClazz(clazz);
+          int contador=0;
+          
+          ClienteGUI.painelInserirAlunos.removeAll();
+          
+          for (Student student:lista){
   
-  public void preencherTelaAluno(Clazz clazz){
-        
-        
-}
+              PainelDeAcao painel=new PainelDeAcao(student);
+              
+              ClienteGUI.painelInserirAlunos.add(painel);
+              contador++;
+              
+          }
+          ClienteGUI.painelInserirAlunos.setPreferredSize(new Dimension(901, 50*contador));
+          ClienteGUI.painelInserirAlunos.revalidate();
+          ClienteGUI.painelInserirAlunos.repaint();
+    }
+
+    public static void saveStudent() throws SQLException{
+      if((ClienteGUI.CadAluno.getText().isEmpty())){
+          JOptionPane.showMessageDialog(null, "O campo não pode estar vazio");
+      }
+      else{
+          Student student = new Student();
+          student.setName(ClienteGUI.CadAluno.getText());
+
+          StudentDAO studentdao = new StudentDAO();
+          studentdao.save(student);
+          JOptionPane.showMessageDialog(null,"Aluno "+ClienteGUI.CadAluno.getText()+" cadastrado na turma "+ClienteGUI.ComboSalasCad.getSelectedItem().toString());
+          ClienteGUI.CadAluno.setText("");
+
+          ClazzDAO clazzdao = new ClazzDAO();
+          Clazz clazz = clazzdao.getByName(ClienteGUI.ComboSalasCad.getSelectedItem().toString());
+          clazzdao.addStudent(clazz, student);
+
+          clazzdao.closeConn();
+          studentdao.closeConn();
+          StudentController.showStudentsByClazz();
+      }
+    }
+
+    public static void deleteStudent(PainelDeAcao studentPanel){
+        if(JOptionPane.showConfirmDialog(null, "Todas as informações serão deletadas", "Deseja excluir esse(a) aluno(a)?", JOptionPane.YES_NO_OPTION) == 0){
+          StudentDAO studentDao = new StudentDAO();
+          studentDao.delete(studentPanel.student);
+        }
+    }
+
 }
