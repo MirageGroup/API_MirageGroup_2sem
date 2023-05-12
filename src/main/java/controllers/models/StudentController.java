@@ -17,7 +17,12 @@ public class StudentController {
   public static String[] studentListByClazz(){
     StudentDAO dao = new StudentDAO();
 
-    ArrayList<Student> list = dao.getAll();
+    Clazz clazz = new Clazz();
+
+      clazz.setName((String)ClienteGUI.ComboSalas.getSelectedItem());
+
+      ArrayList<Student> list = dao.getByClazz(clazz);
+
     String students[] = new String[list.size()];
 
     for(int i = 0; i < list.size(); i++){
@@ -40,6 +45,9 @@ public class StudentController {
       for (Student student : studentsList) {
         ClienteGUI.jTextArea1.setText(ClienteGUI.jTextArea1.getText()+student.getName()+"\n");
       }
+
+      ClienteGUI.ComboAlunos.setModel(new javax.swing.DefaultComboBoxModel<>(StudentController.studentListByClazz()));
+
   }
 
   public static void saveStudent() throws SQLException{

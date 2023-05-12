@@ -5,6 +5,7 @@ import java.sql.SQLException;
 
 
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 import dao.GradeDAO;
 import dao.StudentDAO;
@@ -18,20 +19,33 @@ public class GradesController {
         if(ClienteGUI.jTextField6.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Insira todas as informações");
         } else {
+            double nota = (Double.parseDouble(ClienteGUI.jTextField6.getText()));
+            double nota1 = (Double.parseDouble(ClienteGUI.jTextField2.getText()));
+            double nota2 = (Double.parseDouble(ClienteGUI.jTextField3.getText()));
+            double nota3 = (Double.parseDouble(ClienteGUI.jTextField5.getText()));
+            double nota4 = (Double.parseDouble(ClienteGUI.jTextField8.getText()));
             Grade grade = new Grade();
             StudentDAO student_Dao = new StudentDAO();
             Student student = student_Dao.getByName(student_name);
-            grade.setGrade(Double.parseDouble(ClienteGUI.jTextField6.getText()));
+            grade.setGrade(nota);
+            grade.setGrade1(nota1);
+            grade.setGrade2(nota2);
+            grade.setGrade3(nota3);          
+            grade.setGrade4(nota4);         
             grade.setFkStu(1);
             GradeDAO gradedao = new GradeDAO();
             gradedao.saveGrade(grade,student);
             JOptionPane.showMessageDialog(null, "Nota "+ClienteGUI.jTextField2.getText()+" cadastrada");
-            // ClienteGUI.jTextField1.setText("");
+            ClienteGUI.jTextField6.setText("");
+            ClienteGUI.jTextField2.setText("");
+            ClienteGUI.jTextField3.setText("");
+            ClienteGUI.jTextField5.setText("");
+            ClienteGUI.jTextField8.setText("");
             
             gradedao.closeConn();
 
            
         }
-    }
+     }
 
 }
