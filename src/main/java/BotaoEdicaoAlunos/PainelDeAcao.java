@@ -4,6 +4,7 @@
  */
 package BotaoEdicaoAlunos;
 
+import dao.StudentDAO;
 import models.Student;
 
 /**
@@ -41,6 +42,11 @@ public class PainelDeAcao extends javax.swing.JPanel {
         jCheckBox2.setText("jCheckBox2");
 
         cmdEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BotaoEdicaoAlunos/edit.png"))); // NOI18N
+        cmdEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdEditarActionPerformed(evt);
+            }
+        });
 
         cmdEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BotaoEdicaoAlunos/delete.png"))); // NOI18N
         cmdEdit.addActionListener(new java.awt.event.ActionListener() {
@@ -91,9 +97,10 @@ public class PainelDeAcao extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cmdEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdEditActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmdEditActionPerformed
+    private void cmdEditActionPerformed(java.awt.event.ActionEvent evt) {
+        StudentDAO studentDao = new StudentDAO();
+        studentDao.delete(this.student);
+    }
 
     private void jCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox3ActionPerformed
         // TODO add your handling code here:
@@ -102,6 +109,10 @@ public class PainelDeAcao extends javax.swing.JPanel {
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void cmdEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdEditarActionPerformed
+        //funcao para atualizar
+    }//GEN-LAST:event_cmdEditarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

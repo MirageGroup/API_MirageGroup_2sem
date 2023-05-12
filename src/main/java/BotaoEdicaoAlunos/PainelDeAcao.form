@@ -60,6 +60,9 @@
           <Image iconType="3" name="/BotaoEdicaoAlunos/edit.png"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmdEditarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="BotaoEdicaoAlunos.AcaoBotao" name="cmdEdit">
       <Properties>
