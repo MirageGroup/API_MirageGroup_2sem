@@ -40,33 +40,6 @@ public class StudentDAO extends DAO {
         }
     }
 
-    public void delete(Student student){
-        String sql1 = "DELETE FROM grades WHERE fk_Grades_id_student = ?";
-        String sql2 = "DELETE FROM student_assignment WHERE fk_Students_id_student = ?";
-        String sql3 = "DELETE FROM student_class WHERE fk_Students_id_student = ?";
-        String sql4 = "DELETE FROM students WHERE id_student = ?";
-        try {
-            PreparedStatement stmt = conn.prepareStatement(sql1);
-            stmt.setInt(1, student.getId());
-            stmt.executeUpdate();
-            
-            stmt = conn.prepareStatement(sql2);
-            stmt.setInt(1, student.getId());
-            stmt.executeUpdate();
-
-            stmt = conn.prepareStatement(sql3);
-            stmt.setInt(1, student.getId());
-            stmt.executeUpdate();
-
-            stmt = conn.prepareStatement(sql4);
-            stmt.setInt(1, student.getId());
-            stmt.executeUpdate();
-            stmt.close();
-        }catch(SQLException e){
-            throw new RuntimeException(e);
-        }
-    }
-
     public Student getById(int id){
         String sql = "SELECT * FROM students WHERE id_student = ?";
         try{
