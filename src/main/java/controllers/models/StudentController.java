@@ -17,8 +17,26 @@ import models.Student;
 
 public class StudentController {
 
-    public static void showStudentsByClazz(){
-        StudentDAO studentDAO = new StudentDAO();
+  public static String[] studentListByClazz(){
+    StudentDAO dao = new StudentDAO();
+
+    Clazz clazz = new Clazz();
+
+      clazz.setName((String)ClienteGUI.ComboSalas.getSelectedItem());
+
+      ArrayList<Student> list = dao.getByClazz(clazz);
+
+    String students[] = new String[list.size()];
+
+    for(int i = 0; i < list.size(); i++){
+        students[i] = list.get(i).getName();
+    }
+    return students;
+
+  }
+
+  public static void showStudentsByClazz(){
+      StudentDAO studentDAO = new StudentDAO();
 
         Clazz clazz = new Clazz();
 
@@ -66,6 +84,8 @@ public class StudentController {
           StudentController.showStudentsByClazz();
       }
     }
+      ClienteGUI.ComboAlunos.setModel(new javax.swing.DefaultComboBoxModel<>(StudentController.studentListByClazz()));
+  }
 
     public static void deleteStudent(PainelDeAcao studentPanel){
         if(JOptionPane.showConfirmDialog(null, "Todas as informações serão deletadas", "Deseja excluir esse(a) aluno(a)?", JOptionPane.YES_NO_OPTION) == 0){
@@ -74,5 +94,3 @@ public class StudentController {
           showStudentsByClazz();
         }
     }
-
-}

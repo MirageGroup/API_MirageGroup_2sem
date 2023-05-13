@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import models.Grade;
+import models.Student;
 
 public class GradeDAO extends DAO {
 
@@ -31,16 +32,20 @@ public class GradeDAO extends DAO {
         }
     }
 
-    public void saveGrade(Grade grade){
-        String sql = "INSERT INTO grades(grade_student,fk_Grades_id_student) VALUES (?,?)";
+    public void saveGrade(Grade grade, Student student){
+        String sql = "INSERT INTO grades(fk_Grades_id_student,grade_student,grade_student1,grade_student2,grade_student3,grade_student4) VALUES (?,?,?,?,?,?)";       
         try{
             PreparedStatement stmt = conn.prepareStatement(sql, java.sql.Statement.RETURN_GENERATED_KEYS);
-            stmt.setDouble(1, grade.getGrade());
-            stmt.setInt(2, grade.getFkStu());
+            stmt.setInt(1, student.getId());
+            stmt.setDouble(2, grade.getGrade());
+            stmt.setDouble(3, grade.getGrade1());
+            stmt.setDouble(4, grade.getGrade2());
+            stmt.setDouble(5, grade.getGrade3());
+            stmt.setDouble(6, grade.getGrade4());
             stmt.execute();
             ResultSet rs = stmt.getGeneratedKeys(); 
-            if(rs.next()){
-                grade.setGrade(rs.getInt(1));
+            if(rs.next()){                
+                grade.setGrade(rs.getInt(student.getId()));
             }
             stmt.close();
         }catch(SQLException e){
