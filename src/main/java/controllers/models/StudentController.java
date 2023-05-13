@@ -71,6 +71,7 @@ public class StudentController {
         if(JOptionPane.showConfirmDialog(null, "Todas as informações serão deletadas", "Deseja excluir esse(a) aluno(a)?", JOptionPane.YES_NO_OPTION) == 0){
           StudentDAO studentDao = new StudentDAO();
           studentDao.delete(studentPanel.student);
+          showStudentsByClazz();
         }
     }
 
