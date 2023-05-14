@@ -34,7 +34,7 @@ public class GradesController {
         grade.setFkStu(1);
         GradeDAO gradedao = new GradeDAO();
         gradedao.saveGrade(grade,student);
-        JOptionPane.showMessageDialog(null, "Nota "+ClienteGUI.jTextField2.getText()+" cadastrada");
+        JOptionPane.showMessageDialog(null, "As notas foram cadastradas com sucesso!");
         ClienteGUI.jTextField6.setText("");
         ClienteGUI.jTextField2.setText("");
         ClienteGUI.jTextField3.setText("");
