@@ -9,7 +9,7 @@ import models.Assignment;
 public class AssignmentDAO extends DAO {
     
     public void save(Assignment assignment){
-        String sql = "INSER INTO assignments(name_assignment, desc_assignment, date_assigned, date_due, max_grade) VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO assignments(name_assignment, desc_assignment, date_assigned, date_due, max_grade) VALUES (?, ?, ?, ?, ?)";
         try{
             PreparedStatement stmt = conn.prepareStatement(sql, java.sql.Statement.RETURN_GENERATED_KEYS);
             stmt.setString(1, assignment.getName());
@@ -27,4 +27,24 @@ public class AssignmentDAO extends DAO {
             throw new RuntimeException(e);
         }
     }
+
+    public void NameAssignment(Assignment assignment){
+        String sql = "INSERT INTO assignments(name_assignment) VALUES (?)";
+        try{
+            PreparedStatement stmt = conn.prepareStatement(sql, java.sql.Statement.RETURN_GENERATED_KEYS);
+            stmt.setString(1, assignment.getName());          
+            stmt.execute();
+            ResultSet rs = stmt.getGeneratedKeys();
+            if(rs.next()){
+                assignment.setId(rs.getInt(1));
+            }
+            stmt.close();
+        }catch(SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    // public updateAssignment(){
+    //     String sql = "UPDATE";
+    // }
 }
