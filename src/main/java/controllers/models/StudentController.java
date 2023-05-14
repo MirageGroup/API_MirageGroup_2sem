@@ -44,6 +44,25 @@ public class StudentController {
           ClienteGUI.painelInserirAlunos.repaint();
     }
 
+    public static String[] studentListByClazz(){
+      StudentDAO dao = new StudentDAO();
+  
+      Clazz clazz = new Clazz();
+
+        clazz.setName((String)ClienteGUI.ComboSalas.getSelectedItem());
+
+        ArrayList<Student> list = dao.getByClazz(clazz);
+  
+      String students[] = new String[list.size()];
+  
+      for(int i = 0; i < list.size(); i++){
+          students[i] = list.get(i).getName();
+      }
+  
+      return students;
+
+    }
+
     public static void saveStudent() throws SQLException{
       if((ClienteGUI.CadAluno.getText().isEmpty())){
           JOptionPane.showMessageDialog(null, "O campo não pode estar vazio");

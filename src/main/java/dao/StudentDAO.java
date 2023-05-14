@@ -110,26 +110,45 @@ public class StudentDAO extends DAO {
       } catch(SQLException e){
           throw new RuntimeException(e);
       }
-  }
+    }
 
-  public ArrayList<Student> getAll(){
-    ArrayList<Student> lista = new ArrayList<>(); // Inicializa a variável lista
-    String sql = "SELECT * FROM students";
-    try{
-    PreparedStatement stmt = conn.prepareStatement(sql);
-    ResultSet rs = stmt.executeQuery();
-    while(rs.next()){
-        Student student = new Student();
-        student.setId(rs.getInt("id_student"));
-        student.setName(rs.getString("name_student"));
-        student.setGrade(rs.getDouble("grade_student"));
-        lista.add(student);
+    public ArrayList<Student> getAll(){
+      ArrayList<Student> lista = new ArrayList<>(); // Inicializa a variável lista
+      String sql = "SELECT * FROM students";
+      try{
+      PreparedStatement stmt = conn.prepareStatement(sql);
+      ResultSet rs = stmt.executeQuery();
+      while(rs.next()){
+          Student student = new Student();
+          student.setId(rs.getInt("id_student"));
+          student.setName(rs.getString("name_student"));
+          student.setGrade(rs.getDouble("grade_student"));
+          lista.add(student);
+      }
+          stmt.close();
+          return lista;
+      }catch(SQLException e){
+          throw new RuntimeException(e);
+      }
     }
-        stmt.close();
-        return lista;
-    }catch(SQLException e){
-        throw new RuntimeException(e);
+
+    public Student getByName(String name){
+      String sql = "SELECT * FROM students WHERE name_student = ?";
+      try{
+          PreparedStatement stmt = conn.prepareStatement(sql);
+          stmt.setString(1, name);
+          ResultSet rs = stmt.executeQuery();
+          Student student = new Student();
+          while(rs.next()){
+              student.setId(rs.getInt("id_student"));
+              student.setName(rs.getString("name_student"));
+              student.setGrade(rs.getDouble("grade_student"));
+          }
+          stmt.close();
+          return student;
+      }catch(SQLException e){
+          throw new RuntimeException(e);
+      }
     }
-}
 
 }
