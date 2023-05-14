@@ -96,17 +96,23 @@ public class PainelDeAcao extends javax.swing.JPanel {
         StudentController.deleteStudent(this);
     }
 
-    private void jCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox3ActionPerformed
+    private void jCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {
+        if(jCheckBox3.isSelected()){
+            jTextField1.setEditable(true);
+        }
+        else{
+            jTextField1.setEditable(false);
+        }
+    }
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }
 
-    private void cmdEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdEditarActionPerformed
-        //funcao para atualizar
-    }//GEN-LAST:event_cmdEditarActionPerformed
+    private void cmdEditarActionPerformed(java.awt.event.ActionEvent evt) {
+        student.setName(jTextField1.getText());
+        StudentController.updateStudent(this);
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

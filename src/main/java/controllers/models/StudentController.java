@@ -18,12 +18,10 @@ import models.Student;
 public class StudentController {
 
     public static void showStudentsByClazz(){
-        StudentDAO studentDAO = new StudentDAO();
 
         Clazz clazz = new Clazz();
 
         clazz.setName((String)ClienteGUI.ComboSalas.getSelectedItem());
-
 
         StudentDAO dao=new StudentDAO();
           ArrayList<Student> lista = dao.getByClazz(clazz);
@@ -87,11 +85,19 @@ public class StudentController {
     }
 
     public static void deleteStudent(PainelDeAcao studentPanel){
-        if(JOptionPane.showConfirmDialog(null, "Todas as informações serão deletadas", "Deseja excluir esse(a) aluno(a)?", JOptionPane.YES_NO_OPTION) == 0){
+        if(JOptionPane.showConfirmDialog(null, "Todas as informações serão deletadas", "Deseja excluir esse(a) Aluno(a)?", JOptionPane.YES_NO_OPTION) == 0){
           StudentDAO studentDao = new StudentDAO();
           studentDao.delete(studentPanel.student);
           showStudentsByClazz();
         }
     }
+
+    public static void updateStudent(PainelDeAcao studentPanel){
+      if(JOptionPane.showConfirmDialog(null, "O nome do Aluno sera editado", "Deseja alterar esse(a) aluno(a)?", JOptionPane.YES_NO_OPTION) == 0){
+        StudentDAO studentDao = new StudentDAO();
+        studentDao.update(studentPanel.student);
+        showStudentsByClazz();
+      }
+  }
 
 }
