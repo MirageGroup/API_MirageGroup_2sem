@@ -27,8 +27,8 @@ Cada entrega foi realizada a partir da criação de uma **tag**. Observe a rela�
 |:-----:|:-------------:|:----------:|:---------:|:---------:|
 | 01 | [sprint-01](https://github.com/MirageGroup/API_MirageGroup_2sem/tree/entrega/sprint-1) | 02/04/2023 | Entregue | [ver relatório](https://github.com/MirageGroup/API_MirageGroup_2sem/tree/entrega/sprint-1#readme) |
 | 02 | [sprint-02](https://github.com/MirageGroup/API_MirageGroup_2sem/tree/entrega/sprint-2) | 23/04/2023 | Entregue | [ver relatório](https://github.com/MirageGroup/API_MirageGroup_2sem/tree/entrega/sprint-2#readme) |
-| 03 | [sprint-03]() |  | Em desenvolvimento | [ver relatório]() |
-| 04 | [sprint-04]() |  | Não iniciada | [ver relatório]() |
+| 03 | [sprint-03]() | 14/05/2023 | Entregue | [ver relatório]() |
+| 04 | [sprint-04]() |  | Em desenvolvimento | [ver relatório]() |
 
 
 <div align="center" dir="auto">
@@ -59,7 +59,7 @@ Cada entrega foi realizada a partir da criação de uma **tag**. Observe a rela�
 
 
 <span id="user-content-objetivos">
-<h2 align="center" dir="auto"><a id="user-content-dart-objetivos-da-sprint" class="anchor" aria-hidden="true" href="#dart-objetivos-da-sprint"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><g-emoji class="g-emoji" alias="dart" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f3af.png">🎯</g-emoji> Objetivos da Sprint</h2>
+<h2 align="center" dir="auto"><a id="user-content-dart-objetivos-da-sprint" class="anchor" aria-hidden="true" href="#dart-objetivos-da-sprint"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><g-emoji class="g-emoji" alias="dart" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f3af.png">🎯</g-emoji> Objetivos do Projeto</h2>
 
 <br>
  
@@ -91,14 +91,10 @@ Cada entrega foi realizada a partir da criação de uma **tag**. Observe a rela�
 ![Diagrama estrutural DB](https://user-images.githubusercontent.com/101465349/229308801-0231162f-0516-4682-939e-fd77fe26e55e.png)
 
 <span id="user-content-org-equipe">
-<h2 align="center" dir="auto"><a id="user-content-busts_in_silhouette-organização-da-equipe" class="anchor" aria-hidden="true" href="#busts_in_silhouette-organização-da-equipe"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><g-emoji class="g-emoji" alias="busts_in_silhouette" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4ca.png?v8">📊</g-emoji> BurnDown 2º Sprint</h2>
+<h2 align="center" dir="auto"><a id="user-content-busts_in_silhouette-organização-da-equipe" class="anchor" aria-hidden="true" href="#busts_in_silhouette-organização-da-equipe"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><g-emoji class="g-emoji" alias="busts_in_silhouette" fallback-
 <div align="center" dir="auto">
 <div align="center" dir="auto">
 <p dir="auto">
-  O burndown é uma ferramenta utilizada em um Scrum Team para monitorar o progresso do trabalho ao longo do tempo. Ele é representado em um gráfico que mostra o progresso do trabalho em relação ao tempo. Durante o sprint, a equipe atualiza o gráfico com a quantidade de trabalho restante para verificar se está no caminho certo para alcançar o objetivo. O gráfico ajuda a identificar problemas e prever se a equipe concluirá todas as tarefas dentro do prazo proposto. O burndown é importante para manter a transparência e a visibilidade do trabalho da equipe. Em resumo, o burndown é uma ferramenta útil para gerenciar o trabalho em um ambiente ágil.
-</p>
-
-![BurnDown 3ºSrint(2ºSemestre)](https://github.com/MirageGroup/API_MirageGroup_2sem/assets/101465349/24eb28a9-45fd-4fc9-a1ff-664572e956e8)
 
 
 </div>
