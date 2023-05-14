@@ -26,8 +26,8 @@ Cada entrega foi realizada a partir da criação de uma **tag**. Observe a rela�
 | Sprint| Tag | Lançamento | Status | Histórico |
 |:-----:|:-------------:|:----------:|:---------:|:---------:|
 | 01 | [sprint-01](https://github.com/MirageGroup/API_MirageGroup_2sem/tree/entrega/sprint-1) | 02/04/2023 | Entregue | [ver relatório](https://github.com/MirageGroup/API_MirageGroup_2sem/tree/entrega/sprint-1#readme) |
-| 02 | [sprint-02](https://github.com/MirageGroup/API_MirageGroup_2sem/tree/entrega/sprint-2) | 23/04/2023 | Em desenvolvimento | [ver relatório](https://github.com/MirageGroup/API_MirageGroup_2sem/tree/entrega/sprint-2#readme) |
-| 03 | [sprint-03]() |  | Não Iniciada | [ver relatório]() |
+| 02 | [sprint-02](https://github.com/MirageGroup/API_MirageGroup_2sem/tree/entrega/sprint-2) | 23/04/2023 | Entregue | [ver relatório](https://github.com/MirageGroup/API_MirageGroup_2sem/tree/entrega/sprint-2#readme) |
+| 03 | [sprint-03]() |  | Em desenvolvimento | [ver relatório]() |
 | 04 | [sprint-04]() |  | Não iniciada | [ver relatório]() |
 
 
