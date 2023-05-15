@@ -16,7 +16,7 @@ public class AssignmentDAO extends DAO {
             stmt.setString(2, assignment.getDescription());
             stmt.setString(3, assignment.getDate_assigned());
             stmt.setString(4, assignment.getDate_due());
-            stmt.setDouble(4, assignment.getMax_grade());
+            stmt.setDouble(5, assignment.getMax_grade());
             stmt.execute();
             ResultSet rs = stmt.getGeneratedKeys();
             if(rs.next()){
@@ -44,7 +44,4 @@ public class AssignmentDAO extends DAO {
         }
     }
 
-    // public updateAssignment(){
-    //     String sql = "UPDATE";
-    // }
 }

@@ -7,6 +7,7 @@ package gui;
 import BotaoEdicaoAlunos.PainelDeAcao;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
@@ -15,11 +16,14 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.JCheckBox;
 import javax.swing.JButton;
+
+import controllers.models.AssignmentController;
 import controllers.models.ClazzController;
 import controllers.models.GradesController;
 import controllers.models.StudentController;
 import dao.ClazzDAO;
 import dao.StudentDAO;
+import models.Assignment;
 import models.Clazz;
 import models.Student;
 import java.awt.BorderLayout;
@@ -87,11 +91,8 @@ public class ClienteGUI extends javax.swing.JFrame {
         EnviarCadAluno = new javax.swing.JButton();
         EstatisticasPanel = new javax.swing.JPanel();
         AtividadesPanel = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
         EnviarCadAtv = new javax.swing.JButton();
-        CadAtividades = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        atividadesGui1 = new gui.AtividadesGui();
         NotasPanel = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -140,7 +141,7 @@ public class ClienteGUI extends javax.swing.JFrame {
         jTabbedPane1.setBackground(new java.awt.Color(204, 204, 204));
         jTabbedPane1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
-        VgeralPanel.setBorder(javax.swing.BorderFactory.createLineBorder(null));
+        VgeralPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         VgeralPanel.setForeground(new java.awt.Color(255, 153, 102));
 
         javax.swing.GroupLayout VgeralPanelLayout = new javax.swing.GroupLayout(VgeralPanel);
@@ -151,12 +152,12 @@ public class ClienteGUI extends javax.swing.JFrame {
         );
         VgeralPanelLayout.setVerticalGroup(
             VgeralPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 651, Short.MAX_VALUE)
+            .addGap(0, 661, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("Visão Geral", VgeralPanel);
+        jTabbedPane1.addTab("VisÃ£o Geral", VgeralPanel);
 
-        AlunosPanel.setBorder(javax.swing.BorderFactory.createLineBorder(null));
+        AlunosPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jScrollPane4.setPreferredSize(new java.awt.Dimension(917, 0));
 
@@ -188,10 +189,10 @@ public class ClienteGUI extends javax.swing.JFrame {
         EnviarCadAluno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 try {
-                  EnviarCadAlunoActionPerformed(evt);
+                    EnviarCadAlunoActionPerformed(evt);
                 } catch (SQLException e) {
-                  // TODO Auto-generated catch block
-                  e.printStackTrace();
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
                 }
             }
         });
@@ -230,13 +231,13 @@ public class ClienteGUI extends javax.swing.JFrame {
                 .addComponent(ComboSalasCad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(EnviarCadAluno)
-                .addGap(0, 16, Short.MAX_VALUE))
+                .addGap(0, 28, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Alunos", AlunosPanel);
 
         EstatisticasPanel.setBackground(new java.awt.Color(204, 204, 204));
-        EstatisticasPanel.setBorder(javax.swing.BorderFactory.createLineBorder(null));
+        EstatisticasPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout EstatisticasPanelLayout = new javax.swing.GroupLayout(EstatisticasPanel);
         EstatisticasPanel.setLayout(EstatisticasPanelLayout);
@@ -246,39 +247,18 @@ public class ClienteGUI extends javax.swing.JFrame {
         );
         EstatisticasPanelLayout.setVerticalGroup(
             EstatisticasPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 651, Short.MAX_VALUE)
+            .addGap(0, 661, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Estatisticas", EstatisticasPanel);
 
-        AtividadesPanel.setBorder(javax.swing.BorderFactory.createLineBorder(null));
+        AtividadesPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel3.setText("Atividades:");
-
-        jButton5.setText("Editar");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-
-        EnviarCadAtv.setText("Enviar");
+        EnviarCadAtv.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        EnviarCadAtv.setText("Salvar");
         EnviarCadAtv.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EnviarCadAtvActionPerformed(evt);
-            }
-        });
-
-        CadAtividades.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CadAtividadesActionPerformed(evt);
-            }
-        });
-
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
             }
         });
 
@@ -286,35 +266,24 @@ public class ClienteGUI extends javax.swing.JFrame {
         AtividadesPanel.setLayout(AtividadesPanelLayout);
         AtividadesPanelLayout.setHorizontalGroup(
             AtividadesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AtividadesPanelLayout.createSequentialGroup()
-                .addContainerGap(719, Short.MAX_VALUE)
-                .addGroup(AtividadesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(AtividadesPanelLayout.createSequentialGroup()
-                        .addGroup(AtividadesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(CadAtividades, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(AtividadesPanelLayout.createSequentialGroup()
+            .addGroup(AtividadesPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(AtividadesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AtividadesPanelLayout.createSequentialGroup()
+                        .addComponent(atividadesGui1, javax.swing.GroupLayout.PREFERRED_SIZE, 915, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AtividadesPanelLayout.createSequentialGroup()
                         .addComponent(EnviarCadAtv)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton5)))
-                .addContainerGap())
+                        .addGap(410, 410, 410))))
         );
         AtividadesPanelLayout.setVerticalGroup(
             AtividadesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AtividadesPanelLayout.createSequentialGroup()
-                .addContainerGap(559, Short.MAX_VALUE)
-                .addComponent(jLabel3)
+                .addContainerGap()
+                .addComponent(atividadesGui1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(AtividadesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CadAtividades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(17, 17, 17)
-                .addGroup(AtividadesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton5)
-                    .addComponent(EnviarCadAtv))
-                .addContainerGap())
+                .addComponent(EnviarCadAtv)
+                .addContainerGap(76, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Atividades", AtividadesPanel);
@@ -351,21 +320,18 @@ public class ClienteGUI extends javax.swing.JFrame {
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel12.setText("Nota 3");
-        
+
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel13.setText("Nota 4");
-        
-        jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel14.setText("Nota 5"); 
-        
+
         jButton1.setText("Enviar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 try {
-                  jButton1ActionPerformed(evt);
+                    jButton1ActionPerformed(evt);
                 } catch (SQLException e) {
-                  // TODO Auto-generated catch block
-                  e.printStackTrace();
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
                 }
             }
         });
@@ -376,6 +342,8 @@ public class ClienteGUI extends javax.swing.JFrame {
             }
         });
 
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel14.setText("Nota 5");
 
         ComboAlunos.setModel(new javax.swing.DefaultComboBoxModel<>(StudentController.studentListByClazz()));
         ComboAlunos.setToolTipText("Selecione um Aluno");
@@ -461,7 +429,7 @@ public class ClienteGUI extends javax.swing.JFrame {
                             .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(ComboAlunos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 466, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 471, Short.MAX_VALUE)
                         .addComponent(jButton1)
                         .addGap(30, 30, 30))
                     .addGroup(NotasPanelLayout.createSequentialGroup()
@@ -495,10 +463,10 @@ public class ClienteGUI extends javax.swing.JFrame {
         EnviarCadSalas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 try {
-                  EnviarCadSalasActionPerformed(evt);
+                    EnviarCadSalasActionPerformed(evt);
                 } catch (SQLException e) {
-                  // TODO Auto-generated catch block
-                  e.printStackTrace();
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
                 }
             }
         });
@@ -510,17 +478,17 @@ public class ClienteGUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel5)
+                        .addComponent(CadSalas, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(EnviarCadSalas, javax.swing.GroupLayout.Alignment.TRAILING))
                     .addComponent(Logo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ComboSalas, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel5)
-                        .addComponent(CadSalas, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(EnviarCadSalas, javax.swing.GroupLayout.Alignment.TRAILING)))
-                .addContainerGap(983, Short.MAX_VALUE))
+                            .addComponent(ComboSalas, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(216, 216, 216)
@@ -536,7 +504,7 @@ public class ClienteGUI extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ComboSalas, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 382, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 394, Short.MAX_VALUE)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(CadSalas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -591,20 +559,14 @@ public class ClienteGUI extends javax.swing.JFrame {
 
     }//GEN-LAST:event_ComboSalasActionPerformed
 
-    private void CadAtividadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadAtividadesActionPerformed
-
-    }//GEN-LAST:event_CadAtividadesActionPerformed
-
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
-
-    }//GEN-LAST:event_jTextField4ActionPerformed
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-
-    }//GEN-LAST:event_jButton5ActionPerformed
-
     private void EnviarCadAtvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnviarCadAtvActionPerformed
-
+        Assignment assignment = new Assignment();
+        assignment.setName(atividadesGui1.nameAssin.getText());
+        assignment.setDate_assigned(atividadesGui1.iniData.getText());
+        assignment.setDate_due(atividadesGui1.fimData.getText());
+        assignment.setMax_grade(Double.parseDouble(atividadesGui1.jTextField1.getText()));
+        AssignmentController.addAssignment(assignment);
+        
     }//GEN-LAST:event_EnviarCadAtvActionPerformed
 
     private void AlunosComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_AlunosComponentAdded
@@ -671,44 +633,42 @@ public class ClienteGUI extends javax.swing.JFrame {
     public static javax.swing.JPanel AlunosPanel;
     public static javax.swing.JPanel AtividadesPanel;
     public static javax.swing.JTextField CadAluno;
-    public static javax.swing.JTextField CadAtividades;
     public static javax.swing.JTextField CadSalas;
     public static javax.swing.JComboBox<String> ComboAlunos;
     public static javax.swing.JComboBox<String> ComboSalas;
     public static javax.swing.JComboBox<String> ComboSalasCad;
-    public javax.swing.JButton EnviarCadAluno;
+    public static javax.swing.JButton EnviarCadAluno;
     public static javax.swing.JButton EnviarCadAtv;
     public static javax.swing.JButton EnviarCadSalas;
     public static javax.swing.JPanel EstatisticasPanel;
     public static javax.swing.JPanel Logo;
     public static javax.swing.JPanel NotasPanel;
     public static javax.swing.JPanel VgeralPanel;
-    private javax.swing.JButton jButton1;
-    public static javax.swing.JButton jButton5;
+    public static gui.AtividadesGui atividadesGui1;
+    public static javax.swing.JButton jButton1;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem2;
     public static javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
+    public static javax.swing.JLabel jLabel10;
+    public static javax.swing.JLabel jLabel11;
+    public static javax.swing.JLabel jLabel12;
+    public static javax.swing.JLabel jLabel13;
+    public static javax.swing.JLabel jLabel14;
     public static javax.swing.JLabel jLabel2;
-    public static javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     public static javax.swing.JLabel jLabel5;
     public static javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JScrollPane jScrollPane4;
+    public static javax.swing.JLabel jLabel8;
+    public static javax.swing.JLabel jLabel9;
+    public static javax.swing.JScrollPane jScrollPane4;
     public static javax.swing.JTabbedPane jTabbedPane1;
     public static javax.swing.JTextField jTextField2;
     public static javax.swing.JTextField jTextField3;
-    public static javax.swing.JTextField jTextField4;
     public static javax.swing.JTextField jTextField5;
     public static javax.swing.JTextField jTextField6;
     public static javax.swing.JTextField jTextField8;
     public static javax.swing.JPanel painelInserirAlunos;
     // End of variables declaration//GEN-END:variables
     public static javax.swing.JScrollPane jScrollPane1;
+    public static Object addAssignment;
 }
