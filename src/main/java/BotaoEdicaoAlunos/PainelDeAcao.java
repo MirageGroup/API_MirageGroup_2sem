@@ -1,21 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package BotaoEdicaoAlunos;
 
-import javax.swing.JComponent;
-import javax.swing.JOptionPane;
 
 import controllers.models.StudentController;
-import dao.StudentDAO;
 import javax.swing.JCheckBox;
 import models.Student;
 
-/**
- *
- * @author zoonp
- */
+
 public class PainelDeAcao extends javax.swing.JPanel {
 
     public AcaoBotao getCmdEdit() {
