@@ -4,10 +4,12 @@
  */
 package BotaoEdicaoAlunos;
 
+import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 
 import controllers.models.StudentController;
 import dao.StudentDAO;
+import javax.swing.JCheckBox;
 import models.Student;
 
 /**
@@ -15,6 +17,20 @@ import models.Student;
  * @author zoonp
  */
 public class PainelDeAcao extends javax.swing.JPanel {
+
+    public AcaoBotao getCmdEdit() {
+        return cmdEdit;
+    }
+
+    public AcaoBotao getCmdEditar() {
+        return cmdEditar;
+    }
+
+    public JCheckBox getjCheckBox3() {
+        return jCheckBox3;
+    }
+    
+    
 
     public Student student;
 
@@ -105,7 +121,7 @@ public class PainelDeAcao extends javax.swing.JPanel {
         }
     }
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {                                            
         // TODO add your handling code here:
     }
 
@@ -122,4 +138,5 @@ public class PainelDeAcao extends javax.swing.JPanel {
     private javax.swing.JCheckBox jCheckBox3;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
+
 }

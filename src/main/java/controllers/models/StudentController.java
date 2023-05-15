@@ -19,29 +19,41 @@ public class StudentController {
 
     public static void showStudentsByClazz(){
 
-        Clazz clazz = new Clazz();
+      Clazz clazz = new Clazz();
 
         clazz.setName((String)ClienteGUI.ComboSalas.getSelectedItem());
 
-        StudentDAO dao=new StudentDAO();
+      StudentDAO dao=new StudentDAO();
           ArrayList<Student> lista = dao.getByClazz(clazz);
           int contador=0;
           
           ClienteGUI.painelInserirAlunos.removeAll();
+          ClienteGUI.atividadesGui1.painelInserirAlunos.removeAll();
           
           for (Student student:lista){
   
               PainelDeAcao painel=new PainelDeAcao(student);
-              
+              PainelDeAcao painel1=new PainelDeAcao(student);
+              painel1.getCmdEdit().setVisible(false);
+              painel1.getCmdEditar().setVisible(false);
+              painel1.getjCheckBox3().setVisible(false);
+              ClienteGUI.atividadesGui1.painelInserirAlunos.add(painel1);
               ClienteGUI.painelInserirAlunos.add(painel);
+
               contador++;
               
           }
+
+          ClienteGUI.atividadesGui1.painelInserirAlunos.setPreferredSize(new Dimension(901, 50*contador));
+          ClienteGUI.atividadesGui1.painelInserirAlunos.revalidate();
+          ClienteGUI.atividadesGui1.painelInserirAlunos.repaint();
+
           ClienteGUI.painelInserirAlunos.setPreferredSize(new Dimension(901, 50*contador));
           ClienteGUI.painelInserirAlunos.revalidate();
           ClienteGUI.painelInserirAlunos.repaint();
+         
     }
-
+  
     public static String[] studentListByClazz(){
       StudentDAO dao = new StudentDAO();
   

@@ -8,6 +8,6 @@ public class AssignmentController {
     public static void addAssignment(Assignment assignment) {
         AssignmentDAO assignmentDAO = new AssignmentDAO();
         assignmentDAO.save(assignment);
-        
+        // ClienteGUI.addAssignment.setText("");
     }
 }

@@ -154,6 +154,6 @@ public class AtividadesGui extends javax.swing.JPanel {
     public static javax.swing.JScrollPane jScrollPane4;
     public static javax.swing.JTextField jTextField1;
     public static javax.swing.JTextField nameAssin;
-    public static javax.swing.JPanel painelInserirAlunos;
+    public javax.swing.JPanel painelInserirAlunos;
     // End of variables declaration//GEN-END:variables
 }
