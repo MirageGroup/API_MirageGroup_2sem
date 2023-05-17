@@ -33,7 +33,7 @@ public class GradeDAO extends DAO {
     }
 
     public void saveGrade(Grade grade, Student student){
-        String sql = "INSERT INTO grades(fk_Grades_id_student,grade_student,grade_student1,grade_student2,grade_student3,grade_student4) VALUES (?,?,?,?,?,?)";       
+        String sql = "INSERT INTO grades(fk_Grades_id_student, grade_student, grade_student1, grade_student2, grade_student3, grade_student4) VALUES (?,?,?,?,?,?)";       
         try{
             PreparedStatement stmt = conn.prepareStatement(sql, java.sql.Statement.RETURN_GENERATED_KEYS);
             stmt.setInt(1, student.getId());

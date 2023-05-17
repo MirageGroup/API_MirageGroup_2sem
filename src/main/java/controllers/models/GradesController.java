@@ -28,15 +28,15 @@ public class GradesController {
       }
       if(!ClienteGUI.jTextField3.getText().isEmpty()){
         double nota2 = (Double.parseDouble(ClienteGUI.jTextField3.getText()));
-        grade.setGrade1(nota2);
+        grade.setGrade2(nota2);
       }
       if(!ClienteGUI.jTextField5.getText().isEmpty()){
         double nota3 = (Double.parseDouble(ClienteGUI.jTextField5.getText()));
-        grade.setGrade1(nota3);
+        grade.setGrade3(nota3);
       }
       if(!ClienteGUI.jTextField8.getText().isEmpty()){
         double nota4 = (Double.parseDouble(ClienteGUI.jTextField8.getText()));
-        grade.setGrade1(nota4);
+        grade.setGrade4(nota4);
       }
         
         StudentDAO student_Dao = new StudentDAO();
