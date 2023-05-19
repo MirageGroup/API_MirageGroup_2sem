@@ -155,7 +155,7 @@ public class ClienteGUI extends javax.swing.JFrame {
             .addGap(0, 661, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("VisÃ£o Geral", VgeralPanel);
+        jTabbedPane1.addTab("Visão Geral", VgeralPanel);
 
         AlunosPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
