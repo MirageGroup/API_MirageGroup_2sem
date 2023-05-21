@@ -37,6 +37,8 @@ import java.util.logging.Logger;
 
 import javax.swing.JFrame;
 
+import java.time.LocalDateTime;
+
 /**
  *
  * @author Fatec
@@ -121,6 +123,16 @@ public class ClienteGUI extends javax.swing.JFrame {
         jCheckBoxMenuItem2.setText("jCheckBoxMenuItem2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+
+        // INICIALIZANDO VARIAVEL DE HORARIO
+
+        LocalDateTime horario = LocalDateTime.now();
+        int hora = horario.getHour();
+        int minutos = horario.getMinute();
+        int segundos = horario.getSecond();
+
+
 
         javax.swing.GroupLayout LogoLayout = new javax.swing.GroupLayout(Logo);
         Logo.setLayout(LogoLayout);
