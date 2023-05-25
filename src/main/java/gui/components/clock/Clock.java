@@ -49,7 +49,7 @@ public class Clock extends javax.swing.JPanel {
 
         clockDisplay = new javax.swing.JLabel();
 
-        clockDisplay.setFont(new java.awt.Font("Fira Sans", 0, 18)); // NOI18N
+        clockDisplay.setFont(new java.awt.Font("Fira Sans", 0, 17)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
