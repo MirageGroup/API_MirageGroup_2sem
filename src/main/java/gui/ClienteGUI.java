@@ -578,10 +578,10 @@ public class ClienteGUI extends javax.swing.JFrame {
 
     private void EnviarCadAtvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnviarCadAtvActionPerformed
         Assignment assignment = new Assignment();
-        assignment.setName(atividadesGui1.nameAssin.getText());
-        assignment.setDate_assigned(atividadesGui1.iniData.getText());
-        assignment.setDate_due(atividadesGui1.fimData.getText());
-        assignment.setMax_grade(Double.parseDouble(atividadesGui1.jTextField1.getText()));
+        assignment.setName(AtividadesGui.nameAssin.getText());
+        assignment.setDate_assigned(AtividadesGui.iniData.getText());
+        assignment.setDate_due(AtividadesGui.fimData.getText());
+        assignment.setMax_grade(Double.parseDouble(AtividadesGui.jTextField1.getText()));
         AssignmentController.addAssignment(assignment);
         
     }//GEN-LAST:event_EnviarCadAtvActionPerformed
