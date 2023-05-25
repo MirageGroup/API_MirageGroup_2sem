@@ -6,6 +6,7 @@ package gui;
 
 import BotaoEdicaoAlunos.PainelDeAcao;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -48,8 +49,9 @@ public class ClienteGUI extends javax.swing.JFrame {
 
     /**
      * Creates new form ClienteGUI
+     * @throws ParseException
      */
-    public ClienteGUI() {
+    public ClienteGUI() throws ParseException {
         initComponents();
         setTitle("Controle de Turmas");
         StudentController.showStudentsByClazz();
@@ -643,7 +645,12 @@ public class ClienteGUI extends javax.swing.JFrame {
         
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ClienteGUI().setVisible(true);
+                try {
+                    new ClienteGUI().setVisible(true);
+                } catch (ParseException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
             }
         });
     }
