@@ -5,9 +5,11 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.Locale;
 
 import javax.swing.JOptionPane;
+import javax.swing.text.html.ListView;
 
 import gui.ClienteGUI;
 
@@ -52,8 +54,7 @@ public class ClazzController {
     }
 
     public static void selectCurrentClazz() throws ParseException{
-        Calendar c = Calendar.getInstance();
-        c.setTime(new Date());
+        Calendar c = GregorianCalendar.getInstance();
         int dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
         ClazzDAO dao = new ClazzDAO();
         ArrayList<Clazz> list = dao.getByWeekday(dayOfWeek);        
@@ -62,7 +63,7 @@ public class ClazzController {
         int minute = c.get(Calendar.MINUTE);
         int second = c.get(Calendar.SECOND);
         
-        SimpleDateFormat inputParser = new SimpleDateFormat("HH:mm:ss", Locale.ENGLISH);
+        SimpleDateFormat inputParser = new SimpleDateFormat("hh:mm:ss");
         Date now = inputParser.parse(hour+":"+minute+":"+second);
 
         for (Clazz clazz : list) {
@@ -70,7 +71,8 @@ public class ClazzController {
             Date clazzTimeEnd = inputParser.parse(clazz.getTime_end());
 
             if( clazzTimeStart.before(now) && clazzTimeEnd.after(now) ){
-                
+                ClienteGUI.ComboSalas.setSelectedItem(clazz.getName());
+                break;
             }
         }
 
