@@ -1,6 +1,8 @@
 package controllers.models;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 import javax.swing.JOptionPane;
 
@@ -44,6 +46,20 @@ public class ClazzController {
             ClienteGUI.ComboSalas.setModel(new javax.swing.DefaultComboBoxModel<>( ClazzController.GetAllClazzesName() ));
             ClienteGUI.ComboSalasCad.setModel(new javax.swing.DefaultComboBoxModel<>( ClazzController.GetAllClazzesName() ));
         }
+    }
+
+    public static void selectCurrentClazz(){
+        Calendar c = Calendar.getInstance();
+        c.setTime(new Date());
+        int dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
+        ClazzDAO dao = new ClazzDAO();
+        ArrayList<Clazz> list = dao.getByWeekday(dayOfWeek);
+        for (Clazz clazz : list) {
+            System.out.println(clazz.getId());
+            System.out.println(clazz.getName());
+            System.out.println(clazz.getTime());
+            System.out.println(clazz.getWeekday());
+        } 
     }
 
 }

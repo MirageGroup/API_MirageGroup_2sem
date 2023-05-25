@@ -6,6 +6,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.jar.Attributes.Name;
 
+import com.mysql.cj.xdevapi.PreparableStatement;
+
 import models.Clazz;
 import models.Student;
 
@@ -103,6 +105,28 @@ public class ClazzDAO extends DAO {
             }
             stmt.close();
             return clazz;
+        }catch(SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    public ArrayList<Clazz> getByWeekday(int weekday){
+        String sql = "SELECT * FROM classes WHERE time_weekday = ?";
+        try{
+            PreparedStatement stmt  = conn.prepareStatement(sql);
+            stmt.setInt(1, weekday);
+            ResultSet rs = stmt.executeQuery();
+            ArrayList<Clazz> list = new ArrayList<>();
+            while(rs.next()){
+                Clazz clazz = new Clazz();
+                clazz.setId(rs.getInt("id_class"));
+                clazz.setName(rs.getString("name_class"));
+                clazz.setWeekday(rs.getString("time_weekday"));
+                clazz.setTime(rs.getString("time_class"));
+                list.add(clazz);
+            }
+            stmt.close();
+            return list;        
         }catch(SQLException e){
             throw new RuntimeException(e);
         }
