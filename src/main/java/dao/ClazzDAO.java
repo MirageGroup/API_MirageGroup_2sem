@@ -6,6 +6,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.jar.Attributes.Name;
 
+import com.mysql.cj.xdevapi.PreparableStatement;
+
 import models.Clazz;
 import models.Student;
 
@@ -14,12 +16,13 @@ public class ClazzDAO extends DAO {
     private ArrayList<Clazz> lista = new ArrayList<>(); 
 
     public void save(Clazz clazz){
-        String sql = "INSERT INTO classes(name_class, time_weekday, time_class) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO classes(name_class, time_weekday, time_start, time_end) VALUES (?, ?, ?, ?)";
         try{
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1, clazz.getName());
             stmt.setString(2, clazz.getWeekday());
-            stmt.setString(3, clazz.getTime());
+            stmt.setString(3, clazz.getTime_start());
+            stmt.setString(4, clazz.getTime_end());
             stmt.execute();
             stmt.close();
         }catch(SQLException e){
@@ -28,12 +31,13 @@ public class ClazzDAO extends DAO {
     }
 
     public void update(Clazz clazz){
-        String sql ="UPDATE classes SET name_class=?, time_weekday=?, time_class = ? WHERE id_class = ?";
+        String sql ="UPDATE classes SET name_class=?, time_weekday=?, time_start = ?, time_end = ? WHERE id_class = ?";
         try{
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1, clazz.getName());
             stmt.setString(2, clazz.getWeekday());
-            stmt.setString(3, clazz.getTime());
+            stmt.setString(3, clazz.getTime_start());
+            stmt.setString(4, clazz.getTime_end());
             stmt.setInt(4, clazz.getId());
             stmt.execute();
             stmt.close();
@@ -66,7 +70,8 @@ public class ClazzDAO extends DAO {
             clazz.setId(rs.getInt("id_class"));
             clazz.setName(rs.getString("name_class"));
             clazz.setWeekday(rs.getString("time_weekday"));
-            clazz.setTime(rs.getString("time_class"));
+            clazz.setTime_start(rs.getString("time_start"));
+            clazz.setTime_end(rs.getString("time_end"));
           }
           stmt.close();
           return clazz;
@@ -99,10 +104,34 @@ public class ClazzDAO extends DAO {
                 clazz.setId(rs.getInt("id_class"));
                 clazz.setName(rs.getString("name_class"));
                 clazz.setWeekday(rs.getString("time_weekday"));
-                clazz.setTime(rs.getString("time_class"));
+                clazz.setTime_start(rs.getString("time_start"));
+                clazz.setTime_end(rs.getString("time_end"));
             }
             stmt.close();
             return clazz;
+        }catch(SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    public ArrayList<Clazz> getByWeekday(int weekday){
+        String sql = "SELECT * FROM classes WHERE time_weekday = ?";
+        try{
+            PreparedStatement stmt  = conn.prepareStatement(sql);
+            stmt.setInt(1, weekday);
+            ResultSet rs = stmt.executeQuery();
+            ArrayList<Clazz> list = new ArrayList<>();
+            while(rs.next()){
+                Clazz clazz = new Clazz();
+                clazz.setId(rs.getInt("id_class"));
+                clazz.setName(rs.getString("name_class"));
+                clazz.setWeekday(rs.getString("time_weekday"));
+                clazz.setTime_start(rs.getString("time_start"));
+                clazz.setTime_end(rs.getString("time_end"));
+                list.add(clazz);
+            }
+            stmt.close();
+            return list;        
         }catch(SQLException e){
             throw new RuntimeException(e);
         }
@@ -118,7 +147,8 @@ public class ClazzDAO extends DAO {
             clazz.setId(rs.getInt("id_class"));
             clazz.setName(rs.getString("name_class"));
             clazz.setWeekday(rs.getString("time_weekday"));
-            clazz.setTime(rs.getString("time_class"));
+            clazz.setTime_start(rs.getString("time_start"));
+            clazz.setTime_end(rs.getString("time_end"));
             this.lista.add(clazz);
         }
             stmt.close();
