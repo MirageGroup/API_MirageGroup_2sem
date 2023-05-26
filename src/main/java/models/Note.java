@@ -1,10 +1,10 @@
 package models;
 
-public class Notes {
+public class Note {
     private int id;
     private int class_id;
     private String note;
-    
+
     public int getId() {
         return id;
     }
