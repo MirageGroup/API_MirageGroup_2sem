@@ -203,7 +203,12 @@ public class ClienteGUI extends javax.swing.JFrame {
         EnviarCadAluno.setText("Enviar");
         EnviarCadAluno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EnviarCadAlunoActionPerformed(evt);
+                try {
+                    EnviarCadAlunoActionPerformed(evt);
+                } catch (SQLException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -349,7 +354,12 @@ public class ClienteGUI extends javax.swing.JFrame {
         jButton1.setText("Enviar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                try {
+                    jButton1ActionPerformed(evt);
+                } catch (SQLException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -479,7 +489,12 @@ public class ClienteGUI extends javax.swing.JFrame {
         EnviarCadSalas.setText("Enviar");
         EnviarCadSalas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EnviarCadSalasActionPerformed(evt);
+                try {
+                    EnviarCadSalasActionPerformed(evt);
+                } catch (SQLException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
             }
         });
 

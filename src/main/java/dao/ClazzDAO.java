@@ -45,6 +45,19 @@ public class ClazzDAO extends DAO {
             throw new RuntimeException(e);
         }
     }
+
+    public void addNote(Clazz clazz, String note){
+        String sql = "INSERT INTO classes_notes(fk_Classes_id_class, note) VALUES (?, ?)";
+        try{
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, clazz.getId());
+            stmt.setString(2, note);
+            stmt.execute();
+            stmt.close();
+        }catch(SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
    
     public void addStudent(Clazz clazz, Student student){
         String sql = "INSERT INTO student_class(fk_Classes_id_class, fk_Students_id_student) VALUES (?, ?)";
