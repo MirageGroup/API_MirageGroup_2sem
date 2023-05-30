@@ -1,5 +1,6 @@
 package dao;
 
+import java.awt.image.AreaAveragingScaleFilter;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,6 +10,7 @@ import java.util.jar.Attributes.Name;
 import com.mysql.cj.xdevapi.PreparableStatement;
 
 import models.Clazz;
+import models.Note;
 import models.Student;
 
 public class ClazzDAO extends DAO {
@@ -41,6 +43,40 @@ public class ClazzDAO extends DAO {
             stmt.setInt(4, clazz.getId());
             stmt.execute();
             stmt.close();
+        }catch(SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void addNote(Clazz clazz, String note){
+        String sql = "INSERT INTO classes_notes(fk_Classes_id_class, note) VALUES (?, ?)";
+        try{
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, clazz.getId());
+            stmt.setString(2, note);
+            stmt.execute();
+            stmt.close();
+        }catch(SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    public ArrayList<Note> getNotes(Clazz clazz){
+        String sql = "SELECT * FROM classes_notes INNER JOIN classes ON classes_notes.fk_Classes_id_class = classes.id_class WHERE fk_Classes_id_class = ?";
+        try{
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, clazz.getId());
+            ResultSet rs = stmt.executeQuery();
+            ArrayList<Note> list = new ArrayList<>();
+            while(rs.next()){
+                Note note = new Note();
+                note.setId(rs.getInt("id_note"));
+                note.setClass_id(rs.getInt("fk_Classes_id_class"));
+                note.setNote(rs.getString("note"));
+                list.add(note);
+            }
+            stmt.close();
+            return list;
         }catch(SQLException e){
             throw new RuntimeException(e);
         }

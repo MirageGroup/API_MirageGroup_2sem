@@ -1,4 +1,5 @@
 package controllers.models;
+
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -26,7 +27,7 @@ public class ClazzController {
         ArrayList<Clazz> list = dao.getAll();
         String clazzes[] = new String[list.size()];
 
-        for(int i = 0; i < list.size(); i++){
+        for (int i = 0; i < list.size(); i++) {
             clazzes[i] = list.get(i).getName();
         }
 
@@ -34,8 +35,8 @@ public class ClazzController {
 
     }
 
-    public static void saveClazz() throws SQLException{
-        if(ClienteGUI.CadSalas.getText().isEmpty()){
+    public static void saveClazz() throws SQLException {
+        if (ClienteGUI.CadSalas.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "O campo não pode estar vazio");
         } else {
             Clazz clazz = new Clazz();
@@ -43,34 +44,49 @@ public class ClazzController {
 
             ClazzDAO clazzdao = new ClazzDAO();
             clazzdao.save(clazz);
-            JOptionPane.showMessageDialog(null, "Turma "+ClienteGUI.CadSalas.getText()+" cadastrada");
+            JOptionPane.showMessageDialog(null, "Turma " + ClienteGUI.CadSalas.getText() + " cadastrada");
             ClienteGUI.CadSalas.setText("");
-            
+
             clazzdao.closeConn();
 
-            ClienteGUI.ComboSalas.setModel(new javax.swing.DefaultComboBoxModel<>( ClazzController.GetAllClazzesName() ));
-            ClienteGUI.ComboSalasCad.setModel(new javax.swing.DefaultComboBoxModel<>( ClazzController.GetAllClazzesName() ));
+            ClienteGUI.ComboSalas.setModel(new javax.swing.DefaultComboBoxModel<>(ClazzController.GetAllClazzesName()));
+            ClienteGUI.ComboSalasCad
+                    .setModel(new javax.swing.DefaultComboBoxModel<>(ClazzController.GetAllClazzesName()));
         }
     }
 
-    public static void selectCurrentClazz() throws ParseException{
+    public static void addClassNote() {
+        if (ClienteGUI.LembreteCampo.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "O campo não pode estar vazio");
+        }else{
+            String note = ClienteGUI.LembreteCampo.getText();
+            ClazzDAO dao = new ClazzDAO();
+            System.out.println(ClienteGUI.ComboSalas.getSelectedItem().toString());
+            Clazz clazz = dao.getByName(ClienteGUI.ComboSalas.getSelectedItem().toString());
+            dao.addNote(clazz, note);
+            JOptionPane.showMessageDialog(null, "Lembrete anotado");
+            ClienteGUI.LembreteCampo.setText("");
+        }
+    }
+
+    public static void selectCurrentClazz() throws ParseException {
         Calendar c = GregorianCalendar.getInstance();
         int dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
         ClazzDAO dao = new ClazzDAO();
-        ArrayList<Clazz> list = dao.getByWeekday(dayOfWeek);        
-        
+        ArrayList<Clazz> list = dao.getByWeekday(dayOfWeek);
+
         int hour = c.get(Calendar.HOUR);
         int minute = c.get(Calendar.MINUTE);
         int second = c.get(Calendar.SECOND);
-        
+
         SimpleDateFormat inputParser = new SimpleDateFormat("hh:mm:ss");
-        Date now = inputParser.parse(hour+":"+minute+":"+second);
+        Date now = inputParser.parse(hour + ":" + minute + ":" + second);
 
         for (Clazz clazz : list) {
             Date clazzTimeStart = inputParser.parse(clazz.getTime_start());
             Date clazzTimeEnd = inputParser.parse(clazz.getTime_end());
 
-            if( clazzTimeStart.before(now) && clazzTimeEnd.after(now) ){
+            if (clazzTimeStart.before(now) && clazzTimeEnd.after(now)) {
                 ClienteGUI.ComboSalas.setSelectedItem(clazz.getName());
                 break;
             }
