@@ -205,7 +205,12 @@ public class ClienteGUI extends javax.swing.JFrame {
         EnviarCadAluno.setText("Enviar");
         EnviarCadAluno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EnviarCadAlunoActionPerformed(evt);
+                try {
+                    EnviarCadAlunoActionPerformed(evt);
+                } catch (SQLException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -353,7 +358,12 @@ public class ClienteGUI extends javax.swing.JFrame {
         jButton1.setText("Enviar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                try {
+                    jButton1ActionPerformed(evt);
+                } catch (SQLException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -483,7 +493,12 @@ public class ClienteGUI extends javax.swing.JFrame {
         EnviarCadSalas.setText("Enviar");
         EnviarCadSalas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EnviarCadSalasActionPerformed(evt);
+                try {
+                    EnviarCadSalasActionPerformed(evt);
+                } catch (SQLException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -713,7 +728,7 @@ public class ClienteGUI extends javax.swing.JFrame {
     public static javax.swing.JButton EnviarCadAtv;
     public static javax.swing.JButton EnviarCadSalas;
     public static javax.swing.JPanel EstatisticasPanel;
-    private javax.swing.JTextField LembreteCampo;
+    public static javax.swing.JTextField LembreteCampo;
     private javax.swing.JButton LembreteEnviar;
     public static javax.swing.JPanel NotasPanel;
     public static javax.swing.JPanel VgeralPanel;
