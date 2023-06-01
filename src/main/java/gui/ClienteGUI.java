@@ -151,6 +151,7 @@ public class ClienteGUI extends javax.swing.JFrame {
         VgeralPanel.setForeground(new java.awt.Color(255, 153, 102));
 
         jTextArea2.setColumns(20);
+        jTextArea2.setLineWrap(true);
         jTextArea2.setRows(5);
         jScrollPane3.setViewportView(jTextArea2);
 
@@ -186,7 +187,7 @@ public class ClienteGUI extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Visão Geral", VgeralPanel);
 
-        AlunosPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Fira Sans", 0, 13), new java.awt.Color(153, 153, 153))); // NOI18N
+        AlunosPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(153, 153, 153))); // NOI18N
 
         jScrollPane4.setPreferredSize(new java.awt.Dimension(917, 0));
 
@@ -451,8 +452,7 @@ public class ClienteGUI extends javax.swing.JFrame {
                                         .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGroup(NotasPanelLayout.createSequentialGroup()
                                             .addGap(10, 10, 10)
-                                            .addComponent(jLabel14)))))
-                            .addGap(1, 1, 1))
+                                            .addComponent(jLabel14))))))
                         .addGroup(NotasPanelLayout.createSequentialGroup()
                             .addGap(40, 40, 40)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 892, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -778,9 +778,8 @@ public class ClienteGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     public static javax.swing.JLabel jLabel8;
     public static javax.swing.JLabel jLabel9;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     public static javax.swing.JScrollPane jScrollPane4;
     public static javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextArea jTextArea2;
