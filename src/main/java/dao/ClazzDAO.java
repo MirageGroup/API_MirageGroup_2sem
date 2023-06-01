@@ -60,27 +60,6 @@ public class ClazzDAO extends DAO {
             throw new RuntimeException(e);
         }
     }
-
-    public ArrayList<Note> getNotes(Clazz clazz){
-        String sql = "SELECT * FROM classes_notes INNER JOIN classes ON classes_notes.fk_Classes_id_class = classes.id_class WHERE fk_Classes_id_class = ?";
-        try{
-            PreparedStatement stmt = conn.prepareStatement(sql);
-            stmt.setInt(1, clazz.getId());
-            ResultSet rs = stmt.executeQuery();
-            ArrayList<Note> list = new ArrayList<>();
-            while(rs.next()){
-                Note note = new Note();
-                note.setId(rs.getInt("id_note"));
-                note.setClass_id(rs.getInt("fk_Classes_id_class"));
-                note.setNote(rs.getString("note"));
-                list.add(note);
-            }
-            stmt.close();
-            return list;
-        }catch(SQLException e){
-            throw new RuntimeException(e);
-        }
-    }
    
     public void addStudent(Clazz clazz, Student student){
         String sql = "INSERT INTO student_class(fk_Classes_id_class, fk_Students_id_student) VALUES (?, ?)";
@@ -108,6 +87,7 @@ public class ClazzDAO extends DAO {
             clazz.setWeekday(rs.getString("time_weekday"));
             clazz.setTime_start(rs.getString("time_start"));
             clazz.setTime_end(rs.getString("time_end"));
+            clazz.setNotes(rs.getString("notes_class"));
           }
           stmt.close();
           return clazz;
@@ -142,6 +122,7 @@ public class ClazzDAO extends DAO {
                 clazz.setWeekday(rs.getString("time_weekday"));
                 clazz.setTime_start(rs.getString("time_start"));
                 clazz.setTime_end(rs.getString("time_end"));
+                clazz.setNotes(rs.getString("notes_class"));
             }
             stmt.close();
             return clazz;
@@ -164,6 +145,7 @@ public class ClazzDAO extends DAO {
                 clazz.setWeekday(rs.getString("time_weekday"));
                 clazz.setTime_start(rs.getString("time_start"));
                 clazz.setTime_end(rs.getString("time_end"));
+                clazz.setNotes(rs.getString("notes_class"));
                 list.add(clazz);
             }
             stmt.close();
@@ -185,6 +167,7 @@ public class ClazzDAO extends DAO {
             clazz.setWeekday(rs.getString("time_weekday"));
             clazz.setTime_start(rs.getString("time_start"));
             clazz.setTime_end(rs.getString("time_end"));
+            clazz.setNotes(rs.getString("notes_class"));
             this.lista.add(clazz);
         }
             stmt.close();

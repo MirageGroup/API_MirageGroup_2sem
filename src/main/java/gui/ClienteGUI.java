@@ -65,10 +65,12 @@ public class ClienteGUI extends javax.swing.JFrame {
         ComboSalas.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
               StudentController.showStudentsByClazz();
+              ClazzController.getClassNote();
               ComboAlunos.setModel(new javax.swing.DefaultComboBoxModel<>(StudentController.studentListByClazz()));
             }
         });
         StudentController.showStudentsByClazz();
+        ClazzController.getClassNote();
         ComboSalasCad.setModel(new javax.swing.DefaultComboBoxModel<>( ClazzController.GetAllClazzesName() ));
         ClazzController.selectCurrentClazz();
     }
@@ -150,7 +152,7 @@ public class ClienteGUI extends javax.swing.JFrame {
         VgeralPanel.setForeground(new java.awt.Color(255, 153, 102));
 
         LembreteTextArea.setColumns(20);
-        LembreteTextArea.setFont(new java.awt.Font("Fira Sans", 0, 14)); // NOI18N
+        LembreteTextArea.setFont(new java.awt.Font("Fira Sans", 0, 18)); // NOI18N
         LembreteTextArea.setLineWrap(true);
         LembreteTextArea.setRows(5);
         jScrollPane3.setViewportView(LembreteTextArea);

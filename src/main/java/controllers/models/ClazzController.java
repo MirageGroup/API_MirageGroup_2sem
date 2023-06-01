@@ -64,6 +64,15 @@ public class ClazzController {
         dao.saveNote(clazz, notes);
     }
 
+    public static void getClassNote(){
+        ClazzDAO dao = new ClazzDAO();
+
+        Clazz clazz = dao.getByName(ClienteGUI.ComboSalas.getSelectedItem().toString());
+
+        ClienteGUI.LembreteTextArea.setText(clazz.getNotes());
+
+    }
+
     public static void selectCurrentClazz() throws ParseException {
         Calendar c = GregorianCalendar.getInstance();
         int dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
