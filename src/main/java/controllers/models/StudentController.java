@@ -34,9 +34,7 @@ public class StudentController {
   
               PainelDeAcao painel=new PainelDeAcao(student);
               PainelDeAcao painel1=new PainelDeAcao(student);
-              painel1.getCmdEdit().setVisible(false);
-              painel1.getCmdEditar().setVisible(false);
-              painel1.getjCheckBox3().setVisible(false);
+              painel.getCmdView().setVisible(false);
               ClienteGUI.atividadesGui1.painelInserirAlunos.add(painel1);
               ClienteGUI.painelInserirAlunos.add(painel);
 

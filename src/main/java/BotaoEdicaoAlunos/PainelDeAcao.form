@@ -27,11 +27,13 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jCheckBox3" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jTextField1" pref="753" max="32767" attributes="0"/>
+              <Component id="jTextField1" pref="723" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="cmdView" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="cmdEditar" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="cmdEdit" min="-2" max="-2" attributes="0"/>
+              <Component id="cmdDelete" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -43,8 +45,9 @@
               <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="jTextField1" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="cmdEdit" min="-2" max="-2" attributes="0"/>
+                      <Component id="cmdDelete" min="-2" max="-2" attributes="0"/>
                       <Component id="cmdEditar" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="cmdView" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Component id="jCheckBox3" min="-2" max="-2" attributes="0"/>
               </Group>
@@ -64,14 +67,14 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmdEditarActionPerformed"/>
       </Events>
     </Component>
-    <Component class="BotaoEdicaoAlunos.AcaoBotao" name="cmdEdit">
+    <Component class="BotaoEdicaoAlunos.AcaoBotao" name="cmdDelete">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/BotaoEdicaoAlunos/delete.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmdEditActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmdDeleteActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JCheckBox" name="jCheckBox3">
@@ -86,6 +89,14 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField1ActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="BotaoEdicaoAlunos.AcaoBotao" name="cmdView">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/BotaoEdicaoAlunos/view.png"/>
+        </Property>
+        <Property name="toolTipText" type="java.lang.String" value=""/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>
