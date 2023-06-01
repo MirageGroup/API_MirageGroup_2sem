@@ -48,12 +48,12 @@ public class ClazzDAO extends DAO {
         }
     }
 
-    public void addNote(Clazz clazz, String note){
-        String sql = "INSERT INTO classes_notes(fk_Classes_id_class, note) VALUES (?, ?)";
+    public void saveNote(Clazz clazz, String notes){
+        String sql = "UPDATE classes SET notes_class = ? WHERE id_class = ?";
         try{
             PreparedStatement stmt = conn.prepareStatement(sql);
-            stmt.setInt(1, clazz.getId());
-            stmt.setString(2, note);
+            stmt.setString(1, notes);
+            stmt.setInt(2, clazz.getId());
             stmt.execute();
             stmt.close();
         }catch(SQLException e){

@@ -91,7 +91,7 @@ public class ClienteGUI extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         VgeralPanel = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        LembreteTextArea = new javax.swing.JTextArea();
         LembreteSalvar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         AlunosPanel = new javax.swing.JPanel();
@@ -149,11 +149,11 @@ public class ClienteGUI extends javax.swing.JFrame {
         VgeralPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         VgeralPanel.setForeground(new java.awt.Color(255, 153, 102));
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setFont(new java.awt.Font("Fira Sans", 0, 14)); // NOI18N
-        jTextArea2.setLineWrap(true);
-        jTextArea2.setRows(5);
-        jScrollPane3.setViewportView(jTextArea2);
+        LembreteTextArea.setColumns(20);
+        LembreteTextArea.setFont(new java.awt.Font("Fira Sans", 0, 14)); // NOI18N
+        LembreteTextArea.setLineWrap(true);
+        LembreteTextArea.setRows(5);
+        jScrollPane3.setViewportView(LembreteTextArea);
 
         LembreteSalvar.setFont(new java.awt.Font("Fira Sans", 0, 18)); // NOI18N
         LembreteSalvar.setText("Salvar");
@@ -670,7 +670,7 @@ public class ClienteGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_textfield_horario_aulaActionPerformed
 
     private void LembreteSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LembreteSalvarActionPerformed
-        // TODO add your handling code here:
+        ClazzController.saveClassNote();
     }//GEN-LAST:event_LembreteSalvarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) throws SQLException{
@@ -731,6 +731,7 @@ public class ClienteGUI extends javax.swing.JFrame {
     public static javax.swing.JButton EnviarCadSalas;
     public static javax.swing.JPanel EstatisticasPanel;
     private javax.swing.JButton LembreteSalvar;
+    public static javax.swing.JTextArea LembreteTextArea;
     public static javax.swing.JPanel NotasPanel;
     public static javax.swing.JPanel VgeralPanel;
     public static gui.AtividadesGui atividadesGui1;
@@ -755,7 +756,6 @@ public class ClienteGUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     public static javax.swing.JScrollPane jScrollPane4;
     public static javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextArea jTextArea2;
     public static javax.swing.JTextField jTextField2;
     public static javax.swing.JTextField jTextField3;
     public static javax.swing.JTextField jTextField5;

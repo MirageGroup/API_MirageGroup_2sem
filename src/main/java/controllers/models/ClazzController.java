@@ -55,8 +55,13 @@ public class ClazzController {
         }
     }
 
-    public static void addClassNote() {
-        
+    public static void saveClassNote() {
+        ClazzDAO dao = new ClazzDAO();
+
+        String notes = ClienteGUI.LembreteTextArea.getText();
+        Clazz clazz = dao.getByName(ClienteGUI.ComboSalas.getSelectedItem().toString());
+
+        dao.saveNote(clazz, notes);
     }
 
     public static void selectCurrentClazz() throws ParseException {
