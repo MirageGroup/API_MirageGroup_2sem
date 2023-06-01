@@ -285,7 +285,7 @@ public class ClienteGUI extends javax.swing.JFrame {
 
         EnviarCadAtv.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         EnviarCadAtv.setText("Salvar");
-        EnviarCadAtv.addActionListener(new java.awt.event.ActionListener() {
+        EnviarCadAtv.addActionListener(new java.awt.event.ActionListener () {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EnviarCadAtvActionPerformed(evt);
                 try {
