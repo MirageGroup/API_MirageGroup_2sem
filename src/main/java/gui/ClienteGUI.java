@@ -40,6 +40,7 @@ import java.util.logging.Logger;
 import javax.swing.JFrame;
 
 import java.time.LocalDateTime;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -54,6 +55,8 @@ public class ClienteGUI extends javax.swing.JFrame {
     public ClienteGUI() throws ParseException {
         initComponents();
         setTitle("Controle de Turmas");
+        ImageIcon mirageLogo = new ImageIcon("docs/miragegroup-logo.png");
+        setIconImage(mirageLogo.getImage());
         StudentController.showStudentsByClazz();
         ComboSalas.setModel(new javax.swing.DefaultComboBoxModel<>( ClazzController.GetAllClazzesName() ));
         ComboAlunos.setModel(new javax.swing.DefaultComboBoxModel<>(StudentController.studentListByClazz()));
@@ -765,4 +768,8 @@ public class ClienteGUI extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
     public static javax.swing.JScrollPane jScrollPane1;
     public static Object addAssignment;
+
+    private void setIconImage(ImageIcon mirageLogo) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
