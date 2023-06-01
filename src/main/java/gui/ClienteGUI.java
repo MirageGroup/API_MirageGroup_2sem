@@ -208,12 +208,7 @@ public class ClienteGUI extends javax.swing.JFrame {
         EnviarCadAluno.setText("Enviar");
         EnviarCadAluno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                try {
-                    EnviarCadAlunoActionPerformed(evt);
-                } catch (SQLException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
+                EnviarCadAlunoActionPerformed(evt);
             }
         });
 
@@ -288,15 +283,9 @@ public class ClienteGUI extends javax.swing.JFrame {
 
         EnviarCadAtv.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         EnviarCadAtv.setText("Salvar");
-        EnviarCadAtv.addActionListener(new java.awt.event.ActionListener () {
+        EnviarCadAtv.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EnviarCadAtvActionPerformed(evt);
-                try {
-                    jButton1ActionPerformed(evt);
-                } catch (SQLException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
             }
         });
 
@@ -305,21 +294,19 @@ public class ClienteGUI extends javax.swing.JFrame {
         AtividadesPanelLayout.setHorizontalGroup(
             AtividadesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AtividadesPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(AtividadesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AtividadesPanelLayout.createSequentialGroup()
-                        .addComponent(atividadesGui1, javax.swing.GroupLayout.PREFERRED_SIZE, 915, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AtividadesPanelLayout.createSequentialGroup()
-                        .addComponent(EnviarCadAtv)
-                        .addGap(410, 410, 410))))
+                .addContainerGap(483, Short.MAX_VALUE)
+                .addComponent(EnviarCadAtv)
+                .addGap(410, 410, 410))
+            .addGroup(AtividadesPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(atividadesGui1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         AtividadesPanelLayout.setVerticalGroup(
             AtividadesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AtividadesPanelLayout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(atividadesGui1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(12, 12, 12)
                 .addComponent(EnviarCadAtv)
                 .addContainerGap(70, Short.MAX_VALUE))
         );
@@ -363,19 +350,11 @@ public class ClienteGUI extends javax.swing.JFrame {
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel13.setText("Nota 4");
-        
-        jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel14.setText("Nota 5");
-        
+
         jButton1.setText("Enviar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                try {
-                    jButton1ActionPerformed(evt);
-                } catch (SQLException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -385,9 +364,12 @@ public class ClienteGUI extends javax.swing.JFrame {
             }
         });
 
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel14.setText("Nota 5");
+
         ComboAlunos.setModel(new javax.swing.DefaultComboBoxModel<>(StudentController.studentListByClazz()));
         ComboAlunos.setToolTipText("Selecione um Aluno");
-       
+
         javax.swing.GroupLayout NotasPanelLayout = new javax.swing.GroupLayout(NotasPanel);
         NotasPanel.setLayout(NotasPanelLayout);
         NotasPanelLayout.setHorizontalGroup(
@@ -502,12 +484,7 @@ public class ClienteGUI extends javax.swing.JFrame {
         EnviarCadSalas.setText("Enviar");
         EnviarCadSalas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                try {
-                    EnviarCadSalasActionPerformed(evt);
-                } catch (SQLException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
+                EnviarCadSalasActionPerformed(evt);
             }
         });
 
