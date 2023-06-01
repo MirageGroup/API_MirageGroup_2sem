@@ -3,6 +3,7 @@ package controllers.models;
 import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
+import java.util.ArrayList;
 
 import dao.AssignmentDAO;
 import gui.AtividadesGui;
@@ -46,5 +47,19 @@ public class AssignmentController {
 
             
         }
+    }
+
+    public static String[] GetAllAssignmentName() {
+        AssignmentDAO dao = new AssignmentDAO();
+
+        ArrayList<Assignment> list = dao.getAssignments();
+        String assignments[] = new String[list.size()];
+
+        for (int i = 0; i < list.size(); i++) {
+            assignments[i] = list.get(i).getName();
+        }
+
+        return assignments;
+
     }
 }
