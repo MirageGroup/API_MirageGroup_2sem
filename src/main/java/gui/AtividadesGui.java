@@ -36,7 +36,7 @@ public class AtividadesGui extends javax.swing.JPanel {
         jScrollPane4.setViewportView(painelInserirAlunos);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel1.setText("Alunos referente a essa turma:");
+        jLabel1.setText("Atividades referente a essa turma:");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel2.setText("Atividades");
