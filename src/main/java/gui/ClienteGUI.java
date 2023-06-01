@@ -195,7 +195,7 @@ public class ClienteGUI extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Visão Geral", VgeralPanel);
 
-        AlunosPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Fira Sans", 0, 13), new java.awt.Color(153, 153, 153))); // NOI18N
+        AlunosPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(153, 153, 153))); // NOI18N
 
         jScrollPane4.setPreferredSize(new java.awt.Dimension(917, 0));
 

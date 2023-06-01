@@ -8,8 +8,8 @@ import models.Student;
 
 public class PainelDeAcao extends javax.swing.JPanel {
 
-    public AcaoBotao getCmdEdit() {
-        return cmdEdit;
+    public AcaoBotao getCmdDelete() {
+        return cmdDelete;
     }
 
     public AcaoBotao getCmdEditar() {
@@ -18,6 +18,10 @@ public class PainelDeAcao extends javax.swing.JPanel {
 
     public JCheckBox getjCheckBox3() {
         return jCheckBox3;
+    }
+    
+    public AcaoBotao getCmdView() {
+        return cmdView;
     }
     
     
@@ -36,9 +40,10 @@ public class PainelDeAcao extends javax.swing.JPanel {
 
         jCheckBox2 = new javax.swing.JCheckBox();
         cmdEditar = new BotaoEdicaoAlunos.AcaoBotao();
-        cmdEdit = new BotaoEdicaoAlunos.AcaoBotao();
+        cmdDelete = new BotaoEdicaoAlunos.AcaoBotao();
         jCheckBox3 = new javax.swing.JCheckBox();
         jTextField1 = new javax.swing.JTextField();
+        cmdView = new BotaoEdicaoAlunos.AcaoBotao();
 
         jCheckBox2.setText("jCheckBox2");
 
@@ -49,10 +54,10 @@ public class PainelDeAcao extends javax.swing.JPanel {
             }
         });
 
-        cmdEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BotaoEdicaoAlunos/delete.png"))); // NOI18N
-        cmdEdit.addActionListener(new java.awt.event.ActionListener() {
+        cmdDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BotaoEdicaoAlunos/delete.png"))); // NOI18N
+        cmdDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmdEditActionPerformed(evt);
+                cmdDeleteActionPerformed(evt);
             }
         });
 
@@ -69,6 +74,9 @@ public class PainelDeAcao extends javax.swing.JPanel {
             }
         });
 
+        cmdView.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BotaoEdicaoAlunos/view.png"))); // NOI18N
+        cmdView.setToolTipText("");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -77,11 +85,13 @@ public class PainelDeAcao extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jCheckBox3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 753, Short.MAX_VALUE)
+                .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 723, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cmdView, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cmdEditar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cmdEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cmdDelete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -91,14 +101,15 @@ public class PainelDeAcao extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(cmdEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(cmdEditar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cmdDelete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cmdEditar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cmdView, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jCheckBox3))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cmdEditActionPerformed(java.awt.event.ActionEvent evt) {
+    private void cmdDeleteActionPerformed(java.awt.event.ActionEvent evt) {
         StudentController.deleteStudent(this);
     }
 
@@ -122,8 +133,9 @@ public class PainelDeAcao extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private BotaoEdicaoAlunos.AcaoBotao cmdEdit;
+    private BotaoEdicaoAlunos.AcaoBotao cmdDelete;
     private BotaoEdicaoAlunos.AcaoBotao cmdEditar;
+    private BotaoEdicaoAlunos.AcaoBotao cmdView;
     private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JCheckBox jCheckBox3;
     private javax.swing.JTextField jTextField1;
