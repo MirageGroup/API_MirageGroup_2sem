@@ -6,6 +6,7 @@ public class Clazz {
     private String weekday;
     private String time_start;
     private String time_end;
+    private String notes;
     
     public int getId() {
         return id;
@@ -37,6 +38,12 @@ public class Clazz {
     public void setTime_end(String time_end) {
         this.time_end = time_end;
     }
-
+    public String getNotes() {
+        return notes;
+    }
+    public void setNotes(String notes) {
+        this.notes = notes;
+    }
+    
     
 }

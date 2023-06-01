@@ -55,18 +55,22 @@ public class ClazzController {
         }
     }
 
-    public static void addClassNote() {
-        if (ClienteGUI.LembreteCampo.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "O campo não pode estar vazio");
-        }else{
-            String note = ClienteGUI.LembreteCampo.getText();
-            ClazzDAO dao = new ClazzDAO();
-            System.out.println(ClienteGUI.ComboSalas.getSelectedItem().toString());
-            Clazz clazz = dao.getByName(ClienteGUI.ComboSalas.getSelectedItem().toString());
-            dao.addNote(clazz, note);
-            JOptionPane.showMessageDialog(null, "Lembrete anotado");
-            ClienteGUI.LembreteCampo.setText("");
-        }
+    public static void saveClassNote() {
+        ClazzDAO dao = new ClazzDAO();
+
+        String notes = ClienteGUI.LembreteTextArea.getText();
+        Clazz clazz = dao.getByName(ClienteGUI.ComboSalas.getSelectedItem().toString());
+
+        dao.saveNote(clazz, notes);
+    }
+
+    public static void getClassNote(){
+        ClazzDAO dao = new ClazzDAO();
+
+        Clazz clazz = dao.getByName(ClienteGUI.ComboSalas.getSelectedItem().toString());
+
+        ClienteGUI.LembreteTextArea.setText(clazz.getNotes());
+
     }
 
     public static void selectCurrentClazz() throws ParseException {

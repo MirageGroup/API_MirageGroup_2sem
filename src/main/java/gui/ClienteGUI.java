@@ -48,6 +48,8 @@ import javax.swing.ImageIcon;
  */
 public class ClienteGUI extends javax.swing.JFrame {
 
+    public static final String LembreteCampo = null;
+
     /**
      * Creates new form ClienteGUI
      * @throws ParseException
@@ -63,10 +65,12 @@ public class ClienteGUI extends javax.swing.JFrame {
         ComboSalas.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
               StudentController.showStudentsByClazz();
+              ClazzController.getClassNote();
               ComboAlunos.setModel(new javax.swing.DefaultComboBoxModel<>(StudentController.studentListByClazz()));
             }
         });
         StudentController.showStudentsByClazz();
+        ClazzController.getClassNote();
         ComboSalasCad.setModel(new javax.swing.DefaultComboBoxModel<>( ClazzController.GetAllClazzesName() ));
         ClazzController.selectCurrentClazz();
     }
@@ -89,8 +93,8 @@ public class ClienteGUI extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         VgeralPanel = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
-        jButton2 = new javax.swing.JButton();
+        LembreteTextArea = new javax.swing.JTextArea();
+        LembreteSalvar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         AlunosPanel = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -130,9 +134,6 @@ public class ClienteGUI extends javax.swing.JFrame {
         clock1 = new gui.components.clock.Clock();
         label_horario_sala = new javax.swing.JLabel();
         textfield_horario_aula = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        LembreteCampo = new javax.swing.JTextField();
-        LembreteEnviar = new javax.swing.JButton();
 
         jCheckBoxMenuItem1.setSelected(true);
         jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
@@ -150,12 +151,19 @@ public class ClienteGUI extends javax.swing.JFrame {
         VgeralPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         VgeralPanel.setForeground(new java.awt.Color(255, 153, 102));
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setLineWrap(true);
-        jTextArea2.setRows(5);
-        jScrollPane3.setViewportView(jTextArea2);
+        LembreteTextArea.setColumns(20);
+        LembreteTextArea.setFont(new java.awt.Font("Fira Sans", 0, 18)); // NOI18N
+        LembreteTextArea.setLineWrap(true);
+        LembreteTextArea.setRows(5);
+        jScrollPane3.setViewportView(LembreteTextArea);
 
-        jButton2.setText("Salvar");
+        LembreteSalvar.setFont(new java.awt.Font("Fira Sans", 0, 18)); // NOI18N
+        LembreteSalvar.setText("Salvar");
+        LembreteSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LembreteSalvarActionPerformed(evt);
+            }
+        });
 
         jLabel7.setFont(new java.awt.Font("Fira Sans", 0, 24)); // NOI18N
         jLabel7.setText("Lembretes");
@@ -169,7 +177,7 @@ public class ClienteGUI extends javax.swing.JFrame {
                 .addGroup(VgeralPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(VgeralPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(LembreteSalvar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -181,7 +189,7 @@ public class ClienteGUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 487, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(LembreteSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -541,21 +549,6 @@ public class ClienteGUI extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setText("Adicionar Lembrete:");
-
-        LembreteCampo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LembreteCampoActionPerformed(evt);
-            }
-        });
-
-        LembreteEnviar.setText("Adicionar");
-        LembreteEnviar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LembreteEnviarActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -566,18 +559,13 @@ public class ClienteGUI extends javax.swing.JFrame {
                     .addComponent(EnviarCadSalas)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(LembreteEnviar)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(LembreteCampo, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(ComboSalas, javax.swing.GroupLayout.Alignment.LEADING, 0, 197, Short.MAX_VALUE)))
-                        .addComponent(jLabel3)
+                        .addComponent(ComboSalas, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(clock1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(label_horario_sala)
                         .addComponent(textfield_horario_aula)
                         .addComponent(CadSalas)))
-                .addContainerGap(996, Short.MAX_VALUE))
+                .addContainerGap(1008, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                     .addGap(216, 216, 216)
@@ -593,13 +581,7 @@ public class ClienteGUI extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ComboSalas, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(172, 172, 172)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(LembreteCampo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(LembreteEnviar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 228, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 475, Short.MAX_VALUE)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(CadSalas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -689,13 +671,9 @@ public class ClienteGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_textfield_horario_aulaActionPerformed
 
-    private void LembreteCampoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LembreteCampoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_LembreteCampoActionPerformed
-
-    private void LembreteEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LembreteEnviarActionPerformed
-        ClazzController.addClassNote();
-    }//GEN-LAST:event_LembreteEnviarActionPerformed
+    private void LembreteSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LembreteSalvarActionPerformed
+        ClazzController.saveClassNote();
+    }//GEN-LAST:event_LembreteSalvarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) throws SQLException{
         GradesController.saveGrades(ComboAlunos.getSelectedItem().toString());
@@ -754,14 +732,13 @@ public class ClienteGUI extends javax.swing.JFrame {
     public static javax.swing.JButton EnviarCadAtv;
     public static javax.swing.JButton EnviarCadSalas;
     public static javax.swing.JPanel EstatisticasPanel;
-    public static javax.swing.JTextField LembreteCampo;
-    private javax.swing.JButton LembreteEnviar;
+    private javax.swing.JButton LembreteSalvar;
+    public static javax.swing.JTextArea LembreteTextArea;
     public static javax.swing.JPanel NotasPanel;
     public static javax.swing.JPanel VgeralPanel;
     public static gui.AtividadesGui atividadesGui1;
     private gui.components.clock.Clock clock1;
     public static javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem2;
     public static javax.swing.JLabel jLabel1;
@@ -771,7 +748,6 @@ public class ClienteGUI extends javax.swing.JFrame {
     public static javax.swing.JLabel jLabel13;
     public static javax.swing.JLabel jLabel14;
     public static javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     public static javax.swing.JLabel jLabel4;
     public static javax.swing.JLabel jLabel5;
     public static javax.swing.JLabel jLabel6;
@@ -782,7 +758,6 @@ public class ClienteGUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     public static javax.swing.JScrollPane jScrollPane4;
     public static javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextArea jTextArea2;
     public static javax.swing.JTextField jTextField2;
     public static javax.swing.JTextField jTextField3;
     public static javax.swing.JTextField jTextField5;
