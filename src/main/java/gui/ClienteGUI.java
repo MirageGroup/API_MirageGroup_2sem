@@ -382,10 +382,9 @@ public class ClienteGUI extends javax.swing.JFrame {
             }
         });
 
-
         ComboAlunos.setModel(new javax.swing.DefaultComboBoxModel<>(StudentController.studentListByClazz()));
         ComboAlunos.setToolTipText("Selecione um Aluno");
-
+       
         javax.swing.GroupLayout NotasPanelLayout = new javax.swing.GroupLayout(NotasPanel);
         NotasPanel.setLayout(NotasPanelLayout);
         NotasPanelLayout.setHorizontalGroup(
@@ -637,12 +636,7 @@ public class ClienteGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_ComboSalasActionPerformed
 
     private void EnviarCadAtvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnviarCadAtvActionPerformed
-        Assignment assignment = new Assignment();
-        assignment.setName(AtividadesGui.nameAssin.getText());
-        assignment.setDate_assigned(AtividadesGui.iniData.getText());
-        assignment.setDate_due(AtividadesGui.fimData.getText());
-        assignment.setMax_grade(Double.parseDouble(AtividadesGui.jTextField1.getText()));
-        AssignmentController.addAssignment(assignment);
+        AssignmentController.addAssignment();
         
     }//GEN-LAST:event_EnviarCadAtvActionPerformed
 
