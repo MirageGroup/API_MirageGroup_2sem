@@ -4,42 +4,15 @@
  */
 package gui;
 
-import BotaoEdicaoAlunos.PainelDeAcao;
+
 import java.sql.SQLException;
 import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Scanner;
-import javax.swing.JOptionPane;
-import javax.swing.JTabbedPane;
-import javax.swing.JTextArea;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
-import javax.swing.JCheckBox;
-import javax.swing.JButton;
-
 import controllers.models.AssignmentController;
 import controllers.models.ClazzController;
 import controllers.models.GradesController;
 import controllers.models.StudentController;
-import dao.ClazzDAO;
-import dao.StudentDAO;
-import models.Assignment;
-import models.Clazz;
-import models.Student;
-import java.awt.BorderLayout;
-import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import javax.swing.JFrame;
-
-import java.time.LocalDateTime;
 import javax.swing.ImageIcon;
 
 /**

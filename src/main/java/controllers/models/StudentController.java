@@ -2,11 +2,7 @@ package controllers.models;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
-
 import javax.swing.JOptionPane;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
-
 import BotaoEdicaoAlunos.PainelDeAcao;
 import dao.ClazzDAO;
 import dao.StudentDAO;
