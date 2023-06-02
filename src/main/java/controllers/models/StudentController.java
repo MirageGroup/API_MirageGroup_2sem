@@ -77,11 +77,11 @@ public class StudentController {
 
           StudentDAO studentdao = new StudentDAO();
           studentdao.save(student);
-          JOptionPane.showMessageDialog(null,"Aluno "+ClienteGUI.CadAluno.getText()+" cadastrado na turma "+ClienteGUI.ComboSalasCad.getSelectedItem().toString());
+          JOptionPane.showMessageDialog(null,"Aluno "+ClienteGUI.CadAluno.getText()+" cadastrado na turma "+ClienteGUI.ComboSalas.getSelectedItem().toString());
           ClienteGUI.CadAluno.setText("");
 
           ClazzDAO clazzdao = new ClazzDAO();
-          Clazz clazz = clazzdao.getByName(ClienteGUI.ComboSalasCad.getSelectedItem().toString());
+          Clazz clazz = clazzdao.getByName(ClienteGUI.ComboSalas.getSelectedItem().toString());
           clazzdao.addStudent(clazz, student);
 
           clazzdao.closeConn();

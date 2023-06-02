@@ -44,7 +44,6 @@ public class ClienteGUI extends javax.swing.JFrame {
         });
         StudentController.showStudentsByClazz();
         ClazzController.getClassNote();
-        ComboSalasCad.setModel(new javax.swing.DefaultComboBoxModel<>( ClazzController.GetAllClazzesName() ));
         ClazzController.selectCurrentClazz();
     }
     
@@ -74,10 +73,8 @@ public class ClienteGUI extends javax.swing.JFrame {
         painelInserirAlunos = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        ComboSalasCad = new javax.swing.JComboBox<>();
         CadAluno = new javax.swing.JTextField();
         EnviarCadAluno = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
         EstatisticasPanel = new javax.swing.JPanel();
         AtividadesPanel = new javax.swing.JPanel();
         EnviarCadAtv = new javax.swing.JButton();
@@ -168,7 +165,7 @@ public class ClienteGUI extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Visão Geral", VgeralPanel);
 
-        AlunosPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(153, 153, 153))); // NOI18N
+        AlunosPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Fira Sans", 0, 13), new java.awt.Color(153, 153, 153))); // NOI18N
 
         jScrollPane4.setPreferredSize(new java.awt.Dimension(917, 0));
 
@@ -181,13 +178,6 @@ public class ClienteGUI extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel2.setText("Adicionar Aluno:");
-
-        ComboSalasCad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sala", "Item 2", "Item 3", "Item 4" }));
-        ComboSalasCad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ComboSalasCadActionPerformed(evt);
-            }
-        });
 
         CadAluno.setToolTipText("nome do aluno");
         CadAluno.addActionListener(new java.awt.event.ActionListener() {
@@ -208,53 +198,35 @@ public class ClienteGUI extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel4.setText("Selecionar sala:");
-
         javax.swing.GroupLayout AlunosPanelLayout = new javax.swing.GroupLayout(AlunosPanel);
         AlunosPanel.setLayout(AlunosPanelLayout);
         AlunosPanelLayout.setHorizontalGroup(
             AlunosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 975, Short.MAX_VALUE)
+            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 987, Short.MAX_VALUE)
             .addGroup(AlunosPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(AlunosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6)
                     .addGroup(AlunosPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel4)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(CadAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 742, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(ComboSalasCad, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(EnviarCadAluno))
-                    .addGroup(AlunosPanelLayout.createSequentialGroup()
-                        .addGroup(AlunosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
-                            .addGroup(AlunosPanelLayout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(CadAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 742, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(46, 46, 46))
+                        .addComponent(EnviarCadAluno)))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
         AlunosPanelLayout.setVerticalGroup(
             AlunosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AlunosPanelLayout.createSequentialGroup()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 587, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 583, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(28, 28, 28)
                 .addGroup(AlunosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(CadAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(AlunosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(AlunosPanelLayout.createSequentialGroup()
-                        .addGroup(AlunosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(ComboSalasCad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4))
-                        .addGap(35, 35, 35))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AlunosPanelLayout.createSequentialGroup()
-                        .addComponent(EnviarCadAluno)
-                        .addGap(17, 17, 17))))
+                    .addComponent(CadAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(EnviarCadAluno))
+                .addGap(46, 46, 46))
         );
 
         jTabbedPane1.addTab("Alunos", AlunosPanel);
@@ -575,10 +547,6 @@ public class ClienteGUI extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ComboSalasCadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboSalasCadActionPerformed
-        
-    }//GEN-LAST:event_ComboSalasCadActionPerformed
-
     private void CadAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadAlunoActionPerformed
 
     }//GEN-LAST:event_CadAlunoActionPerformed
@@ -700,7 +668,6 @@ public class ClienteGUI extends javax.swing.JFrame {
     public static javax.swing.JTextField CadSalas;
     public static javax.swing.JComboBox<String> ComboAlunos;
     public static javax.swing.JComboBox<String> ComboSalas;
-    public static javax.swing.JComboBox<String> ComboSalasCad;
     public static javax.swing.JButton EnviarCadAluno;
     public static javax.swing.JButton EnviarCadAtv;
     public static javax.swing.JButton EnviarCadSalas;
@@ -721,7 +688,6 @@ public class ClienteGUI extends javax.swing.JFrame {
     public static javax.swing.JLabel jLabel13;
     public static javax.swing.JLabel jLabel14;
     public static javax.swing.JLabel jLabel2;
-    public static javax.swing.JLabel jLabel4;
     public static javax.swing.JLabel jLabel5;
     public static javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;

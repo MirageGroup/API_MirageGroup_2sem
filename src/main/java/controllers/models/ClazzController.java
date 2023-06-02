@@ -50,8 +50,6 @@ public class ClazzController {
             clazzdao.closeConn();
 
             ClienteGUI.ComboSalas.setModel(new javax.swing.DefaultComboBoxModel<>(ClazzController.GetAllClazzesName()));
-            ClienteGUI.ComboSalasCad
-                    .setModel(new javax.swing.DefaultComboBoxModel<>(ClazzController.GetAllClazzesName()));
         }
     }
 
