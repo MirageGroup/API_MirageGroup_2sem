@@ -1,14 +1,21 @@
 package controllers.models;
 
+import BotaoEdicaoAlunos.PainelDeAcao;
+import BotaoEdicaoAlunos.PainelDeAcao2;
 import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
 import java.util.ArrayList;
 
 import dao.AssignmentDAO;
+import dao.StudentDAO;
 import gui.AtividadesGui;
 import gui.ClienteGUI;
+import java.awt.Dimension;
+import java.util.Iterator;
 import models.Assignment;
+import models.Clazz;
+import models.Student;
 
 public class AssignmentController {
     public static void addAssignment(){
@@ -58,8 +65,39 @@ public class AssignmentController {
         for (int i = 0; i < list.size(); i++) {
             assignments[i] = list.get(i).getName();
         }
+        
 
         return assignments;
 
+    }
+    
+    public static void showAssignmentsByClazz(){
+
+      Clazz clazz = new Clazz();
+
+        clazz.setName((String)ClienteGUI.ComboSalas.getSelectedItem());
+
+      AssignmentDAO dao = new AssignmentDAO();
+          ArrayList<Assignment> list = dao.getAssignments();
+          int contador=0;
+          
+          ClienteGUI.atividadesGui1.painelInserirAlunos.removeAll();
+          
+          for (Assignment assignment:list){
+  
+              
+              PainelDeAcao2 painel1=new PainelDeAcao2(assignment);
+              ClienteGUI.atividadesGui1.painelInserirAlunos.add(painel1);
+              
+
+              contador++;
+              
+          }
+
+          ClienteGUI.atividadesGui1.painelInserirAlunos.setPreferredSize(new Dimension(901, 50*contador));
+          ClienteGUI.atividadesGui1.painelInserirAlunos.revalidate();
+          ClienteGUI.atividadesGui1.painelInserirAlunos.repaint();
+
+         
     }
 }

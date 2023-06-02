@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import BotaoEdicaoAlunos.PainelDeAcao;
+import BotaoEdicaoAlunos.PainelDeAcao2;
 import dao.ClazzDAO;
 import dao.StudentDAO;
 import gui.ClienteGUI;
@@ -24,14 +25,14 @@ public class StudentController {
           int contador=0;
           
           ClienteGUI.painelInserirAlunos.removeAll();
-          ClienteGUI.atividadesGui1.painelInserirAlunos.removeAll();
+          //ClienteGUI.atividadesGui1.painelInserirAlunos.removeAll();
           
           for (Student student:lista){
   
               PainelDeAcao painel=new PainelDeAcao(student);
-              PainelDeAcao painel1=new PainelDeAcao(student);
+              //PainelDeAcao2 painel1=new PainelDeAcao2(student);
               painel.getCmdView().setVisible(false);
-              ClienteGUI.atividadesGui1.painelInserirAlunos.add(painel1);
+              //ClienteGUI.atividadesGui1.painelInserirAlunos.add(painel1);
               ClienteGUI.painelInserirAlunos.add(painel);
 
               contador++;
