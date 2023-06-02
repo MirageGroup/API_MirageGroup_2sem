@@ -55,7 +55,7 @@ public class ClazzController {
 
     public static void saveClassNote() {
         ClazzDAO dao = new ClazzDAO();
-
+        
         String notes = ClienteGUI.LembreteTextArea.getText();
         Clazz clazz = dao.getByName(ClienteGUI.ComboSalas.getSelectedItem().toString());
 
@@ -64,11 +64,13 @@ public class ClazzController {
 
     public static void getClassNote(){
         ClazzDAO dao = new ClazzDAO();
-
-        Clazz clazz = dao.getByName(ClienteGUI.ComboSalas.getSelectedItem().toString());
-
-        ClienteGUI.LembreteTextArea.setText(clazz.getNotes());
-
+        if(ClienteGUI.ComboSalas.getSelectedItem() != null){
+            Clazz clazz = dao.getByName(ClienteGUI.ComboSalas.getSelectedItem().toString());
+            ClienteGUI.LembreteTextArea.setText(clazz.getNotes());
+        }
+        else{
+            //JOptionPane.showConfirmDialog(ClienteGUI.LembreteTextArea, "deseja abrir mesmo assim?");
+        }
     }
 
     public static void selectCurrentClazz() throws ParseException {
