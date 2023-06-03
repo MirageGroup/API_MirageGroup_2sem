@@ -92,7 +92,7 @@ public class StudentDAO extends DAO {
       ClazzDAO clazzDao = new ClazzDAO();
       clazz = clazzDao.getByName(clazz.getName());
 
-      String sql = "SELECT * FROM students INNER JOIN student_class ON student_class.fk_Students_id_student = students.id_student WHERE fk_Classes_id_class = ?";
+      String sql = "SELECT * FROM students INNER JOIN student_class ON student_class.fk_Students_id_student = students.id_student WHERE fk_Classes_id_class = ? ORDER BY students.name_student";
       try{
           PreparedStatement stmt = conn.prepareStatement(sql);
           stmt.setInt(1, clazz.getId());
