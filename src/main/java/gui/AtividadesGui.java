@@ -1,5 +1,9 @@
 package gui;
 
+import java.awt.Color;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
+import javax.swing.JTextField;
 
 public class AtividadesGui extends javax.swing.JPanel {
 
@@ -8,13 +12,12 @@ public class AtividadesGui extends javax.swing.JPanel {
      */
     public AtividadesGui() {
         initComponents();
+        addDateExampleText(iniData, "aaaa/dd/mm");
+        addDateExampleText(fimData, "aaaa/dd/mm");
     }
 
-
     @SuppressWarnings("unchecked")
-   
     private void initComponents() {
-
         jScrollPane4 = new javax.swing.JScrollPane();
         painelInserirAlunos = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -140,6 +143,30 @@ public class AtividadesGui extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_nameAssinActionPerformed
 
+    private void addDateExampleText(JTextField textField, String example) {
+        if (textField != null) {
+            textField.setForeground(Color.GRAY);
+            textField.setText(example);
+
+            textField.addFocusListener(new FocusAdapter() {
+                @Override
+                public void focusGained(FocusEvent e) {
+                    if (textField.getText().equals(example)) {
+                        textField.setText("");
+                        textField.setForeground(Color.BLACK);
+                    }
+                }
+
+                @Override
+                public void focusLost(FocusEvent e) {
+                    if (textField.getText().isEmpty()) {
+                        textField.setForeground(Color.GRAY);
+                        textField.setText(example);
+                    }
+                }
+            });
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static BotaoEdicaoAlunos.AcaoBotao acaoBotao1;
@@ -150,10 +177,10 @@ public class AtividadesGui extends javax.swing.JPanel {
     public static javax.swing.JLabel jLabel2;
     public static javax.swing.JLabel jLabel3;
     public static javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    public static javax.swing.JLabel jLabel5;
     public static javax.swing.JScrollPane jScrollPane4;
     public static javax.swing.JTextField jTextField1;
     public static javax.swing.JTextField nameAssin;
-    public javax.swing.JPanel painelInserirAlunos;
+    public static javax.swing.JPanel painelInserirAlunos;
     // End of variables declaration//GEN-END:variables
 }
