@@ -674,12 +674,12 @@ public class ClienteGUI extends javax.swing.JFrame {
     public static javax.swing.JButton EnviarCadAtv;
     public static javax.swing.JButton EnviarCadSalas;
     public static javax.swing.JPanel EstatisticasPanel;
-    private javax.swing.JButton LembreteSalvar;
-    private javax.swing.JTextArea LembreteTextArea;
+    public static javax.swing.JButton LembreteSalvar;
+    public static javax.swing.JTextArea LembreteTextArea;
     public static javax.swing.JPanel NotasPanel;
     public static javax.swing.JPanel VgeralPanel;
     public static gui.AtividadesGui atividadesGui1;
-    private gui.components.clock.Clock clock1;
+    public static gui.components.clock.Clock clock1;
     public static javax.swing.JButton jButton1;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem2;
