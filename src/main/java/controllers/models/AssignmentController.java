@@ -78,8 +78,12 @@ public class AssignmentController {
     
     public static void showAssignmentsByClazz(){
 
-        ClazzDAO dao2 = new ClazzDAO();
-        Clazz clazz = dao2.getByName(ClienteGUI.ComboSalas.getSelectedItem().toString());
+        Clazz clazz = new Clazz();
+        if(ClienteGUI.ComboSalas.getSelectedItem() == null){
+            JOptionPane.showMessageDialog(null, "escolha ou crie uma sala", null, 0);
+          }else{
+
+            clazz.setName((String)ClienteGUI.ComboSalas.getSelectedItem());
 
         AssignmentDAO dao = new AssignmentDAO();
             ArrayList<Assignment> list = dao.getAssignments(clazz);
@@ -104,4 +108,7 @@ public class AssignmentController {
 
          
     }
+
+          }
+        
 }
