@@ -4,7 +4,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import BotaoEdicaoAlunos.PainelDeAcao;
-import BotaoEdicaoAlunos.PainelDeAcao2;
 import dao.ClazzDAO;
 import dao.StudentDAO;
 import gui.ClienteGUI;

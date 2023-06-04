@@ -1,7 +1,7 @@
 package controllers.models;
 
 import BotaoEdicaoAlunos.PainelDeAcao;
-import BotaoEdicaoAlunos.PainelDeAcao2;
+import BotaoEdicaoAlunos.PainelDeAcao1;
 import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
@@ -73,30 +73,30 @@ public class AssignmentController {
     
     public static void showAssignmentsByClazz(){
 
-      Clazz clazz = new Clazz();
+        Clazz clazz = new Clazz();
 
-        clazz.setName((String)ClienteGUI.ComboSalas.getSelectedItem());
+            clazz.setName((String)ClienteGUI.ComboSalas.getSelectedItem());
 
-      AssignmentDAO dao = new AssignmentDAO();
-          ArrayList<Assignment> list = dao.getAssignments();
-          int contador=0;
-          
-          ClienteGUI.atividadesGui1.painelInserirAlunos.removeAll();
-          
-          for (Assignment assignment:list){
-  
-              
-              PainelDeAcao2 painel1=new PainelDeAcao2(assignment);
-              ClienteGUI.atividadesGui1.painelInserirAlunos.add(painel1);
-              
+        AssignmentDAO dao = new AssignmentDAO();
+            ArrayList<Assignment> list = dao.getAssignments();
+            int contador=0;
+            
+            ClienteGUI.atividadesGui1.painelInserirAlunos.removeAll();
+            
+            for (Assignment assignment:list){
+    
+                
+                PainelDeAcao1 painel1=new PainelDeAcao1(assignment);
+                ClienteGUI.atividadesGui1.painelInserirAlunos.add(painel1);
+                
 
-              contador++;
-              
-          }
+                contador++;
+                
+            }
 
-          ClienteGUI.atividadesGui1.painelInserirAlunos.setPreferredSize(new Dimension(901, 50*contador));
-          ClienteGUI.atividadesGui1.painelInserirAlunos.revalidate();
-          ClienteGUI.atividadesGui1.painelInserirAlunos.repaint();
+        ClienteGUI.atividadesGui1.painelInserirAlunos.setPreferredSize(new Dimension(901, 50*contador));
+        ClienteGUI.atividadesGui1.painelInserirAlunos.revalidate();
+        ClienteGUI.atividadesGui1.painelInserirAlunos.repaint();
 
          
     }

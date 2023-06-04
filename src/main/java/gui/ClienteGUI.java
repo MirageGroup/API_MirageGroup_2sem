@@ -13,6 +13,8 @@ import controllers.models.GradesController;
 import controllers.models.StudentController;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
 
@@ -167,7 +169,7 @@ public class ClienteGUI extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Visão Geral", VgeralPanel);
 
-        AlunosPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Fira Sans", 0, 13), new java.awt.Color(153, 153, 153))); // NOI18N
+        AlunosPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(153, 153, 153))); // NOI18N
 
         jScrollPane4.setPreferredSize(new java.awt.Dimension(917, 0));
 
@@ -191,12 +193,7 @@ public class ClienteGUI extends javax.swing.JFrame {
         EnviarCadAluno.setText("Enviar");
         EnviarCadAluno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                try {
-                    EnviarCadAlunoActionPerformed(evt);
-                } catch (SQLException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
+                EnviarCadAlunoActionPerformed(evt);
             }
         });
 
@@ -213,9 +210,9 @@ public class ClienteGUI extends javax.swing.JFrame {
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(CadAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 742, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(EnviarCadAluno)))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(127, Short.MAX_VALUE))
         );
         AlunosPanelLayout.setVerticalGroup(
             AlunosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -223,12 +220,16 @@ public class ClienteGUI extends javax.swing.JFrame {
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 583, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addGroup(AlunosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(CadAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(EnviarCadAluno))
-                .addGap(46, 46, 46))
+                .addGroup(AlunosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(AlunosPanelLayout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addGroup(AlunosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(CadAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(AlunosPanelLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(EnviarCadAluno)))
+                .addGap(47, 47, 47))
         );
 
         jTabbedPane1.addTab("Alunos", AlunosPanel);
@@ -324,12 +325,7 @@ public class ClienteGUI extends javax.swing.JFrame {
         jButton1.setText("Enviar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                try {
-                    jButton1ActionPerformed(evt);
-                } catch (SQLException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -344,6 +340,11 @@ public class ClienteGUI extends javax.swing.JFrame {
 
         ComboAlunos.setModel(new javax.swing.DefaultComboBoxModel<>(StudentController.studentListByClazz()));
         ComboAlunos.setToolTipText("Selecione um Aluno");
+        ComboAlunos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComboAlunosActionPerformed(evt);
+            }
+        });
 
         String[] columns = new String[]{"Aluno", "Nota 1", "Nota 2", "Nota 3", "Nota 4", "Nota 5"};
         DefaultTableModel tableModel = new DefaultTableModel(columns, 0);
@@ -473,12 +474,7 @@ public class ClienteGUI extends javax.swing.JFrame {
         EnviarCadSalas.setText("Enviar");
         EnviarCadSalas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                try {
-                    EnviarCadSalasActionPerformed(evt);
-                } catch (SQLException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
+                EnviarCadSalasActionPerformed(evt);
             }
         });
 
@@ -565,6 +561,8 @@ public class ClienteGUI extends javax.swing.JFrame {
 
     private void EnviarCadAlunoActionPerformed(java.awt.event.ActionEvent evt) throws SQLException {//GEN-FIRST:event_EnviarCadAlunoActionPerformed
         StudentController.saveStudent();
+        ComboAlunos.setModel(new javax.swing.DefaultComboBoxModel<>(StudentController.studentListByClazz()));
+        
     }//GEN-LAST:event_EnviarCadAlunoActionPerformed
 
     private void EnviarCadSalasActionPerformed(java.awt.event.ActionEvent evt) throws SQLException {
@@ -611,6 +609,10 @@ public class ClienteGUI extends javax.swing.JFrame {
     private void LembreteSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LembreteSalvarActionPerformed
         ClazzController.saveClassNote();
     }//GEN-LAST:event_LembreteSalvarActionPerformed
+
+    private void ComboAlunosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboAlunosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ComboAlunosActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) throws SQLException{
         GradesController.saveGrades(ComboAlunos.getSelectedItem().toString());
@@ -668,12 +670,12 @@ public class ClienteGUI extends javax.swing.JFrame {
     public static javax.swing.JButton EnviarCadAtv;
     public static javax.swing.JButton EnviarCadSalas;
     public static javax.swing.JPanel EstatisticasPanel;
-    private javax.swing.JButton LembreteSalvar;
+    public static javax.swing.JButton LembreteSalvar;
     public static javax.swing.JTextArea LembreteTextArea;
     public static javax.swing.JPanel NotasPanel;
     public static javax.swing.JPanel VgeralPanel;
     public static gui.AtividadesGui atividadesGui1;
-    private gui.components.clock.Clock clock1;
+    public static gui.components.clock.Clock clock1;
     public static javax.swing.JButton jButton1;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem2;

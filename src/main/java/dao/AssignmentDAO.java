@@ -52,7 +52,7 @@ public class AssignmentDAO extends DAO {
 
     public ArrayList<Assignment> getAssignments() {
         ArrayList<Assignment> assignments = new ArrayList<>();
-        String sql = "SELECT * FROM assignments INNER JOIN name_assignment ON name_assignment.fk_assignments_id_assignment = assignments.id_assignment WHERE fk_Classes_id_class = ?";
+        String sql = "SELECT * FROM assignments INNER JOIN name_assignment ON name_assignment.fk_Assignments_id_assignment = assignments.id_assignment WHERE fk_Classes_id_class = ?";
         
         try {
             PreparedStatement stmt = conn.prepareStatement(sql);
@@ -64,12 +64,18 @@ public class AssignmentDAO extends DAO {
             }
             resultSet.close();
             stmt.close();
-            conn.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
+        } finally {
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                // Handle the exception or log it if necessary
+            }
         }
-
+    
         return assignments;
     }
+    
 
 }
