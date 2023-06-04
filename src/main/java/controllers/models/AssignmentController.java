@@ -1,21 +1,14 @@
 package controllers.models;
 
-import BotaoEdicaoAlunos.PainelDeAcao;
 import BotaoEdicaoAlunos.PainelDeAcao1;
-import java.sql.SQLException;
-
 import javax.swing.JOptionPane;
 import java.util.ArrayList;
-
 import dao.AssignmentDAO;
-import dao.StudentDAO;
 import gui.AtividadesGui;
 import gui.ClienteGUI;
 import java.awt.Dimension;
-import java.util.Iterator;
 import models.Assignment;
 import models.Clazz;
-import models.Student;
 
 public class AssignmentController {
     public static void addAssignment(){
