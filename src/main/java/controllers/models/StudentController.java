@@ -98,6 +98,7 @@ public class StudentController {
 
             GradeDAO gradeDAO = new GradeDAO();
             gradeDAO.initGrade(student);
+            GradesController.insertGradesIntoTable();
 
           }
           
