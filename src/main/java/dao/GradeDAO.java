@@ -45,20 +45,41 @@ public class GradeDAO extends DAO {
     }
 
     public void saveGrade(Grade grade, Student student){
-        String sql = "INSERT INTO grades(fk_Grades_id_student, grade_student, grade_student1, grade_student2, grade_student3, grade_student4) VALUES (?,?,?,?,?,?)";       
+        String sql = "update grades set grade_student = ?, grade_student1 = ?, grade_student2 = ?, grade_student3 = ?, grade_student4 = ? where fk_Grades_id_student = ? "; 
+        // sql = "INSERT INTO grades(fk_Grades_id_student, grade_student, grade_student1, grade_student2, grade_student3, grade_student4) VALUES (?,?,?,?,?,?)";      
+        
         try{
             PreparedStatement stmt = conn.prepareStatement(sql, java.sql.Statement.RETURN_GENERATED_KEYS);
-            stmt.setInt(1, student.getId());
-            stmt.setDouble(2, grade.getGrade());
-            stmt.setDouble(3, grade.getGrade1());
-            stmt.setDouble(4, grade.getGrade2());
-            stmt.setDouble(5, grade.getGrade3());
-            stmt.setDouble(6, grade.getGrade4());
+            stmt.setDouble(1, grade.getGrade());
+            stmt.setDouble(2, grade.getGrade1());
+            stmt.setDouble(3, grade.getGrade2());
+            stmt.setDouble(4, grade.getGrade3());
+            stmt.setDouble(5, grade.getGrade4());
+            stmt.setInt(6, student.getId());
             stmt.execute();
             ResultSet rs = stmt.getGeneratedKeys(); 
             if(rs.next()){                
                 grade.setGrade(rs.getInt(student.getId()));
             }
+            stmt.close();
+        }catch(SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void initGrade(Student student){
+        String sql = "INSERT INTO grades(fk_Grades_id_student, grade_student, grade_student1, grade_student2, grade_student3, grade_student4) VALUES (?,?,?,?,?,?)";
+
+          try{
+            PreparedStatement stmt = conn.prepareStatement(sql, java.sql.Statement.RETURN_GENERATED_KEYS);
+            stmt.setInt(1, student.getId());
+            stmt.setDouble(2,0 );
+            stmt.setDouble(3, 1);
+            stmt.setDouble(4, 2);
+            stmt.setDouble(5, 3);
+            stmt.setDouble(6, 4);
+            
+            stmt.execute();
             stmt.close();
         }catch(SQLException e){
             throw new RuntimeException(e);

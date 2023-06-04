@@ -58,10 +58,19 @@ public class GradesController {
 
     public static void insertGradesIntoTable(){
         DefaultTableModel model = (DefaultTableModel)ClienteGUI.tabelaNotas.getModel();
+        model.setRowCount(0);
         GradeDAO dao = new GradeDAO();
         String[] namesList = StudentController.studentListByClazz();
         ArrayList<Grade> gradesList = dao.getAllGrades();
+
+        for(Grade grade: gradesList){
+            System.out.println(grade.getId_student());
+
+        }
+        
         for(int i = 0; i < gradesList.size(); i++){
+            System.err.println(i);
+            System.err.println(namesList[i]);
             model.addRow(new Object[]{
                 namesList[i],
                 gradesList.get(i).getGrade(),

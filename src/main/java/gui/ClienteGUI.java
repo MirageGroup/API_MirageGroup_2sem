@@ -631,6 +631,10 @@ public class ClienteGUI extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) throws SQLException{
         GradesController.saveGrades(ComboAlunos.getSelectedItem().toString());
+        DefaultTableModel model = (DefaultTableModel) tabelaNotas.getModel();
+        
+        GradesController.insertGradesIntoTable();
+        
     }
 
 

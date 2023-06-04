@@ -1,10 +1,13 @@
 package controllers.models;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import BotaoEdicaoAlunos.PainelDeAcao;
 import dao.ClazzDAO;
+import dao.GradeDAO;
 import dao.StudentDAO;
 import gui.ClienteGUI;
 import java.awt.Dimension;
@@ -77,16 +80,27 @@ public class StudentController {
 
           StudentDAO studentdao = new StudentDAO();
           studentdao.save(student);
-          JOptionPane.showMessageDialog(null,"Aluno "+ClienteGUI.CadAluno.getText()+" cadastrado na turma "+ClienteGUI.ComboSalas.getSelectedItem().toString());
-          ClienteGUI.CadAluno.setText("");
+          if(ClienteGUI.ComboSalas.getSelectedItem() == null){
+            JOptionPane.showMessageDialog(null, "escolha ou crie uma sala", null, 0);
+          }
+          else{
 
-          ClazzDAO clazzdao = new ClazzDAO();
-          Clazz clazz = clazzdao.getByName(ClienteGUI.ComboSalas.getSelectedItem().toString());
-          clazzdao.addStudent(clazz, student);
+            JOptionPane.showMessageDialog(null,"Aluno "+ClienteGUI.CadAluno.getText()+" cadastrado na turma "+ClienteGUI.ComboSalas.getSelectedItem().toString());
+            ClienteGUI.CadAluno.setText("");
 
-          clazzdao.closeConn();
-          studentdao.closeConn();
-          StudentController.showStudentsByClazz();
+            ClazzDAO clazzdao = new ClazzDAO();
+            Clazz clazz = clazzdao.getByName(ClienteGUI.ComboSalas.getSelectedItem().toString());
+            clazzdao.addStudent(clazz, student);
+
+            clazzdao.closeConn();
+            studentdao.closeConn();
+            StudentController.showStudentsByClazz();
+
+            GradeDAO gradeDAO = new GradeDAO();
+            gradeDAO.initGrade(student);
+
+          }
+          
       }
     }
 
