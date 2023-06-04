@@ -14,6 +14,7 @@ import controllers.models.StudentController;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -42,6 +43,7 @@ public class ClienteGUI extends javax.swing.JFrame {
               ComboAlunos.setModel(new javax.swing.DefaultComboBoxModel<>(StudentController.studentListByClazz()));
             }
         });
+        GradesController.insertGradesIntoTable();
         StudentController.showStudentsByClazz();
         ClazzController.getClassNote();
         ClazzController.selectCurrentClazz();
@@ -95,7 +97,7 @@ public class ClienteGUI extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         ComboAlunos = new javax.swing.JComboBox<>();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tabelaNotas = new javax.swing.JTable();
+
         jLabel1 = new javax.swing.JLabel();
         ComboSalas = new javax.swing.JComboBox<>();
         CadSalas = new javax.swing.JTextField();
@@ -343,17 +345,11 @@ public class ClienteGUI extends javax.swing.JFrame {
         ComboAlunos.setModel(new javax.swing.DefaultComboBoxModel<>(StudentController.studentListByClazz()));
         ComboAlunos.setToolTipText("Selecione um Aluno");
 
-        tabelaNotas.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
-            },
-            new String [] {
-                "Aluno", "Nota 1", "Nota 2", "Nota 3", "Nota 4", "Nota 5"
-            }
-        ));
+        String[] columns = new String[]{"Aluno", "Nota 1", "Nota 2", "Nota 3", "Nota 4", "Nota 5"};
+        DefaultTableModel tableModel = new DefaultTableModel(columns, 0);
+
+        tabelaNotas = new javax.swing.JTable(tableModel);
+
         jScrollPane2.setViewportView(tabelaNotas);
 
         javax.swing.GroupLayout NotasPanelLayout = new javax.swing.GroupLayout(NotasPanel);
@@ -704,7 +700,7 @@ public class ClienteGUI extends javax.swing.JFrame {
     public static javax.swing.JTextField jTextField8;
     private javax.swing.JLabel label_horario_sala;
     public static javax.swing.JPanel painelInserirAlunos;
-    private javax.swing.JTable tabelaNotas;
+    public static javax.swing.JTable tabelaNotas;
     private javax.swing.JTextField textfield_horario_aula;
     // End of variables declaration//GEN-END:variables
     public static javax.swing.JScrollPane jScrollPane1;

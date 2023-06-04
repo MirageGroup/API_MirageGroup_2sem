@@ -13,29 +13,29 @@ import controllers.models.StudentController;
  */
 public class PainelComVisualizacao extends javax.swing.JPanel {
 
-    public static AcaoBotao getAcaoBotao2() {
-        return acaoBotao2;
-    }
+    // public static AcaoBotao getAcaoBotao2() {
+    //     return acaoBotao2;
+    // }
 
-    public static void setAcaoBotao2(AcaoBotao acaoBotao2) {
-        PainelComVisualizacao.acaoBotao2 = acaoBotao2;
-    }
+    // public static void setAcaoBotao2(AcaoBotao acaoBotao2) {
+    //     PainelComVisualizacao.acaoBotao2 = acaoBotao2;
+    // }
 
-    public static AcaoBotao getAcaoBotao3() {
-        return acaoEdit;
-    }
+    // public static AcaoBotao getAcaoBotao3() {
+    //     return acaoEdit;
+    // }
 
-    public static void setAcaoBotao3(AcaoBotao acaoBotao3) {
-        PainelComVisualizacao.acaoEdit = acaoBotao3;
-    }
+    // public static void setAcaoBotao3(AcaoBotao acaoBotao3) {
+    //     PainelComVisualizacao.acaoEdit = acaoBotao3;
+    // }
 
-    public static AcaoBotao getAcaoBotao4() {
-        return acaoDelete;
-    }
+    // public static AcaoBotao getAcaoBotao4() {
+    //     return acaoDelete;
+    // }
 
-    public static void setAcaoBotao4(AcaoBotao acaoBotao4) {
-        PainelComVisualizacao.acaoDelete = acaoBotao4;
-    }
+    // public static void setAcaoBotao4(AcaoBotao acaoBotao4) {
+    //     PainelComVisualizacao.acaoDelete = acaoBotao4;
+    // }
 
     /**
      * Creates new form PainelComVisualizacao

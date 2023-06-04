@@ -2,15 +2,19 @@ package models;
 
 public class Grade {
 
+    private int id_student;
     private double grade;
     private double grade1;
     private double grade2;
     private double grade3;
     private double grade4;
-    private int fk_Students_id_student;
-    private String fk_Assignments_id_assignment;
-    private String delivered;
-
+    
+    public int getId_student() {
+        return id_student;
+    }
+    public void setId_student(int id_student) {
+        this.id_student = id_student;
+    }
     public double getGrade() {
         return grade;
     }
@@ -41,24 +45,7 @@ public class Grade {
     public void setGrade4(double grade4) {
         this.grade4 = grade4;
     }
-    public int getFkStu(){
-        return fk_Students_id_student;
-    }
-    public void setFkStu(int fk_Students_id_student) {
-        this.fk_Students_id_student = fk_Students_id_student;
-    }
-    public String getFkAss() {
-        return fk_Assignments_id_assignment;
-    }
-    public void setFkAss(String fk_Assignments_id_assignment) {
-        this.fk_Assignments_id_assignment = fk_Assignments_id_assignment;
-    }
-    public String getDelivered() {
-        return delivered;
-    }
-    public void setDelivered(String delivered) {
-        this.delivered = delivered;
-    }
-    
 
+    
+    
 }

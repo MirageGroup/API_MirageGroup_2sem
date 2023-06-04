@@ -13,16 +13,28 @@ public class GradeDAO extends DAO {
     private ArrayList<Grade> lista = new ArrayList<>();
     
     public ArrayList<Grade>getAllGrades(){
-        String sql = "SELECT * FROM student_assignment";
+        String sql = "SELECT * FROM grades";
         try{
             PreparedStatement stmt = conn.prepareStatement(sql);           
             ResultSet rs = stmt.executeQuery();
             while(rs.next()){
                 Grade grade = new Grade();
-                grade.setFkStu(rs.getInt("fk_Students_id_student"));
-                grade.setFkAss(rs.getString("fk_Assignments_id_assignment"));
-                grade.setDelivered(rs.getString("delivered"));
-                grade.setGrade(rs.getInt("grade"));
+                grade.setId_student(rs.getInt("fk_Grades_id_student"));
+                if(rs.getDouble("grade_student") != 0.0){
+                    grade.setGrade(rs.getDouble("grade_student"));
+                }
+                if(rs.getDouble("grade_student1") != 0.0){
+                    grade.setGrade1(rs.getDouble("grade_student1"));
+                }
+                if(rs.getDouble("grade_student2") != 0.0){
+                    grade.setGrade2(rs.getDouble("grade_student2"));
+                }
+                if(rs.getDouble("grade_student3") != 0.0){
+                    grade.setGrade3(rs.getDouble("grade_student3"));
+                }
+                if(rs.getDouble("grade_student4") != 0.0){
+                    grade.setGrade4(rs.getDouble("grade_student4"));
+                }
                 this.lista.add(grade);
             }
             stmt.close();
