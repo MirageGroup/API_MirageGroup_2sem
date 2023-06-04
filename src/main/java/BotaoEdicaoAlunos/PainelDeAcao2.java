@@ -68,7 +68,7 @@ public class PainelDeAcao2 extends javax.swing.JPanel {
         nota3_area.setEditable(false);
         nota3_area.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nota3_areaActionPerformed(evt);
+                //nota3_areaActionPerformed(evt);
             }
         });
 
