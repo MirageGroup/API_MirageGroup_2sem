@@ -1,16 +1,10 @@
 package dao;
 
-import java.awt.image.AreaAveragingScaleFilter;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.jar.Attributes.Name;
-
-import com.mysql.cj.xdevapi.PreparableStatement;
-
 import models.Clazz;
-import models.Note;
 import models.Student;
 
 public class ClazzDAO extends DAO {

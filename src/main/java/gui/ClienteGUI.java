@@ -13,15 +13,10 @@ import controllers.models.GradesController;
 import controllers.models.StudentController;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author Fatec
- */
+
 public class ClienteGUI extends javax.swing.JFrame {
 
     public static final String LembreteCampo = null;

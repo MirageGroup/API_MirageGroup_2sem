@@ -1,7 +1,7 @@
 package BotaoEdicaoAlunos;
 
 
-import controllers.models.StudentController;
+
 import javax.swing.JCheckBox;
 import models.Student;
 

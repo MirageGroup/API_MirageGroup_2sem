@@ -1,10 +1,10 @@
 package BotaoEdicaoAlunos;
 
 
-import controllers.models.StudentController;
+
 import javax.swing.JCheckBox;
 import models.Assignment;
-import models.Student;
+
 
 
 public class PainelDeAcao1 extends javax.swing.JPanel {
