@@ -50,12 +50,13 @@ public class AssignmentDAO extends DAO {
         }
     }
 
-    public ArrayList<Assignment> getAssignments() {
+    public ArrayList<Assignment> getAssignments(Clazz clazz) {
         ArrayList<Assignment> assignments = new ArrayList<>();
-        String sql = "SELECT * FROM assignments INNER JOIN name_assignment ON name_assignment.fk_Assignments_id_assignment = assignments.id_assignment WHERE fk_Classes_id_class = ?";
+        String sql = "SELECT name_assignment FROM assignments INNER JOIN classes ON assignments.fk_Classes_id_class = classes.id_class WHERE fk_Classes_id_class = ?";
         
         try {
             PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, clazz.getId());
             ResultSet resultSet = stmt.executeQuery();
             while (resultSet.next()) {
                 Assignment assignment = new Assignment();

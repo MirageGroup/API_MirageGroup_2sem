@@ -4,6 +4,7 @@ import BotaoEdicaoAlunos.PainelDeAcao1;
 import javax.swing.JOptionPane;
 import java.util.ArrayList;
 import dao.AssignmentDAO;
+import dao.ClazzDAO;
 import gui.AtividadesGui;
 import gui.ClienteGUI;
 import java.awt.Dimension;
@@ -60,8 +61,10 @@ public class AssignmentController {
 
     public static String[] GetAllAssignmentName() {
         AssignmentDAO dao = new AssignmentDAO();
+        ClazzDAO dao2 = new ClazzDAO();
+        Clazz clazz = dao2.getByName(ClienteGUI.ComboSalas.getSelectedItem().toString());
 
-        ArrayList<Assignment> list = dao.getAssignments();
+        ArrayList<Assignment> list = dao.getAssignments(clazz);
         String assignments[] = new String[list.size()];
 
         for (int i = 0; i < list.size(); i++) {
@@ -75,12 +78,11 @@ public class AssignmentController {
     
     public static void showAssignmentsByClazz(){
 
-        Clazz clazz = new Clazz();
-
-            clazz.setName((String)ClienteGUI.ComboSalas.getSelectedItem());
+        ClazzDAO dao2 = new ClazzDAO();
+        Clazz clazz = dao2.getByName(ClienteGUI.ComboSalas.getSelectedItem().toString());
 
         AssignmentDAO dao = new AssignmentDAO();
-            ArrayList<Assignment> list = dao.getAssignments();
+            ArrayList<Assignment> list = dao.getAssignments(clazz);
             int contador=0;
             
             ClienteGUI.atividadesGui1.painelInserirAlunos.removeAll();
@@ -88,8 +90,8 @@ public class AssignmentController {
             for (Assignment assignment:list){
     
                 
-                PainelDeAcao1 painel1=new PainelDeAcao1(assignment);
-                ClienteGUI.atividadesGui1.painelInserirAlunos.add(painel1);
+                PainelDeAcao1 painel2=new PainelDeAcao1(assignment);
+                ClienteGUI.atividadesGui1.painelInserirAlunos.add(painel2);
                 
 
                 contador++;
