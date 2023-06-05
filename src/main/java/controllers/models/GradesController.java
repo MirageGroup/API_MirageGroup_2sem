@@ -1,9 +1,11 @@
 package controllers.models;
 
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
+import java.sql.Connection;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -79,6 +81,15 @@ public class GradesController {
                 gradesList.get(i).getGrade4()
             });
         }
+    }
+
+
+    public static void showStudentsWithAverageBelow5() throws SQLException {
+        GradeDAO gradeDAO = new GradeDAO();
+        int count = gradeDAO.countStudentsWithAverageBelow(5);
+        gradeDAO.closeConn();
+    
+        JOptionPane.showMessageDialog(null, "Quantidade de alunos com média abaixo de 5: " + count);
     }
     
 

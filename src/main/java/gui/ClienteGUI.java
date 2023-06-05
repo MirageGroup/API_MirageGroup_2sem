@@ -46,6 +46,12 @@ public class ClienteGUI extends javax.swing.JFrame {
         ClazzController.getClassNote();
         ClazzController.selectCurrentClazz();
         AssignmentController.showAssignmentsByClazz();
+        try {
+            GradesController.showStudentsWithAverageBelow5();
+        } catch (SQLException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
     }
     
     
