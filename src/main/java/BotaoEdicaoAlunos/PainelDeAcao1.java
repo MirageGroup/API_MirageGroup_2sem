@@ -3,6 +3,9 @@ package BotaoEdicaoAlunos;
 
 
 import javax.swing.JCheckBox;
+
+import controllers.models.AssignmentController;
+import dao.AssignmentDAO;
 import models.Assignment;
 
 
@@ -111,6 +114,7 @@ public Assignment assignment;
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmdDeleteActionPerformed(java.awt.event.ActionEvent evt) {
+        AssignmentController.deleteAssignment(this);
     }
 
     private void jCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {
