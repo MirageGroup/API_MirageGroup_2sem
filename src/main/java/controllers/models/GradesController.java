@@ -67,13 +67,7 @@ public class GradesController {
         String[] namesList = StudentController.studentListByClazz();
         ArrayList<Grade> gradesList = dao.getAllGrades();
     
-        for (Grade grade : gradesList) {
-            System.out.println(grade.getId_student());
-        }
-    
         for (int i = 0; i < gradesList.size() && i < namesList.length; i++) {
-            System.err.println(i);
-            System.err.println(namesList[i]);
             model.addRow(new Object[]{
                 namesList[i],
                 gradesList.get(i).getGrade(),
