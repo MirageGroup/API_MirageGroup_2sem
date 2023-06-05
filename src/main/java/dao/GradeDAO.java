@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import gui.ClienteGUI;
 import models.Clazz;
 import models.Grade;
 import models.Student;
@@ -92,11 +93,15 @@ public class GradeDAO extends DAO {
         int count = 0;
     
         // Executa a consulta para contar o número de alunos com média abaixo do limite
-        String query = "SELECT COUNT(*) FROM grades WHERE (grade_student1 + grade_student2 + grade_student3 + grade_student4 + grade_student) / 5 < ? and fk_Classes_id_class = ?";
-        
+        String query = "SELECT COUNT(*) FROM grades WHERE (grade_student1 + grade_student2 + grade_student3 + grade_student4 + grade_student) / 5 < 5 AND fk_Classes_id_class = ?";
+        if(ClienteGUI.ComboSalas.getSelectedItem() != null){
+        ClazzDAO dao = new ClazzDAO();
+        Clazz clazz = dao.getByName(ClienteGUI.ComboSalas.getSelectedItem().toString());
+        }
         try {
             PreparedStatement stmt = conn.prepareStatement(query);
             stmt.setDouble(1, threshold);
+            stmt.setInt(2, clazz.getId());
             ResultSet rs = stmt.executeQuery();
         
             // Obtém o resultado da consulta
@@ -121,11 +126,16 @@ public class GradeDAO extends DAO {
         int count = 0;
     
         // Executa a consulta para contar o número de alunos com média abaixo do limite
-        String query = "SELECT COUNT(*) FROM grades WHERE (grade_student1 + grade_student2 + grade_student3 + grade_student4 + grade_student) / 5 >= ?";
-        
+        String query = "SELECT COUNT(*) FROM grades WHERE (grade_student1 + grade_student2 + grade_student3 + grade_student4 + grade_student) / 5 >= 5 AND fk_Classes_id_class = ?";
+        if(ClienteGUI.ComboSalas.getSelectedItem() != null){
+            ClazzDAO dao = new ClazzDAO();
+            
+            Clazz clazz = dao.getByName(ClienteGUI.ComboSalas.getSelectedItem().toString());
+            }
         try {
             PreparedStatement stmt = conn.prepareStatement(query);
             stmt.setDouble(1, threshold);
+            stmt.setInt(2, clazz.getId());
             ResultSet rs = stmt.executeQuery();
         
             // Obtém o resultado da consulta
