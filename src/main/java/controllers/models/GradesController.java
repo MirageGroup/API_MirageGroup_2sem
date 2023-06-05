@@ -12,6 +12,7 @@ import javax.swing.table.DefaultTableModel;
 import dao.GradeDAO;
 import dao.StudentDAO;
 import gui.ClienteGUI;
+import models.Clazz;
 import models.Grade;
 import models.Student;
 
@@ -85,6 +86,9 @@ public class GradesController {
 
 
     public static void showStudentsWithAverageBelow5() throws SQLException {
+        Clazz clazz = new Clazz();
+
+            clazz.setName((String)ClienteGUI.ComboSalas.getSelectedItem());
         GradeDAO gradeDAO = new GradeDAO();
         int count = gradeDAO.countStudentsWithAverageBelow(5);
         gradeDAO.closeConn();
@@ -93,6 +97,9 @@ public class GradesController {
     }
     
     public static void showStudentsWithAverageUp5() throws SQLException {
+        Clazz clazz = new Clazz();
+
+            clazz.setName((String)ClienteGUI.ComboSalas.getSelectedItem());
         GradeDAO gradeDAO = new GradeDAO();
         int count = gradeDAO.countStudentsWithAverageUp(5);
         gradeDAO.closeConn();

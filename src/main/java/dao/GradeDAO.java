@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import models.Clazz;
 import models.Grade;
 import models.Student;
 
@@ -67,17 +68,18 @@ public class GradeDAO extends DAO {
         }
     }
 
-    public void initGrade(Student student){
-        String sql = "INSERT INTO grades(fk_Grades_id_student, grade_student, grade_student1, grade_student2, grade_student3, grade_student4) VALUES (?,?,?,?,?,?)";
+    public void initGrade(Student student, Clazz clazz){
+        String sql = "INSERT INTO grades(fk_Grades_id_student, fk_Classes_id_class, grade_student, grade_student1, grade_student2, grade_student3, grade_student4) VALUES (?,?,?,?,?,?,?)";
 
           try{
             PreparedStatement stmt = conn.prepareStatement(sql, java.sql.Statement.RETURN_GENERATED_KEYS);
             stmt.setInt(1, student.getId());
-            stmt.setDouble(2,0 );
-            stmt.setDouble(3, 0);
+            stmt.setInt(2, clazz.getId());
+            stmt.setDouble(3,0 );
             stmt.setDouble(4, 0);
             stmt.setDouble(5, 0);
             stmt.setDouble(6, 0);
+            stmt.setDouble(7, 0);
             
             stmt.execute();
             stmt.close();
@@ -90,7 +92,7 @@ public class GradeDAO extends DAO {
         int count = 0;
     
         // Executa a consulta para contar o número de alunos com média abaixo do limite
-        String query = "SELECT COUNT(*) FROM grades WHERE (grade_student1 + grade_student2 + grade_student3 + grade_student4 + grade_student) / 5 < ?";
+        String query = "SELECT COUNT(*) FROM grades WHERE (grade_student1 + grade_student2 + grade_student3 + grade_student4 + grade_student) / 5 < ? and fk_Classes_id_class = ?";
         
         try {
             PreparedStatement stmt = conn.prepareStatement(query);

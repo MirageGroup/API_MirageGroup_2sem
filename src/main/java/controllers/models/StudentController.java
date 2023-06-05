@@ -97,7 +97,7 @@ public class StudentController {
             StudentController.showStudentsByClazz();
 
             GradeDAO gradeDAO = new GradeDAO();
-            gradeDAO.initGrade(student);
+            gradeDAO.initGrade(student, clazz);
             GradesController.insertGradesIntoTable();
 
           }
@@ -122,6 +122,9 @@ public class StudentController {
   }
 
     public static void ShowStudentQuant() throws SQLException {
+      Clazz clazz = new Clazz();
+
+        clazz.setName((String)ClienteGUI.ComboSalas.getSelectedItem());
       StudentDAO studentDAO = new StudentDAO();
       int count = studentDAO.countStudents(0);
       studentDAO.closeConn();
