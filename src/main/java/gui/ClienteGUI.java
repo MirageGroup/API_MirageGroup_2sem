@@ -37,6 +37,7 @@ public class ClienteGUI extends javax.swing.JFrame {
             public void actionPerformed(ActionEvent e){
               StudentController.showStudentsByClazz();
               ClazzController.getClassNote();
+              AssignmentController.showAssignmentsByClazz();
               ComboAlunos.setModel(new javax.swing.DefaultComboBoxModel<>(StudentController.studentListByClazz()));
             }
         });

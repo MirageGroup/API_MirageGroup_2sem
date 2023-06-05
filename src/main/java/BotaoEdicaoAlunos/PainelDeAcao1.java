@@ -3,6 +3,12 @@ package BotaoEdicaoAlunos;
 
 
 import javax.swing.JCheckBox;
+import javax.swing.JPanel;
+
+import BotaoVisualizacaoAtividade.PainelComVisualizacao;
+import controllers.models.AssignmentController;
+import dao.AssignmentDAO;
+import gui.ClienteGUI;
 import models.Assignment;
 
 
@@ -77,6 +83,11 @@ public Assignment assignment;
 
         cmdView.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BotaoEdicaoAlunos/view.png"))); // NOI18N
         cmdView.setToolTipText("");
+        cmdView.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdViewActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -110,7 +121,12 @@ public Assignment assignment;
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void cmdViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdViewActionPerformed
+        AssignmentController.toggleAssignmentView(this);
+    }//GEN-LAST:event_cmdViewActionPerformed
+
     private void cmdDeleteActionPerformed(java.awt.event.ActionEvent evt) {
+        AssignmentController.deleteAssignment(this);
     }
 
     private void jCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,6 +143,7 @@ public Assignment assignment;
     }
 
     private void cmdEditarActionPerformed(java.awt.event.ActionEvent evt) {
+        AssignmentController.toggleAssignmentEdit(this);
     }
 
 

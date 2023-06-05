@@ -2,14 +2,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package BotaoVisualizacaoAtividade;
+package BotaoEditarAtividade;
 
 import javax.accessibility.AccessibleIcon;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import BotaoEdicaoAlunos.AcaoBotao;
 import controllers.models.AssignmentController;
 import controllers.models.StudentController;
+import dao.AssignmentDAO;
 import gui.ClienteGUI;
 import models.Assignment;
 
@@ -17,7 +19,7 @@ import models.Assignment;
  *
  * @author Fatec
  */
-public class PainelComVisualizacao extends javax.swing.JPanel {
+public class PainelComEdicao extends javax.swing.JPanel {
 
     // public static AcaoBotao getAcaoBotao2() {
     //     return acaoBotao2;
@@ -49,7 +51,7 @@ public class PainelComVisualizacao extends javax.swing.JPanel {
 
     public Assignment assignment;
 
-    public PainelComVisualizacao(Assignment assignment) {
+    public PainelComEdicao(Assignment assignment) {
         this.assignment = assignment;
         initComponents();
     }
@@ -77,6 +79,7 @@ public class PainelComVisualizacao extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         FecharBotao = new BotaoEdicaoAlunos.AcaoBotao();
+        SalvarBotao = new BotaoEdicaoAlunos.AcaoBotao();
 
         jLabel2.setText("jLabel2");
 
@@ -93,29 +96,20 @@ public class PainelComVisualizacao extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         jLabel1.setText("Nome da atividade");
-
-        AtividadeNomeCampo.setEditable(false);
         AtividadeNomeCampo.setText(this.assignment.getName());
 
         jLabel3.setText("Data de Início:");
-
-        DataInicioCampo.setEditable(false);
         DataInicioCampo.setText(this.assignment.getDate_assigned());
 
-        DataFimCampo.setEditable(false);
+        jLabel4.setText("Data de Fim:");
         DataFimCampo.setText(this.assignment.getDate_due());
 
-        jLabel4.setText("Data de Fim:");
-
         jLabel5.setText("Nota Máxima:");
-
-        NotaCampo.setEditable(false);
         NotaCampo.setText(String.valueOf(this.assignment.getMax_grade()));
 
         jLabel6.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         jLabel6.setText("Descrição da atividade");
 
-        jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jTextArea1.setText(this.assignment.getDescription());
@@ -129,6 +123,14 @@ public class PainelComVisualizacao extends javax.swing.JPanel {
             }
         });
 
+        SalvarBotao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/salvar.png"))); // NOI18N
+        SalvarBotao.setToolTipText("");
+        SalvarBotao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SalvarBotaoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -136,26 +138,29 @@ public class PainelComVisualizacao extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 535, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1)
-                    .addComponent(AtividadeNomeCampo, javax.swing.GroupLayout.PREFERRED_SIZE, 535, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5))
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(DataFimCampo, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
-                    .addComponent(DataInicioCampo)
-                    .addComponent(NotaCampo))
-                .addContainerGap(87, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(FecharBotao, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 535, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1)
+                            .addComponent(AtividadeNomeCampo, javax.swing.GroupLayout.PREFERRED_SIZE, 535, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5))
+                        .addGap(26, 26, 26)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(DataFimCampo, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
+                            .addComponent(DataInicioCampo)
+                            .addComponent(NotaCampo))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                        .addComponent(SalvarBotao, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(FecharBotao, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -177,10 +182,12 @@ public class PainelComVisualizacao extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(DataInicioCampo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(DataInicioCampo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel3))
+                            .addComponent(SalvarBotao, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(DataFimCampo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4))
@@ -204,16 +211,23 @@ public class PainelComVisualizacao extends javax.swing.JPanel {
     }//GEN-LAST:event_acaoBotao2ActionPerformed
 
     private void FecharBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FecharBotaoActionPerformed
-        AssignmentController.toggleAssignmentView(null);
+        if(JOptionPane.showConfirmDialog(null, "Deseja parar de editar? \nVocê perderá qualquer edição feita", "Editar atividade", JOptionPane.YES_NO_OPTION) == 0){
+            AssignmentController.toggleAssignmentView(null);
+        }
     }//GEN-LAST:event_FecharBotaoActionPerformed
+
+    private void SalvarBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalvarBotaoActionPerformed
+        AssignmentController.updateAssignment(this);
+    }//GEN-LAST:event_SalvarBotaoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField AtividadeNomeCampo;
+    public javax.swing.JTextField AtividadeNomeCampo;
     public static javax.swing.JTextField DataFimCampo;
     public static javax.swing.JTextField DataInicioCampo;
     private BotaoEdicaoAlunos.AcaoBotao FecharBotao;
     public static javax.swing.JTextField NotaCampo;
+    private BotaoEdicaoAlunos.AcaoBotao SalvarBotao;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     public static javax.swing.JLabel jLabel3;
@@ -222,6 +236,6 @@ public class PainelComVisualizacao extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    public javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }
