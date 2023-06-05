@@ -663,11 +663,10 @@ public class ClienteGUI extends javax.swing.JFrame {
      */
     public static void main(String args[]) {
        
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new AtividadesGui().setVisible(true);
-            }
-        });
+      //  java.awt.EventQueue.invokeLater(new Runnable() {
+       //         new AtividadesGui().setVisible(true);
+        //    }
+       // });
 
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {

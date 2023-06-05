@@ -79,7 +79,11 @@ public class AssignmentController {
     public static void showAssignmentsByClazz(){
 
         ClazzDAO dao2 = new ClazzDAO();
-        Clazz clazz = dao2.getByName(ClienteGUI.ComboSalas.getSelectedItem().toString());
+        if (ClienteGUI.ComboSalas.getSelectedItem() == null){
+        
+
+        }else{
+            Clazz clazz = dao2.getByName(ClienteGUI.ComboSalas.getSelectedItem().toString());
 
         AssignmentDAO dao = new AssignmentDAO();
             ArrayList<Assignment> list = dao.getAssignments(clazz);
@@ -101,6 +105,8 @@ public class AssignmentController {
         ClienteGUI.atividadesGui1.painelInserirAlunos.setPreferredSize(new Dimension(901, 50*contador));
         ClienteGUI.atividadesGui1.painelInserirAlunos.revalidate();
         ClienteGUI.atividadesGui1.painelInserirAlunos.repaint();
+        }
+        
 
          
     }
