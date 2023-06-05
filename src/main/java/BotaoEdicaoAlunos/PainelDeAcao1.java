@@ -122,10 +122,7 @@ public Assignment assignment;
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmdViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdViewActionPerformed
-        JPanel painel = ClienteGUI.atividadesGui1.painelInserirAlunos;
-        painel.removeAll();
-        painel.repaint();
-        painel.add(new PainelComVisualizacao(this.assignment));
+        AssignmentController.toggleAssignmentVisualization(true, this);
     }//GEN-LAST:event_cmdViewActionPerformed
 
     private void cmdDeleteActionPerformed(java.awt.event.ActionEvent evt) {

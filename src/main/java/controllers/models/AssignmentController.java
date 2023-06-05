@@ -1,7 +1,11 @@
 package controllers.models;
 
 import BotaoEdicaoAlunos.PainelDeAcao1;
+import BotaoVisualizacaoAtividade.PainelComVisualizacao;
+
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
 import java.util.ArrayList;
 import dao.AssignmentDAO;
 import dao.ClazzDAO;
@@ -101,6 +105,19 @@ public class AssignmentController {
         ClienteGUI.atividadesGui1.painelInserirAlunos.repaint();
 
          
+    }
+
+    public static void toggleAssignmentVisualization(boolean open, PainelDeAcao1 painel){
+        JPanel painelAlunos = ClienteGUI.atividadesGui1.painelInserirAlunos;
+        if(open){
+            painelAlunos.removeAll();
+            painelAlunos.repaint();
+            painelAlunos.add(new PainelComVisualizacao(painel.assignment));
+        }else{
+            painelAlunos.removeAll();
+            painelAlunos.repaint();
+            AssignmentController.showAssignmentsByClazz();
+        }
     }
         
 }

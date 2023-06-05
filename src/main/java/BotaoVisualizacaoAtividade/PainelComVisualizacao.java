@@ -202,10 +202,7 @@ public class PainelComVisualizacao extends javax.swing.JPanel {
     }//GEN-LAST:event_acaoBotao2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        JPanel painel = ClienteGUI.atividadesGui1.painelInserirAlunos;
-        painel.removeAll();
-        painel.repaint();
-        AssignmentController.showAssignmentsByClazz();
+        AssignmentController.toggleAssignmentVisualization(false, null);
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
