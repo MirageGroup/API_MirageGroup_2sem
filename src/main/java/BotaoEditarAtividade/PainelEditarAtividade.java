@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package BotaoVisualizacaoAtividade;
+package BotaoEditarAtividade;
 
 import javax.accessibility.AccessibleIcon;
 import javax.swing.JPanel;
@@ -17,7 +17,7 @@ import models.Assignment;
  *
  * @author Fatec
  */
-public class PainelComVisualizacao extends javax.swing.JPanel {
+public class PainelEditarAtividade extends javax.swing.JPanel {
 
     // public static AcaoBotao getAcaoBotao2() {
     //     return acaoBotao2;
@@ -49,7 +49,7 @@ public class PainelComVisualizacao extends javax.swing.JPanel {
 
     public Assignment assignment;
 
-    public PainelComVisualizacao(Assignment assignment) {
+    public PainelEditarAtividade(Assignment assignment) {
         this.assignment = assignment;
         initComponents();
     }
@@ -76,7 +76,7 @@ public class PainelComVisualizacao extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        FecharBotao = new BotaoEdicaoAlunos.AcaoBotao();
+        jButton1 = new javax.swing.JButton();
 
         jLabel2.setText("jLabel2");
 
@@ -84,7 +84,7 @@ public class PainelComVisualizacao extends javax.swing.JPanel {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 35, Short.MAX_VALUE)
+            .addGap(0, 40, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -121,11 +121,11 @@ public class PainelComVisualizacao extends javax.swing.JPanel {
         jTextArea1.setText(this.assignment.getDescription());
         jScrollPane1.setViewportView(jTextArea1);
 
-        FecharBotao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/fechar.png"))); // NOI18N
-        FecharBotao.setToolTipText("");
-        FecharBotao.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
+        jButton1.setText("Fechar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FecharBotaoActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -149,14 +149,11 @@ public class PainelComVisualizacao extends javax.swing.JPanel {
                     .addComponent(jLabel5))
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(DataFimCampo, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
+                    .addComponent(DataFimCampo)
                     .addComponent(DataInicioCampo)
-                    .addComponent(NotaCampo))
-                .addContainerGap(87, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(FecharBotao, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                    .addComponent(NotaCampo, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(92, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -164,9 +161,7 @@ public class PainelComVisualizacao extends javax.swing.JPanel {
                 .addGap(58, 58, 58)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(FecharBotao, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
@@ -175,7 +170,8 @@ public class PainelComVisualizacao extends javax.swing.JPanel {
                         .addGap(48, 48, 48)
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(48, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(DataInicioCampo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -187,8 +183,10 @@ public class PainelComVisualizacao extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(NotaCampo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5))))
-                .addContainerGap(42, Short.MAX_VALUE))
+                            .addComponent(jLabel5))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1)
+                        .addGap(51, 51, 51))))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -203,17 +201,17 @@ public class PainelComVisualizacao extends javax.swing.JPanel {
         // TODO add your handling code
     }//GEN-LAST:event_acaoBotao2ActionPerformed
 
-    private void FecharBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FecharBotaoActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         AssignmentController.toggleAssignmentView(null);
-    }//GEN-LAST:event_FecharBotaoActionPerformed
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField AtividadeNomeCampo;
     public static javax.swing.JTextField DataFimCampo;
     public static javax.swing.JTextField DataInicioCampo;
-    private BotaoEdicaoAlunos.AcaoBotao FecharBotao;
     public static javax.swing.JTextField NotaCampo;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     public static javax.swing.JLabel jLabel3;
