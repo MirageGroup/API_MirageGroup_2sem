@@ -170,7 +170,7 @@ public class ClienteGUI extends javax.swing.JFrame {
         jLabel4.setText("Calendário");
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel1.setText("Estatistica da Sala:");
+        jLabel1.setText("Estatisticas da Sala:");
 
         jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel15.setText("Total de Alunos: ");
@@ -184,14 +184,17 @@ public class ClienteGUI extends javax.swing.JFrame {
         AlunosAcima.setColumns(20);
         AlunosAcima.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         AlunosAcima.setRows(5);
+        AlunosAcima.setEditable(false);
 
         AlunosTotal.setColumns(20);
         AlunosTotal.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         AlunosTotal.setRows(5);
+        AlunosTotal.setEditable(false);
 
         AlunosAbaixo.setColumns(20);
         AlunosAbaixo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         AlunosAbaixo.setRows(5);
+        AlunosAbaixo.setEditable(false);
 
         javax.swing.GroupLayout VgeralPanelLayout = new javax.swing.GroupLayout(VgeralPanel);
         VgeralPanel.setLayout(VgeralPanelLayout);
