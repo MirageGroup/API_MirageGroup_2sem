@@ -89,7 +89,7 @@ public class GradesController {
         int count = gradeDAO.countStudentsWithAverageBelow(5);
         gradeDAO.closeConn();
     
-        JOptionPane.showMessageDialog(null, "Quantidade de alunos com média abaixo de 5: " + count);
+        ClienteGUI.AlunosAbaixo.setText("" + count);
     }
     
 
