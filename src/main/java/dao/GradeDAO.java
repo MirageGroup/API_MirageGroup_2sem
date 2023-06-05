@@ -89,15 +89,11 @@ public class GradeDAO extends DAO {
         }
     }
 
-    public int countStudentsWithAverageBelow(double threshold) throws SQLException {
+    public int countStudentsWithAverageBelow(double threshold, Clazz clazz) throws SQLException {
         int count = 0;
     
         // Executa a consulta para contar o número de alunos com média abaixo do limite
-        String query = "SELECT COUNT(*) FROM grades WHERE (grade_student1 + grade_student2 + grade_student3 + grade_student4 + grade_student) / 5 < 5 AND fk_Classes_id_class = ?";
-        if(ClienteGUI.ComboSalas.getSelectedItem() != null){
-        ClazzDAO dao = new ClazzDAO();
-        Clazz clazz = dao.getByName(ClienteGUI.ComboSalas.getSelectedItem().toString());
-        }
+        String query = "SELECT COUNT(*) FROM grades WHERE (grade_student1 + grade_student2 + grade_student3 + grade_student4 + grade_student) / 5 < ? AND fk_Classes_id_class = ?";
         try {
             PreparedStatement stmt = conn.prepareStatement(query);
             stmt.setDouble(1, threshold);
@@ -122,16 +118,11 @@ public class GradeDAO extends DAO {
 
     }
 
-    public int countStudentsWithAverageUp(double threshold) throws SQLException {
+    public int countStudentsWithAverageUp(double threshold, Clazz clazz) throws SQLException {
         int count = 0;
     
         // Executa a consulta para contar o número de alunos com média abaixo do limite
-        String query = "SELECT COUNT(*) FROM grades WHERE (grade_student1 + grade_student2 + grade_student3 + grade_student4 + grade_student) / 5 >= 5 AND fk_Classes_id_class = ?";
-        if(ClienteGUI.ComboSalas.getSelectedItem() != null){
-            ClazzDAO dao = new ClazzDAO();
-            
-            Clazz clazz = dao.getByName(ClienteGUI.ComboSalas.getSelectedItem().toString());
-            }
+        String query = "SELECT COUNT(*) FROM grades WHERE (grade_student1 + grade_student2 + grade_student3 + grade_student4 + grade_student) / 5 >= ? AND fk_Classes_id_class = ?";
         try {
             PreparedStatement stmt = conn.prepareStatement(query);
             stmt.setDouble(1, threshold);

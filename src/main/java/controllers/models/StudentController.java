@@ -107,29 +107,28 @@ public class StudentController {
 
     public static void deleteStudent(PainelDeAcao studentPanel){
         if(JOptionPane.showConfirmDialog(null, "Todas as informações serão deletadas", "Deseja excluir esse(a) Aluno(a)?", JOptionPane.YES_NO_OPTION) == 0){
-          StudentDAO studentDao = new StudentDAO();
-          studentDao.delete(studentPanel.student);
-          showStudentsByClazz();
+            StudentDAO studentDao = new StudentDAO();
+            studentDao.delete(studentPanel.student);
+            showStudentsByClazz();
         }
     }
 
     public static void updateStudent(PainelDeAcao studentPanel){
-      if(JOptionPane.showConfirmDialog(null, "O nome do Aluno sera editado", "Deseja alterar esse(a) aluno(a)?", JOptionPane.YES_NO_OPTION) == 0){
-        StudentDAO studentDao = new StudentDAO();
-        studentDao.update(studentPanel.student);
-        showStudentsByClazz();
-      }
+        if(JOptionPane.showConfirmDialog(null, "O nome do Aluno sera editado", "Deseja alterar esse(a) aluno(a)?", JOptionPane.YES_NO_OPTION) == 0){
+            StudentDAO studentDao = new StudentDAO();
+            studentDao.update(studentPanel.student);
+            showStudentsByClazz();
+        }
   }
 
     public static void ShowStudentQuant() throws SQLException {
-      Clazz clazz = new Clazz();
+        ClazzDAO dao = new ClazzDAO();
+        Clazz clazz = dao.getByName((String)ClienteGUI.ComboSalas.getSelectedItem());
+        StudentDAO studentDAO = new StudentDAO();
+        int count = studentDAO.countStudentsFromClass(clazz);
+        studentDAO.closeConn();
 
-        clazz.setName((String)ClienteGUI.ComboSalas.getSelectedItem());
-      StudentDAO studentDAO = new StudentDAO();
-      int count = studentDAO.countStudents(0);
-      studentDAO.closeConn();
-
-      ClienteGUI.AlunosTotal.setText("" + count);
+        ClienteGUI.AlunosTotal.setText("" + count);
 
     }
 

@@ -151,15 +151,15 @@ public class StudentDAO extends DAO {
       }
     }
 
-    public int countStudents(double threshold) throws SQLException {
+    public int countStudentsFromClass(Clazz clazz) throws SQLException {
         int count = 0;
     
         // Executa a consulta para contar o número de alunos com média abaixo do limite
-        String query = "SELECT COUNT(*) FROM students WHERE name_student = ?";
+        String query = "SELECT COUNT(*) FROM students INNER JOIN student_class ON student_class.fk_Students_id_student = students.id_student WHERE fk_Classes_id_class = ?";
         
         try {
             PreparedStatement stmt = conn.prepareStatement(query);
-            stmt.setDouble(1, threshold);
+            stmt.setDouble(1, clazz.getId());
             ResultSet rs = stmt.executeQuery();
         
             // Obtém o resultado da consulta

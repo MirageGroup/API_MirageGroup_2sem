@@ -35,10 +35,28 @@ public class ClienteGUI extends javax.swing.JFrame {
         ComboAlunos.setModel(new javax.swing.DefaultComboBoxModel<>(StudentController.studentListByClazz()));
         ComboSalas.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
-              StudentController.showStudentsByClazz();
-              ClazzController.getClassNote();
-              AssignmentController.showAssignmentsByClazz();
-              ComboAlunos.setModel(new javax.swing.DefaultComboBoxModel<>(StudentController.studentListByClazz()));
+                StudentController.showStudentsByClazz();
+                ClazzController.getClassNote();
+                AssignmentController.showAssignmentsByClazz();
+                ComboAlunos.setModel(new javax.swing.DefaultComboBoxModel<>(StudentController.studentListByClazz()));
+                try {
+                    GradesController.showStudentsWithAverageBelow5();
+                } catch (SQLException e1) {
+                    // TODO Auto-generated catch block
+                    e1.printStackTrace();
+                }
+                try {
+                    GradesController.showStudentsWithAverageUp5();
+                } catch (SQLException e1) {
+                    // TODO Auto-generated catch block
+                    e1.printStackTrace();
+                }
+                try {
+                    StudentController.ShowStudentQuant();
+                } catch (SQLException e1) {
+                    // TODO Auto-generated catch block
+                    e1.printStackTrace();
+                } 
             }
         });
         GradesController.insertGradesIntoTable();
