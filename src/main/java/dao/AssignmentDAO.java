@@ -36,6 +36,23 @@ public class AssignmentDAO extends DAO {
         }
     }
 
+    public void update(Assignment assignment){
+        String sql = "UPDATE assignments SET name_assignment = ?, desc_assignment = ?, date_assigned = ?, date_due = ?, max_grade = ? WHERE id_assignment = ?";
+        try{
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, assignment.getName());
+            stmt.setString(2, assignment.getDescription());
+            stmt.setString(3, assignment.getDate_assigned());
+            stmt.setString(4, assignment.getDate_due());
+            stmt.setDouble(5, assignment.getMax_grade());
+            stmt.setInt(6, assignment.getId());
+            stmt.execute();
+            stmt.close();
+        }catch(SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
+
     public void delete(Assignment assignment){
         String sql = "DELETE FROM assignments WHERE id_assignment = ?";
         try{

@@ -143,6 +143,7 @@ public Assignment assignment;
     }
 
     private void cmdEditarActionPerformed(java.awt.event.ActionEvent evt) {
+        AssignmentController.toggleAssignmentEdit(this);
     }
 
 

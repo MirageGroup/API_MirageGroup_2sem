@@ -1,6 +1,7 @@
 package controllers.models;
 
 import BotaoEdicaoAlunos.PainelDeAcao1;
+import BotaoEditarAtividade.PainelComEdicao;
 import BotaoVisualizacaoAtividade.PainelComVisualizacao;
 
 import javax.swing.JOptionPane;
@@ -61,6 +62,19 @@ public class AssignmentController {
           }
     }
 
+    public static void updateAssignment(PainelComEdicao painelEdicao){
+        if(JOptionPane.showConfirmDialog(null, "Deseja salvar as alterações feitas?", "Salvar atividade", JOptionPane.YES_NO_OPTION) == 0){
+            painelEdicao.assignment.setName(painelEdicao.AtividadeNomeCampo.getText());
+            painelEdicao.assignment.setDescription(painelEdicao.jTextArea1.getText());
+            painelEdicao.assignment.setDate_assigned(painelEdicao.DataInicioCampo.getText());
+            painelEdicao.assignment.setDate_due(painelEdicao.DataFimCampo.getText());
+            painelEdicao.assignment.setMax_grade(Double.parseDouble(painelEdicao.NotaCampo.getText()));
+            AssignmentDAO dao = new AssignmentDAO();
+            dao.update(painelEdicao.assignment);
+            AssignmentController.toggleAssignmentView(null);
+        }
+    }
+
     public static String[] GetAllAssignmentName() {
         AssignmentDAO dao = new AssignmentDAO();
         ClazzDAO dao2 = new ClazzDAO();
@@ -113,6 +127,19 @@ public class AssignmentController {
             painelAlunos.removeAll();
             painelAlunos.repaint();
             painelAlunos.add(new PainelComVisualizacao(painel.assignment));
+        }else{
+            painelAlunos.removeAll();
+            painelAlunos.repaint();
+            AssignmentController.showAssignmentsByClazz();
+        }
+    }
+
+    public static void toggleAssignmentEdit(PainelDeAcao1 painel){
+        JPanel painelAlunos = ClienteGUI.atividadesGui1.painelInserirAlunos;
+        if(painel != null){
+            painelAlunos.removeAll();
+            painelAlunos.repaint();
+            painelAlunos.add(new PainelComEdicao(painel.assignment));
         }else{
             painelAlunos.removeAll();
             painelAlunos.repaint();

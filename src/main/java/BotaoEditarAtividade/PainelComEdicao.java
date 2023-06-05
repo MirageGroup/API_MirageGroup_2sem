@@ -5,11 +5,13 @@
 package BotaoEditarAtividade;
 
 import javax.accessibility.AccessibleIcon;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import BotaoEdicaoAlunos.AcaoBotao;
 import controllers.models.AssignmentController;
 import controllers.models.StudentController;
+import dao.AssignmentDAO;
 import gui.ClienteGUI;
 import models.Assignment;
 
@@ -17,7 +19,7 @@ import models.Assignment;
  *
  * @author Fatec
  */
-public class PainelEditarAtividade extends javax.swing.JPanel {
+public class PainelComEdicao extends javax.swing.JPanel {
 
     // public static AcaoBotao getAcaoBotao2() {
     //     return acaoBotao2;
@@ -49,7 +51,7 @@ public class PainelEditarAtividade extends javax.swing.JPanel {
 
     public Assignment assignment;
 
-    public PainelEditarAtividade(Assignment assignment) {
+    public PainelComEdicao(Assignment assignment) {
         this.assignment = assignment;
         initComponents();
     }
@@ -76,7 +78,8 @@ public class PainelEditarAtividade extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
+        FecharBotao = new BotaoEdicaoAlunos.AcaoBotao();
+        SalvarBotao = new BotaoEdicaoAlunos.AcaoBotao();
 
         jLabel2.setText("jLabel2");
 
@@ -84,7 +87,7 @@ public class PainelEditarAtividade extends javax.swing.JPanel {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 40, Short.MAX_VALUE)
+            .addGap(0, 35, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -93,39 +96,38 @@ public class PainelEditarAtividade extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         jLabel1.setText("Nome da atividade");
-
-        AtividadeNomeCampo.setEditable(false);
         AtividadeNomeCampo.setText(this.assignment.getName());
 
         jLabel3.setText("Data de Início:");
-
-        DataInicioCampo.setEditable(false);
         DataInicioCampo.setText(this.assignment.getDate_assigned());
 
-        DataFimCampo.setEditable(false);
+        jLabel4.setText("Data de Fim:");
         DataFimCampo.setText(this.assignment.getDate_due());
 
-        jLabel4.setText("Data de Fim:");
-
         jLabel5.setText("Nota Máxima:");
-
-        NotaCampo.setEditable(false);
         NotaCampo.setText(String.valueOf(this.assignment.getMax_grade()));
 
         jLabel6.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         jLabel6.setText("Descrição da atividade");
 
-        jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jTextArea1.setText(this.assignment.getDescription());
         jScrollPane1.setViewportView(jTextArea1);
 
-        jButton1.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
-        jButton1.setText("Fechar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        FecharBotao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/fechar.png"))); // NOI18N
+        FecharBotao.setToolTipText("");
+        FecharBotao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                FecharBotaoActionPerformed(evt);
+            }
+        });
+
+        SalvarBotao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/salvar.png"))); // NOI18N
+        SalvarBotao.setToolTipText("");
+        SalvarBotao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SalvarBotaoActionPerformed(evt);
             }
         });
 
@@ -136,24 +138,30 @@ public class PainelEditarAtividade extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 535, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1)
-                    .addComponent(AtividadeNomeCampo, javax.swing.GroupLayout.PREFERRED_SIZE, 535, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5))
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(DataFimCampo)
-                    .addComponent(DataInicioCampo)
-                    .addComponent(NotaCampo, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(92, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 535, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1)
+                            .addComponent(AtividadeNomeCampo, javax.swing.GroupLayout.PREFERRED_SIZE, 535, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5))
+                        .addGap(26, 26, 26)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(DataFimCampo, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
+                            .addComponent(DataInicioCampo)
+                            .addComponent(NotaCampo))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                        .addComponent(SalvarBotao, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(FecharBotao, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,7 +169,9 @@ public class PainelEditarAtividade extends javax.swing.JPanel {
                 .addGap(58, 58, 58)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(41, 41, 41)
+                .addContainerGap()
+                .addComponent(FecharBotao, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
@@ -170,23 +180,22 @@ public class PainelEditarAtividade extends javax.swing.JPanel {
                         .addGap(48, 48, 48)
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(48, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(DataInicioCampo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(DataInicioCampo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel3))
+                            .addComponent(SalvarBotao, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(DataFimCampo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(NotaCampo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1)
-                        .addGap(51, 51, 51))))
+                            .addComponent(jLabel5))))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -201,17 +210,24 @@ public class PainelEditarAtividade extends javax.swing.JPanel {
         // TODO add your handling code
     }//GEN-LAST:event_acaoBotao2ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        AssignmentController.toggleAssignmentView(null);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void FecharBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FecharBotaoActionPerformed
+        if(JOptionPane.showConfirmDialog(null, "Deseja parar de editar? \nVocê perderá qualquer edição feita", "Editar atividade", JOptionPane.YES_NO_OPTION) == 0){
+            AssignmentController.toggleAssignmentView(null);
+        }
+    }//GEN-LAST:event_FecharBotaoActionPerformed
+
+    private void SalvarBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalvarBotaoActionPerformed
+        AssignmentController.updateAssignment(this);
+    }//GEN-LAST:event_SalvarBotaoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField AtividadeNomeCampo;
+    public javax.swing.JTextField AtividadeNomeCampo;
     public static javax.swing.JTextField DataFimCampo;
     public static javax.swing.JTextField DataInicioCampo;
+    private BotaoEdicaoAlunos.AcaoBotao FecharBotao;
     public static javax.swing.JTextField NotaCampo;
-    private javax.swing.JButton jButton1;
+    private BotaoEdicaoAlunos.AcaoBotao SalvarBotao;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     public static javax.swing.JLabel jLabel3;
@@ -220,6 +236,6 @@ public class PainelEditarAtividade extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    public javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }
