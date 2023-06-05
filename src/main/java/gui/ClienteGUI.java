@@ -269,6 +269,7 @@ public class ClienteGUI extends javax.swing.JFrame {
         EnviarCadAtv.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EnviarCadAtvActionPerformed(evt);
+                AssignmentController.showAssignmentsByClazz();
             }
         });
 
@@ -664,7 +665,7 @@ public class ClienteGUI extends javax.swing.JFrame {
     public static void main(String args[]) {
        
       //  java.awt.EventQueue.invokeLater(new Runnable() {
-       //         new AtividadesGui().setVisible(true);
+       //         
         //    }
        // });
 
@@ -690,7 +691,8 @@ public class ClienteGUI extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    new ClienteGUI().setVisible(true);
+                    new AtividadesGui().setVisible(true);
+                    new ClienteGUI().setVisible(true);         
                 } catch (ParseException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
