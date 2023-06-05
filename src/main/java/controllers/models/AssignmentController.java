@@ -106,12 +106,19 @@ public class AssignmentController {
             int contador=0;
             
             ClienteGUI.atividadesGui1.painelInserirAlunos.removeAll();
+            ClienteGUI.painelInserirAlunos1.removeAll();
             
             for (Assignment assignment:list){
     
                 
                 PainelDeAcao1 painel2=new PainelDeAcao1(assignment);
+                PainelDeAcao1 painel3=new PainelDeAcao1(assignment);
+                painel3.getCmdView().setVisible(false);
+                painel3.getCmdEditar().setVisible(false);
+                painel3.getCmdDelete().setVisible(false);
+                painel3.getjCheckBox3().setVisible(false);
                 ClienteGUI.atividadesGui1.painelInserirAlunos.add(painel2);
+                ClienteGUI.painelInserirAlunos1.add(painel3);
                 
 
                 contador++;
@@ -121,6 +128,10 @@ public class AssignmentController {
         ClienteGUI.atividadesGui1.painelInserirAlunos.setPreferredSize(new Dimension(901, 50*contador));
         ClienteGUI.atividadesGui1.painelInserirAlunos.revalidate();
         ClienteGUI.atividadesGui1.painelInserirAlunos.repaint();
+        
+        ClienteGUI.painelInserirAlunos1.setPreferredSize(new Dimension(901, 50*contador));
+        ClienteGUI.painelInserirAlunos1.revalidate();
+        ClienteGUI.painelInserirAlunos1.repaint();
         }
         
 
