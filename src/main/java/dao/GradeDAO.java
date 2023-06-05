@@ -74,10 +74,10 @@ public class GradeDAO extends DAO {
             PreparedStatement stmt = conn.prepareStatement(sql, java.sql.Statement.RETURN_GENERATED_KEYS);
             stmt.setInt(1, student.getId());
             stmt.setDouble(2,0 );
-            stmt.setDouble(3, 1);
-            stmt.setDouble(4, 2);
-            stmt.setDouble(5, 3);
-            stmt.setDouble(6, 4);
+            stmt.setDouble(3, 0);
+            stmt.setDouble(4, 0);
+            stmt.setDouble(5, 0);
+            stmt.setDouble(6, 0);
             
             stmt.execute();
             stmt.close();
