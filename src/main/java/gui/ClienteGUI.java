@@ -165,7 +165,7 @@ public class ClienteGUI extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 487, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -224,12 +224,12 @@ public class ClienteGUI extends javax.swing.JFrame {
                         .addComponent(CadAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 742, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(EnviarCadAluno)))
-                .addContainerGap(127, Short.MAX_VALUE))
+                .addContainerGap(132, Short.MAX_VALUE))
         );
         AlunosPanelLayout.setVerticalGroup(
             AlunosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AlunosPanelLayout.createSequentialGroup()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 583, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 545, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(AlunosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -253,7 +253,6 @@ public class ClienteGUI extends javax.swing.JFrame {
         EnviarCadAtv.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EnviarCadAtvActionPerformed(evt);
-                AssignmentController.showAssignmentsByClazz();
             }
         });
 
@@ -262,11 +261,11 @@ public class ClienteGUI extends javax.swing.JFrame {
         AtividadesPanelLayout.setHorizontalGroup(
             AtividadesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AtividadesPanelLayout.createSequentialGroup()
-                .addContainerGap(483, Short.MAX_VALUE)
+                .addContainerGap(578, Short.MAX_VALUE)
                 .addComponent(EnviarCadAtv)
                 .addGap(410, 410, 410))
             .addGroup(AtividadesPanelLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(34, 34, 34)
                 .addComponent(atividadesGui1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -276,7 +275,7 @@ public class ClienteGUI extends javax.swing.JFrame {
                 .addComponent(atividadesGui1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
                 .addComponent(EnviarCadAtv)
-                .addContainerGap(70, Short.MAX_VALUE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Atividades", AtividadesPanel);
@@ -414,7 +413,7 @@ public class ClienteGUI extends javax.swing.JFrame {
                         .addGroup(NotasPanelLayout.createSequentialGroup()
                             .addGap(40, 40, 40)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 892, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addContainerGap(138, Short.MAX_VALUE))
         );
         NotasPanelLayout.setVerticalGroup(
             NotasPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -451,8 +450,8 @@ public class ClienteGUI extends javax.swing.JFrame {
                     .addGroup(NotasPanelLayout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addComponent(jLabel12)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 421, Short.MAX_VALUE)
                 .addGap(35, 35, 35)
                 .addComponent(BotãoSalvarNotas)
                 .addGap(46, 46, 46))
@@ -533,7 +532,7 @@ public class ClienteGUI extends javax.swing.JFrame {
                 .addComponent(clock1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(60, 60, 60)
                 .addComponent(ComboSalas, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 461, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 423, Short.MAX_VALUE)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(CadSalas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -552,7 +551,7 @@ public class ClienteGUI extends javax.swing.JFrame {
                 .addGroup(layout.createSequentialGroup()
                     .addGap(79, 79, 79)
                     .addComponent(jLabel3)
-                    .addContainerGap(652, Short.MAX_VALUE)))
+                    .addContainerGap(614, Short.MAX_VALUE)))
         );
 
         pack();
