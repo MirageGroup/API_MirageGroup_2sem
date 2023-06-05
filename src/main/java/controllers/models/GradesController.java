@@ -63,9 +63,11 @@ public class GradesController {
     public static void insertGradesIntoTable() {
         DefaultTableModel model = (DefaultTableModel) ClienteGUI.tabelaNotas.getModel();
         model.setRowCount(0);
-        GradeDAO dao = new GradeDAO();
         String[] namesList = StudentController.studentListByClazz();
-        ArrayList<Grade> gradesList = dao.getAllGrades();
+        ClazzDAO dao1 = new ClazzDAO();
+        Clazz clazz = dao1.getByName((String)ClienteGUI.ComboSalas.getSelectedItem());
+        GradeDAO dao = new GradeDAO();
+        ArrayList<Grade> gradesList = dao.getAllGrades(clazz);
     
         for (int i = 0; i < gradesList.size() && i < namesList.length; i++) {
             model.addRow(new Object[]{

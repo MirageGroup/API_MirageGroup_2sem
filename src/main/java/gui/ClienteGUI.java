@@ -38,6 +38,7 @@ public class ClienteGUI extends javax.swing.JFrame {
                 StudentController.showStudentsByClazz();
                 ClazzController.getClassNote();
                 AssignmentController.showAssignmentsByClazz();
+                GradesController.insertGradesIntoTable();
                 ComboAlunos.setModel(new javax.swing.DefaultComboBoxModel<>(StudentController.studentListByClazz()));
                 try {
                     GradesController.showStudentsWithAverageBelow5();

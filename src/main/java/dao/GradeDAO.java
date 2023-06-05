@@ -14,10 +14,11 @@ public class GradeDAO extends DAO {
 
     private ArrayList<Grade> lista = new ArrayList<>();
     
-    public ArrayList<Grade>getAllGrades(){
-        String sql = "SELECT * FROM grades";
+    public ArrayList<Grade>getAllGrades(Clazz clazz){
+        String sql = "SELECT * FROM grades WHERE fk_Classes_id_class = ?";
         try{
-            PreparedStatement stmt = conn.prepareStatement(sql);           
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, clazz.getId());           
             ResultSet rs = stmt.executeQuery();
             while(rs.next()){
                 Grade grade = new Grade();
