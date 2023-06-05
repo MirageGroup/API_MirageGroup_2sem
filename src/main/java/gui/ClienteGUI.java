@@ -662,11 +662,6 @@ public class ClienteGUI extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-       
-      //  java.awt.EventQueue.invokeLater(new Runnable() {
-       //         new AtividadesGui().setVisible(true);
-        //    }
-       // });
 
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
