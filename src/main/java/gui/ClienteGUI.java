@@ -78,7 +78,6 @@ public class ClienteGUI extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         CadAluno = new javax.swing.JTextField();
         EnviarCadAluno = new javax.swing.JButton();
-        EstatisticasPanel = new javax.swing.JPanel();
         AtividadesPanel = new javax.swing.JPanel();
         EnviarCadAtv = new javax.swing.JButton();
         atividadesGui1 = new gui.AtividadesGui();
@@ -93,7 +92,7 @@ public class ClienteGUI extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        BotãoSalvarNotas = new javax.swing.JButton();
         jTextField8 = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         ComboAlunos = new javax.swing.JComboBox<>();
@@ -246,22 +245,6 @@ public class ClienteGUI extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Alunos", AlunosPanel);
 
-        EstatisticasPanel.setBackground(new java.awt.Color(204, 204, 204));
-        EstatisticasPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-
-        javax.swing.GroupLayout EstatisticasPanelLayout = new javax.swing.GroupLayout(EstatisticasPanel);
-        EstatisticasPanel.setLayout(EstatisticasPanelLayout);
-        EstatisticasPanelLayout.setHorizontalGroup(
-            EstatisticasPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 975, Short.MAX_VALUE)
-        );
-        EstatisticasPanelLayout.setVerticalGroup(
-            EstatisticasPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 712, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("Estatisticas", EstatisticasPanel);
-
         AtividadesPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
         EnviarCadAtv.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -334,15 +317,10 @@ public class ClienteGUI extends javax.swing.JFrame {
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel13.setText("Nota 4");
 
-        jButton1.setText("Enviar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        BotãoSalvarNotas.setText("Enviar");
+        BotãoSalvarNotas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                try {
-                    jButton1ActionPerformed(evt);
-                } catch (SQLException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
+                BotãoSalvarNotasActionPerformed(evt);
             }
         });
 
@@ -382,7 +360,7 @@ public class ClienteGUI extends javax.swing.JFrame {
             NotasPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(NotasPanelLayout.createSequentialGroup()
                 .addGroup(NotasPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton1)
+                    .addComponent(BotãoSalvarNotas)
                     .addGroup(NotasPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(NotasPanelLayout.createSequentialGroup()
                             .addGap(56, 56, 56)
@@ -469,7 +447,7 @@ public class ClienteGUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
-                .addComponent(jButton1)
+                .addComponent(BotãoSalvarNotas)
                 .addGap(46, 46, 46))
         );
 
@@ -697,6 +675,7 @@ public class ClienteGUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JPanel AlunosPanel;
     public static javax.swing.JPanel AtividadesPanel;
+    public static javax.swing.JButton BotãoSalvarNotas;
     public static javax.swing.JTextField CadAluno;
     public static javax.swing.JTextField CadSalas;
     public static javax.swing.JComboBox<String> ComboAlunos;
@@ -704,14 +683,12 @@ public class ClienteGUI extends javax.swing.JFrame {
     public static javax.swing.JButton EnviarCadAluno;
     public static javax.swing.JButton EnviarCadAtv;
     public static javax.swing.JButton EnviarCadSalas;
-    public static javax.swing.JPanel EstatisticasPanel;
     private javax.swing.JButton LembreteSalvar;
     public static javax.swing.JTextArea LembreteTextArea;
     public static javax.swing.JPanel NotasPanel;
     public static javax.swing.JPanel VgeralPanel;
     public static gui.AtividadesGui atividadesGui1;
     private gui.components.clock.Clock clock1;
-    public static javax.swing.JButton jButton1;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem2;
     private com.toedter.calendar.JDateChooser jDateChooser1;
