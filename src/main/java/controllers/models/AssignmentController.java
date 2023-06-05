@@ -107,9 +107,9 @@ public class AssignmentController {
          
     }
 
-    public static void toggleAssignmentVisualization(boolean open, PainelDeAcao1 painel){
+    public static void toggleAssignmentView(PainelDeAcao1 painel){
         JPanel painelAlunos = ClienteGUI.atividadesGui1.painelInserirAlunos;
-        if(open){
+        if(painel != null){
             painelAlunos.removeAll();
             painelAlunos.repaint();
             painelAlunos.add(new PainelComVisualizacao(painel.assignment));

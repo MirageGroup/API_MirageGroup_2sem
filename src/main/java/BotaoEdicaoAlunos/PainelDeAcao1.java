@@ -122,7 +122,7 @@ public Assignment assignment;
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmdViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdViewActionPerformed
-        AssignmentController.toggleAssignmentVisualization(true, this);
+        AssignmentController.toggleAssignmentView(this);
     }//GEN-LAST:event_cmdViewActionPerformed
 
     private void cmdDeleteActionPerformed(java.awt.event.ActionEvent evt) {
