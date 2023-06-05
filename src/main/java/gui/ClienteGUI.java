@@ -321,7 +321,12 @@ public class ClienteGUI extends javax.swing.JFrame {
         BotãoSalvarNotas.setText("Enviar");
         BotãoSalvarNotas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotãoSalvarNotasActionPerformed(evt);
+                try {
+                    jButton1ActionPerformed(evt);
+                } catch (SQLException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
             }
         });
 
