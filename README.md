@@ -45,7 +45,8 @@ Cada entrega foi realizada a partir da criação de uma **tag**. Observe a rela�
 
 <br>
   
- ![api-gif](https://github.com/MirageGroup/API_MirageGroup_2sem/assets/56747051/214333c2-0674-44bc-b827-4bf80a9e0069)
+![Untitled](https://github.com/MirageGroup/API_MirageGroup_2sem/assets/56747051/0679c30b-f9d5-464e-81de-0c84bfbf7ad9)
+
 
 
 <!-- <h2 align="center">O Projeto</h2>
