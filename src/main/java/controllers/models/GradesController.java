@@ -92,5 +92,12 @@ public class GradesController {
         ClienteGUI.AlunosAbaixo.setText("" + count);
     }
     
+    public static void showStudentsWithAverageUp5() throws SQLException {
+        GradeDAO gradeDAO = new GradeDAO();
+        int count = gradeDAO.countStudentsWithAverageUp(5);
+        gradeDAO.closeConn();
+    
+        ClienteGUI.AlunosAcima.setText("" + count);
+    }
 
 }

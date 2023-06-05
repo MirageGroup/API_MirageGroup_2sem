@@ -121,4 +121,13 @@ public class StudentController {
       }
   }
 
+    public static void ShowStudentQuant() throws SQLException {
+      StudentDAO studentDAO = new StudentDAO();
+      int count = studentDAO.countStudents(0);
+      studentDAO.closeConn();
+
+      ClienteGUI.AlunosTotal.setText("" + count);
+
+    }
+
 }

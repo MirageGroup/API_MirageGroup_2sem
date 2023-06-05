@@ -52,6 +52,18 @@ public class ClienteGUI extends javax.swing.JFrame {
             // TODO Auto-generated catch block
             e1.printStackTrace();
         }
+        try {
+            GradesController.showStudentsWithAverageUp5();
+        } catch (SQLException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+        try {
+            StudentController.ShowStudentQuant();
+        } catch (SQLException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
     }
     
     
@@ -384,7 +396,12 @@ public class ClienteGUI extends javax.swing.JFrame {
         BotãoSalvarNotas.setText("Enviar");
         BotãoSalvarNotas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotãoSalvarNotasActionPerformed(evt);
+                try {
+                    jButton1ActionPerformed(evt);
+                } catch (SQLException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -741,10 +758,10 @@ public class ClienteGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextArea AlunosAbaixo;
-    private javax.swing.JTextArea AlunosAcima;
+    public static javax.swing.JTextArea AlunosAbaixo;
+    public static javax.swing.JTextArea AlunosAcima;
     public static javax.swing.JPanel AlunosPanel;
-    private javax.swing.JTextArea AlunosTotal;
+    public static javax.swing.JTextArea AlunosTotal;
     public static javax.swing.JPanel AtividadesPanel;
     public static javax.swing.JButton BotãoSalvarNotas;
     public static javax.swing.JTextField CadAluno;
@@ -755,7 +772,7 @@ public class ClienteGUI extends javax.swing.JFrame {
     public static javax.swing.JButton EnviarCadAtv;
     public static javax.swing.JButton EnviarCadSalas;
     private javax.swing.JButton LembreteSalvar;
-    private javax.swing.JTextArea LembreteTextArea;
+    public static javax.swing.JTextArea LembreteTextArea;
     public static javax.swing.JPanel NotasPanel;
     public static javax.swing.JPanel VgeralPanel;
     public static gui.AtividadesGui atividadesGui1;
@@ -791,7 +808,7 @@ public class ClienteGUI extends javax.swing.JFrame {
     public static javax.swing.JTextField jTextField8;
     private javax.swing.JLabel label_horario_sala;
     public static javax.swing.JPanel painelInserirAlunos;
-    private javax.swing.JTable tabelaNotas;
+    public static javax.swing.JTable tabelaNotas;
     private javax.swing.JTextField textfield_horario_aula;
     // End of variables declaration//GEN-END:variables
     public static javax.swing.JScrollPane jScrollPane1;

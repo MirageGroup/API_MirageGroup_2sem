@@ -115,4 +115,33 @@ public class GradeDAO extends DAO {
 
     }
 
+    public int countStudentsWithAverageUp(double threshold) throws SQLException {
+        int count = 0;
+    
+        // Executa a consulta para contar o número de alunos com média abaixo do limite
+        String query = "SELECT COUNT(*) FROM grades WHERE (grade_student1 + grade_student2 + grade_student3 + grade_student4 + grade_student) / 5 >= ?";
+        
+        try {
+            PreparedStatement stmt = conn.prepareStatement(query);
+            stmt.setDouble(1, threshold);
+            ResultSet rs = stmt.executeQuery();
+        
+            // Obtém o resultado da consulta
+            if (rs.next()) {
+                count = rs.getInt(1);
+            }
+        
+            // Fecha os recursos
+            rs.close();
+            stmt.close();
+            conn.close();
+            
+            return count;
+        } catch (SQLException e1) {
+            e1.printStackTrace();
+        }
+        return count;
+
+    }
+
 }
