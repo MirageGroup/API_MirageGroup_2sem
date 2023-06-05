@@ -69,6 +69,8 @@ public class GradesController {
         }
         
         for(int i = 0; i < gradesList.size(); i++){
+            System.err.println(i);
+            System.err.println(namesList[i]);
             model.addRow(new Object[]{
                 namesList[i],
                 gradesList.get(i).getGrade(),
